@@ -143,7 +143,9 @@ NOTES:
  *   Rating: 1
  */
 int bitXor(int x, int y) {
-  return 2;
+  // x | y = ~(~x & ~y)
+  // x ^ y = (x & ~y) | (~x & y)
+  return ~(~(x & ~y) & ~(~x & y));
 }
 /* 
  * tmin - return minimum two's complement integer 
@@ -152,9 +154,7 @@ int bitXor(int x, int y) {
  *   Rating: 1
  */
 int tmin(void) {
-
-  return 2;
-
+  return 1 << 31;
 }
 //2
 /*
@@ -165,7 +165,9 @@ int tmin(void) {
  *   Rating: 1
  */
 int isTmax(int x) {
-  return 2;
+  // !(x + 1 + x + 1)判断是否是max
+  // !!(~x)判断是否是-1
+  return !(x + 1 + x + 1) & !!(~x);
 }
 /* 
  * allOddBits - return 1 if all odd-numbered bits in word set to 1
@@ -176,7 +178,8 @@ int isTmax(int x) {
  *   Rating: 2
  */
 int allOddBits(int x) {
-  return 2;
+  int mask = 0xAA + (0xAA << 8) + (0xAA << 16) + (0xAA <<24);
+  return !((x & mask) ^ mask);
 }
 /* 
  * negate - return -x 
@@ -186,7 +189,7 @@ int allOddBits(int x) {
  *   Rating: 2
  */
 int negate(int x) {
-  return 2;
+  return ~x + 1;
 }
 //3
 /* 
@@ -199,7 +202,8 @@ int negate(int x) {
  *   Rating: 3
  */
 int isAsciiDigit(int x) {
-  return 2;
+  // 分别判断个位和十位
+  return !((x >> 4) ^ 3) & !!((x & 0x0e) ^ 0x0a) & !!((x & 0x0c) ^ 0x0c);
 }
 /* 
  * conditional - same as x ? y : z 
@@ -209,7 +213,10 @@ int isAsciiDigit(int x) {
  *   Rating: 3
  */
 int conditional(int x, int y, int z) {
-  return 2;
+  // !x 与 !!x 生成 0/1
+  // 0 - 1 对应 0xffffffff 
+  // 1 - 0 对应 0x00000000
+  return ((!x + ~0) & y) + ((!!x + ~0) & z);
 }
 /* 
  * isLessOrEqual - if x <= y  then return 1, else return 0 
@@ -219,7 +226,9 @@ int conditional(int x, int y, int z) {
  *   Rating: 3
  */
 int isLessOrEqual(int x, int y) {
-  return 2;
+  // -x = ~x + 1
+  // y + (-x) >= 0 成立，则返回1，否则返回0 
+  return  !((y + (~x + 1)) >> 31 & 1);
 }
 //4
 /* 
@@ -231,7 +240,11 @@ int isLessOrEqual(int x, int y) {
  *   Rating: 4 
  */
 int logicalNeg(int x) {
-  return 2;
+  // 判断一个数是否为0， 为0则返回1， 其余返回0
+  // 只有0和0x80000000 加符号后符号位不变号， 因此进行 x ^ -x 后符号位结果为0
+  // 0和0x80000000 可通过符号位进行区分
+  // 0 ^ 1 = 0; 1 ^ 1 = 0 异或^可以完成位级别的非运算
+  return (x | x ^ (~x + 1)) >> 31 & 1 ^ 1;
 }
 /* howManyBits - return the minimum number of bits required to represent x in
  *             two's complement
@@ -246,7 +259,30 @@ int logicalNeg(int x) {
  *  Rating: 4
  */
 int howManyBits(int x) {
-  return 0;
+  // 如果一个数是正数则找到最高位为1的位数，再添加1位符号位
+  // 如果一个数是负数则找到最高位为0的位数，再添加1位符号位. 使用x = (~sign)&x | sign&(~x) 将负数按位取反，将变成找最高位为1的位数，与正数一致
+  // 求最高位使用二分法
+  int sign = x >> 31;
+  int b16, b8, b4, b2, b1, b0;
+  x = ((~sign) & x) | (sign & (~x)); 
+
+  b16 = !!(x >> 16) << 4;
+  x >>= b16;
+
+  b8 = !!(x >> 8) << 3;
+  x >>= b8;
+
+  b4 = !!(x >> 4) << 2;
+  x >>= b4;
+
+  b2 = !!(x >> 2) << 1;
+  x >>= b2;
+
+  b1 = !!(x >> 1);
+  x >>= b1;
+
+  b0 = x;
+  return b16 + b8 + b4 + b2 +b1 + b0 + 1;
 }
 //float
 /* 
@@ -261,6 +297,9 @@ int howManyBits(int x) {
  *   Rating: 4
  */
 unsigned floatScale2(unsigned uf) {
+  // 将uf反编码成V  再计算2 * V  最终将2 * V编码成浮点数形式
+  // 首先判断uf是规格化的值、非规格化的值还是特殊值 计算得到E、M、s 最后得到V
+  // 考虑溢出
   return 2;
 }
 /* 
@@ -276,7 +315,33 @@ unsigned floatScale2(unsigned uf) {
  *   Rating: 4
  */
 int floatFloat2Int(unsigned uf) {
-  return 2;
+  // 根据uf提取出s、e、f 判断e来确定浮点数的类型，采用相应的计算公式得到E、M，最终计算得到V
+  int frac = uf & 0x7fffff;
+  int e = uf >> 23 & 0xff;
+  int s = uf >> 31 & 1;
+  int Bias = (1 << 7) - 1;
+  int V = 0;
+  int sign = 0;
+  int E = 0;
+  int M = 0;
+  if(e == 0xff) return 0x80000000u;
+  if(e == 0x00) return 0;
+
+  E = e - Bias;
+  M = 1 + (frac + (1 << 23 - 1) >> 23);
+  
+  if(s == 0) 
+    sign = 1;
+  else
+    sign = -1;
+  if(E < 0)
+    V = sign * (M >> -E); 
+  else
+    V = sign * (M << E); 
+
+  printf("uf:0x%x s:0x%x e:0x%x frac:0x%x Bias:0x%x\n", uf, s, e, frac, Bias);
+  printf("sign:0x%x E:0x%x M:0x%x \n",sign, E, M);
+  return V;
 }
 /* 
  * floatPower2 - Return bit-level equivalent of the expression 2.0^x
