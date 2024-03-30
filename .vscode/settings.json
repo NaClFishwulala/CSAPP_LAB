@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "cachelab.h": "c"
+        "cachelab.h": "c",
+        "vector": "c"
     }
 }
