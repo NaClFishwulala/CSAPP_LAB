@@ -17,7 +17,7 @@ typedef struct DListNode {
 }d_listNode;
 
 typedef struct DLinkedList {
-    uint64_t size;
+    uint64_t size;  // 当前链表共有多少个节点(两个哨兵头尾除外)
     struct DListNode *dummy_head;
     struct DListNode *dummy_tail;
     /* 用hash的话 测试用例flag位数最多有62位，HASHMAPSIZE应该为1 << 62
@@ -26,7 +26,7 @@ typedef struct DLinkedList {
 }d_linkedList;
 
 typedef struct CacheLists {
-    uint64_t capacity;
+    uint64_t capacity;  // 每个链表最多有多少个节点(两个哨兵头尾除外)
     struct DLinkedList *linkedList;
 }cache_lists;
 
@@ -37,7 +37,7 @@ typedef struct AddrInfo
     uint64_t b_offset;
 }addr_info;
 
-void CacheListsInit(cache_lists *cache_addr, uint64_t size, uint64_t capacity); //size为有多少个链表，capacity为每个链表多少个节点
+void CacheListsInit(cache_lists *cache_addr, uint64_t size, uint64_t capacity); //size为有多少个链表(即共有多少个组S)，capacity为每个链表多少个节点(即每个组共有多设个行E)
 void AddListNode(d_linkedList *linkedList, uint64_t capacity, uint64_t value); // 将值为value的添加至链表的dummy_head后
 void DelListNode(d_linkedList *linkedList); //将链表dummy_tail前的节点删除
 void MoveHead(d_linkedList *linkedList, d_listNode *node);  //将指定节点移至链表头部
@@ -188,9 +188,10 @@ void DelListNode(d_linkedList *linkedList)
 
 void MoveHead(d_linkedList *linkedList, d_listNode *node)
 {
+    // 先把要移动的节点摘下来
     node->pre->next = node->next;
     node->next->pre = node->pre;
-
+    // 把要移动的节点放到dummy_head之后
     node->next = linkedList->dummy_head->next;
     node->pre = linkedList->dummy_head;
     linkedList->dummy_head->next->pre = node;

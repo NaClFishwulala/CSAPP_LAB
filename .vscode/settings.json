@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "cachelab.h": "c",
-        "vector": "c"
+        "vector": "c",
+        "random": "c"
     }
 }
