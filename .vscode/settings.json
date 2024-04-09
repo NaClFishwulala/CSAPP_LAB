@@ -2,6 +2,7 @@
     "files.associations": {
         "cachelab.h": "c",
         "vector": "c",
-        "random": "c"
+        "random": "c",
+        "readme": "c"
     }
 }
