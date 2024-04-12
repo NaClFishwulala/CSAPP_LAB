@@ -300,23 +300,6 @@ int builtin_cmd(char **argv)
  */
 void do_bgfg(char **argv) 
 {  
-    // TODO最好重新写一下判断
-    // 首先进来的argv[0] 肯定是"fg" 或 "bg"
-    // 考虑argv[1] 不是 pid 或 %jid 的情况
-    // tsh> fg
-    // fg command requires PID or %jobid argument
-    // tsh> bg
-    // bg command requires PID or %jobid argument
-    // tsh> fg a
-    // fg: argument must be a PID or %jobid
-    // tsh> bg a
-    // bg: argument must be a PID or %jobid
-    // tsh> fg 9999999
-    // (9999999): No such process
-    // tsh> bg 9999999
-    // (9999999): No such process
-    // tsh> fg %2
-    // %2: No such job
     if(argv[1] == NULL) {   /* 看是否下标越界 */
         printf("%s command requires PID or %%jobid argument\n", argv[0]);
         return;
@@ -362,9 +345,7 @@ void do_bgfg(char **argv)
             /* 发信号并且设置为BG */
             kill(-job->pid, SIGCONT);
             job->state = BG;
-            if(verbose) {
-                printf("[%d] (%d) %s", job->jid, job->pid, job->cmdline);
-            }
+            printf("[%d] (%d) %s", job->jid, job->pid, job->cmdline);
         }else
             unix_error("state error");
     }
@@ -418,24 +399,26 @@ void sigchld_handler(int sig)
      * 行为WNOHANG | WUNTRACED将立即返回，如果等待集合都没有被停止或终止，则返回值为0；如果有一个停止或被终止，则返回该子进程的pid
      */
     while((pid = waitpid(-1, &status, WNOHANG | WUNTRACED)) > 0) {   
-        if(verbose) {
-            if(WIFEXITED(status)){
+        if(WIFEXITED(status)){
+            if(verbose) {
                 printf("sigchld_handler: Job [%d] (%d) deleted\n", pid2jid(pid), pid);
                 printf("sigchld_handler: Job [%d] (%d) terminates OK (status %d)\n", pid2jid(pid), pid, WEXITSTATUS(status));
-            }else if(WIFSIGNALED(status)) {
-                printf("sigchld_handler: Job [%d] (%d) deleted\n", pid2jid(pid), pid);
-                printf("Job [%d] (%d) terminated by signal %d\n", pid2jid(pid), pid, WTERMSIG(status));
-            }else if(WIFSTOPPED(status))
-                printf("Job [%d] (%d) stopped by signal %d\n", pid2jid(pid), pid, WSTOPSIG(status));
-            else
-                printf("child %d terminated abnormally\n", pid);
-        }
-        if(!WIFSTOPPED(status)) {   /* 如果捕获的进程不是停止状态 删除job */
+            }
             Sigprocmask(SIG_BLOCK, &mask_all, &prev_all);
             if(!deletejob(jobs, pid))
                 unix_error("deletejob error");
             Sigprocmask(SIG_SETMASK, &prev_all, NULL);
-        }else {
+        }else if(WIFSIGNALED(status)) {
+            if(verbose) {
+                printf("sigchld_handler: Job [%d] (%d) deleted\n", pid2jid(pid), pid);
+            }
+            printf("Job [%d] (%d) terminated by signal %d\n", pid2jid(pid), pid, WTERMSIG(status));
+            Sigprocmask(SIG_BLOCK, &mask_all, &prev_all);
+            if(!deletejob(jobs, pid))
+                unix_error("deletejob error");
+            Sigprocmask(SIG_SETMASK, &prev_all, NULL);
+        }else if(WIFSTOPPED(status)) {
+            printf("Job [%d] (%d) stopped by signal %d\n", pid2jid(pid), pid, WSTOPSIG(status));
             struct job_t * job; 
             if((job = getjobpid(jobs, pid)) != NULL){
                 if(job->state == FG)
@@ -443,7 +426,8 @@ void sigchld_handler(int sig)
                 else
                     unix_error("state error");
             }
-        }
+        } else
+            printf("child %d terminated abnormally\n", pid);
     }
     errno = olderrno;
     if(verbose){
