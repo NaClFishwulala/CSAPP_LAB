@@ -37,17 +37,18 @@ typedef struct AddrInfo
     uint64_t b_offset;
 }addr_info;
 
-void CacheListsInit(cache_lists *cache_addr, uint64_t size, uint64_t capacity); //size为有多少个链表(即共有多少个组S)，capacity为每个链表多少个节点(即每个组共有多设个行E)
-void AddListNode(d_linkedList *linkedList, uint64_t capacity, uint64_t value); // 将值为value的添加至链表的dummy_head后
-void DelListNode(d_linkedList *linkedList); //将链表dummy_tail前的节点删除
-void MoveHead(d_linkedList *linkedList, d_listNode *node);  //将指定节点移至链表头部
-d_listNode *findNode(d_linkedList *linkedList, uint64_t value); //查找链表中是否含有key值为value的节点
+void CacheListsInit(cache_lists *cache_addr, uint64_t size, uint64_t capacity); /* size为有多少个链表(即共有多少个组S)，capacity为每个链表多少个节点(即每个组共有多设个行E) */
+void CacheListsDestory(cache_lists *cache_addr, uint64_t size); /* 释放已分配的内存空间 */
+void AddListNode(d_linkedList *linkedList, uint64_t capacity, uint64_t value); /* 将值为value的添加至链表的dummy_head后 */
+void DelListNode(d_linkedList *linkedList); /* 将链表dummy_tail前的节点删除 */
+void MoveHead(d_linkedList *linkedList, d_listNode *node);  /* 将指定节点移至链表头部 */
+d_listNode *findNode(d_linkedList *linkedList, uint64_t value); /* 查找链表中是否含有key值为value的节点 */
 
 void LoadOps(cache_lists *myCache, addr_info* addrInfo);
 void StoreOps(cache_lists *myCache, addr_info* addrInfo);
 void ModifyOps(cache_lists *myCache, addr_info* addrInfo);
 
-void setAddrInfo(uint64_t addr, uint64_t s, uint64_t b, addr_info* addrInfo); // 根据地址 提取相关信息
+void setAddrInfo(uint64_t addr, uint64_t s, uint64_t b, addr_info* addrInfo); /* 根据地址 提取相关信息 */
 
 void printUsage() {
     printf("Usage: ./csim -s <s> -E <E> -b <b> -t <tracefile>\n");
@@ -130,6 +131,7 @@ int main(int argc, char *argv[])
     }
 
     printSummary(hits, misses, evictions);
+    CacheListsDestory(&myCache, S);
     return 0;
 }
 
@@ -159,6 +161,25 @@ void CacheListsInit(cache_lists *cache_addr, uint64_t size, uint64_t capacity)
         cache_addr->linkedList[i].dummy_tail->next = NULL;
         cache_addr->linkedList[i].size = 0;
     }
+}
+void CacheListsDestory(cache_lists *cache_addr, uint64_t size)
+{
+    /* 先释放每条链表 */
+    for(int i = 0; i < size; i++) {
+        d_linkedList *linkedList = &cache_addr->linkedList[i];
+        while(linkedList->size) {   /* 释放该链表实际node */
+            d_listNode *temp = linkedList->dummy_tail->pre;
+            temp->pre->next = temp->next;
+            linkedList->dummy_tail->pre = temp->pre;
+            free(temp);
+            linkedList->size--;
+        }
+        /* 释放该链表首尾哨兵节点 */
+        free(linkedList->dummy_head);
+        free(linkedList->dummy_tail);
+    }
+    /* 最后释放每条链表  */
+    free(cache_addr->linkedList);
 }
 
 void AddListNode(d_linkedList *linkedList, uint64_t capacity, uint64_t value)
