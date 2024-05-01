@@ -3,6 +3,10 @@
         "cachelab.h": "c",
         "vector": "c",
         "random": "c",
-        "readme": "c"
+        "readme": "c",
+        "array": "c",
+        "string_view": "c",
+        "initializer_list": "c",
+        "utility": "c"
     }
 }
