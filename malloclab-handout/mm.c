@@ -131,21 +131,28 @@ team_t team = {
 #define GET_PRE_ALLOC(p) ((GET_VAL(p) & 0x02) >> 1)
 #define GET_ALLOC(p) (GET_VAL(p) & 0x01)
 
-/* 给定一个块指针bp, 计算该块的头地址或尾地址 */
-#define HDRP(bp) ((char *)(bp) - WSIZE)
-#define FTRP(bp) ((char *)(bp) + GET_SIZE(HDRP(bp)) - DSIZE)    /* 只有空闲块有尾地址 */
+/* 从地址p处设置或清除alloc/pre_alloc位 */
+#define SET_ALLOC(p) (GET_VAL(p) |= 0x01)
+#define CLEAR_ALLOC(p) (GET_VAL(p) &= ~0x01)
+#define SET_PRE_ALLOC(p) (GET_VAL(p) |= 0x02)
+#define CLEAR_PRE_ALLOC(p) (GET_VAL(p) &= ~0x02)
 
-/* 给定一个空闲块块指针bp, 计算该空闲块的pred或succ地址 */
+/* 地址p处的size值增加val */
+#define INC_SIZE(p, val) (GET_VAL(p) += val)
+
+/* 给定一个块指针bp, 计算该块的头地址/尾地址/pred地址/succ地址 */
+#define HDRP(bp) ((char *)(bp) - WSIZE)
+#define FTRP(bp) ((char *)(bp) + GET_SIZE(HDRP(bp)) - DSIZE)    /* 已分配块没有尾地址 */
 #define PREDP(bp) ((char *)(bp))
 #define SUCCP(bp) ((char *)(bp) + WSIZE)
 
-/* 给定一个块指针bp, 计算下一个块的地址 */
+/* 给定一个块指针bp, 计算上一个块或下一个块的地址 */
+#define PREV_BLKP(bp) ((char *)bp + GET_SIZE((char *)bp - DSIZE)) /* 只有上一个块是空闲块时, 才有存储该块信息的尾部 */ 
 #define NEXT_BLKP(bp) ((char *)(bp) + GET_SIZE(HDRP(bp)))
 
-/* 以下为空闲链表相关标量 */
-// 用mem_heap_lo获取空闲链表哨兵头部 存下一个空闲块的地址
-// 用mem_heap_hi获取空闲链表哨兵尾部 存上一个空闲块的地址
-
+/* 以下为空闲链表相关宏 */
+#define GET_DUMMY_HEAD ((char *)mem_heap_lo() + WSIZE) /* 获取空闲链表哨兵头部 */
+#define GET_DUMMY_TAIL ((char *)mem_heap_hi())  /* 获取空闲链表哨兵尾部 */
 
 /* 以下为辅助函数的声明 */
 static void *colaesce(void *ptr);
@@ -165,12 +172,11 @@ int mm_init(void)
         return -1;
     PUT_VAL(heap_listp, 0); /* 填充 */
     PUT_ADDR(heap_listp + WSIZE, NULL); /* 哨兵空闲链表头pred字段 存放下一个空闲块的地址 */
-    PUT_ADDR(heap_listp + 2 * WSIZE, mem_heap_hi()); /* 哨兵空闲链表头succ字段 存放下一个空闲块的地址 */
+    PUT_ADDR(heap_listp + 2 * WSIZE, GET_DUMMY_TAIL); /* 哨兵空闲链表头succ字段 存放下一个空闲块的地址 */
     /* 序言块和结尾块用于减少合并时的边界判断 */
     PUT_VAL(heap_listp + 3 * WSIZE, PACK(WSIZE, 1, 1));
     PUT_VAL(heap_listp + 4 * WSIZE, PACK(WSIZE, 1, 1));
-    PUT_ADDR(heap_listp + 5 * WSIZE, mem_heap_lo()); /* 哨兵空闲链表尾pred字段 存放上一个空闲块的地址 */
-    // heap_listp += 2 * WSIZE;
+    PUT_ADDR(heap_listp + 5 * WSIZE, GET_DUMMY_HEAD); /* 哨兵空闲链表尾pred字段 存放上一个空闲块的地址 */
 
     /* 以CHUNKSIZE字节大小来扩展一个空的堆 */
     if(extend_heap(CHUNKSIZE / WSIZE) == NULL)
@@ -199,21 +205,13 @@ void *mm_malloc(size_t size)
  */
 void mm_free(void *ptr)
 {
-    size_t size = GET_SIZE(HDRP(ptr));
-    size_t pre_alloc = GET_PRE_ALLOC(HDRP(ptr));
-    char *pred_ptr;
-    char *succ_ptr;
-    /* 释放后已分配块变为空闲块 更改头部 添加尾部 添加pred succ*/
-    PUT_VAL(HDRP(ptr), PACK(size, pre_alloc, 0));
-    PUT_VAL(FTRP(ptr), PACK(size, pre_alloc, 0));
-    if((pred_ptr = find_pred(ptr)) == NULL) /* 因为有哨兵空闲链表头存在，所以一定能找到，找不到说明错了 */
-        return -1;
-    succ_ptr = GET_ADDR(SUCCP(pred_ptr));
-    PUT_ADDR(PREDP(ptr), pred_ptr);
-    PUT_ADDR(SUCCP(ptr), succ_ptr);
-    /* 更新前继空闲块的succ字段和后继空闲块的pred字段 */
-    PUT_ADDR(SUCCP(pred_ptr), ptr);
-    PUT_ADDR(PREDP(succ_ptr), ptr);
+    /* 释放后已分配块变为空闲块: 更改头部、添加尾部 */
+    CLEAR_ALLOC(HDRP(ptr));
+    PUT_VAL(FTRP(ptr), GET_VAL(HDRP(ptr)));
+    /* 把下一个块的pre_alloc位值1 */
+    SET_PRE_ALLOC(NEXT_BLKP(ptr));
+    /* 在colaesce添加pred succ */
+    colaesce(ptr);
 }
 
 /*
@@ -270,7 +268,7 @@ static void *extend_heap(size_t words)
     PUT_VAL(HDRP(bp), PACK(size, pre_alloc, 0));
     PUT_VAL(FTRP(bp), PACK(size, pre_alloc, 0));
     PUT_ADDR(PREDP(bp), list_tail);
-    PUT_ADDR(SUCCP(bp), mem_heap_hi());
+    PUT_ADDR(SUCCP(bp), GET_DUMMY_TAIL);
     /* 更新结尾块和哨兵空闲链表尾 */
     PUT_VAL(HDRP(NEXT_BLKP(bp)), PACK(WSIZE, 0, 1));    
     PUT_ADDR(NEXT_BLKP(bp), bp); 
@@ -292,16 +290,69 @@ static void *colaesce(void *ptr)
     size_t next_alloc = GET_ALLOC(HDRP(NEXT_BLKP(ptr)));
     size_t size = GET_SIZE(HDRP(ptr));
 
+    char *pred_ptr = NULL;
+    char *succ_ptr = NULL;
+
     // 请求块ptr在堆的起始处或结尾处的特殊情况
+    // 若在起始处，则 prev_alloc 一定为1
+    // 若在结尾，则 next_alloc 一定为1
 
     if(prev_alloc && next_alloc) {          /* case1: 前面块和后面块是已分配的 */
-        // find_pred(ptr);
-        // 更新pred和succ
+        if((pred_ptr = find_pred(ptr)) == NULL) /* 因为有哨兵空闲链表头存在，所以一定能找到，找不到说明错了 */
+            return NULL;
+        succ_ptr = GET_ADDR(SUCCP(pred_ptr));
+        PUT_ADDR(PREDP(ptr), pred_ptr);
+        PUT_ADDR(SUCCP(ptr), succ_ptr);
+
+        /* 更新前继空闲块的succ字段和后继空闲块的pred字段 */
+        PUT_ADDR(SUCCP(pred_ptr), ptr);
+        PUT_ADDR(PREDP(succ_ptr), ptr);
     }
 
-    /* case2: 前面块已分配 后面块空闲 */
-    /* case3: 前面块空闲 后面块已分配 */
-    /* case4: 前面块和后面块都空闲 */
+    else if(prev_alloc && !next_alloc) {    /* case2: 前面块已分配 后面块空闲 */
+        /* 获取后一个块 */
+        char *next_blkp = NEXT_BLKP(ptr);
+        /* 从后面块获取前继节点和后继节点 */
+        pred_ptr = GET_ADDR(PREDP(next_blkp));
+        succ_ptr = GET_ADDR(FTRP(next_blkp));
+        /* 更新头部大小和 将头部数据复制到新的尾部 */
+        INC_SIZE(HDRP(ptr), GET_SIZE(HDRP(next_blkp)));
+        PUT_VAL(FTRP(ptr), GET_VAL(HDRP(ptr)));
+        /* 添加pred和succ字段 */
+        PUT_ADDR(PREDP(ptr), pred_ptr);
+        PUT_ADDR(SUCCP(ptr), succ_ptr);
+
+        /* 更新前继节点的succ 更新后继节点的pred */
+        PUT_ADDR(SUCCP(pred_ptr), ptr);
+        PUT_ADDR(PREDP(succ_ptr), ptr);
+    }
+    
+    else if(!prev_alloc && next_alloc) {    /* case3: 前面块空闲 后面块已分配 */
+        /* 获取前一个块 */
+        char *prev_ptr = PREV_BLKP(ptr);
+        /* 前继后继保持不变 更改头部大小和尾部大小即可 */
+        INC_SIZE(HDRP(prev_ptr), GET_SIZE(HDRP(ptr)));
+        PUT_VAL(FTRP(prev_ptr), GET_VAL(HDRP(prev_ptr)));
+        ptr =  prev_ptr;
+    }
+    
+    else if(!prev_alloc && !next_alloc) {   /* case4: 前面块和后面块都空闲 */
+        /* 获取合并后该块的前继节点 */
+        char *prev_ptr = PREV_BLKP(ptr);
+        char *next_blkp = NEXT_BLKP(ptr);
+        /* 更改头部大小和尾部大小 */
+        size_t inc_size = GET_SIZE(HDRP(ptr)) + GET_SIZE(HDRP(next_blkp));
+        INC_SIZE(HDRP(prev_ptr), inc_size);
+        PUT_VAL(FTRP(prev_ptr), GET_VAL(HDRP(prev_ptr)));
+        /* 合并后的pred不无需更改 succ需要变为next_blkp的succ */
+        succ_ptr = GET_ADDR(SUCCP(next_blkp));
+        PUT_ADDR(SUCCP(prev_ptr), succ_ptr);
+
+        /* 更新后继节点的pred */
+        PUT_ADDR(PREDP(succ_ptr), prev_ptr);
+        ptr =  prev_ptr;
+    }
+    
     return ptr;
 }
 
