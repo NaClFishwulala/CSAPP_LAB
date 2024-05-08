@@ -83,7 +83,7 @@ team_t team = {
  * pred: 指向上一个空闲块 
  * succ: 指向下一个空闲块
  * 
- * 分配块(最小为2字， 但考虑到free以后变为空闲块，分配块也应该为4字)：
+ * 分配块(理论最小为2字， 但考虑到free以后变为空闲块，分配块也应该为4字)：
  * |  31  ...  3  |  2  |     1   |  0  |
  * |--------------|-----|---------|-----|
  * |     块大小    | Bit |Pre_Alloc|Alloc|
@@ -103,13 +103,10 @@ team_t team = {
  *
 
  * 
- * 堆结构
-//  * |    a word    |            a word            |        a word        |  a word  |words|a word |       a word         |
-//  * |--------------|------------------------------|----------------------|----------|-----|-------|----------------------|
-//  * |  双字对齐填充 | 哨兵空闲链表头(pred字段无实意) |哨兵空闲链表头(succ字段)|  序言块  | ... | 结尾块 |哨兵空闲链表尾(pred字段)|
- * |            a word            |        a word        |  a word  |words|a word |       a word         |
- * |------------------------------|----------------------|----------|-----|-------|----------------------|
- * | 哨兵空闲链表头(pred字段无实意) |哨兵空闲链表头(succ字段)|  序言块  | ... | 结尾块 |哨兵空闲链表尾(pred字段)|
+ * 堆结构(字节对齐指有效数据的起始地址应该是8字节的倍数)
+ * |    a word    |            a word            |        a word        |  a word  | 3 words |words|a word|  3 words |       a word         |
+ * |--------------|------------------------------|----------------------|----------|---------|-----|------|----------|----------------------|
+ * |  双字对齐填充 | 哨兵空闲链表头(pred字段无实意) |哨兵空闲链表头(succ字段)|  序言块头 |序言块填充|....|结尾块头|结尾块填充|哨兵空闲链表尾(pred字段)|
  * 
  * 空闲链表排序策略：地址顺序
  * 分配块的策略：首次适配
@@ -120,8 +117,10 @@ team_t team = {
 #define WSIZE 4 /* 字 头部/尾部大小 4字节 */
 #define DSIZE 8 /* 双字 8字节 */
 #define CHUNKSIZE (1 << 12) /* 每次堆扩展的字节 */ 
-#define DUMMY_HEAD_SIZE DSIZE
+#define DUMMY_HEAD_SIZE DSIZE   
 #define DUMMY_TAIL_SIZE WSIZE
+#define PADDING_SIZE WSIZE  /* dummy_head前的填充字节 */
+#define MIN_BLOCK_SIZE 4 * WSIZE /* 最小块大小要求为4字节 */
 
 #define MAX(x, y) ((x) > (y) ? (x) : (y))
 
@@ -162,14 +161,14 @@ team_t team = {
 #define NEXT_BLKP(bp) ((char *)(bp) + GET_SIZE(HDRP(bp)))
 
 /* 以下为空闲链表相关宏 */
-#define GET_DUMMY_HEAD ((char *)mem_heap_lo()) /* 获取空闲链表哨兵头部 */
+#define GET_DUMMY_HEAD ((char *)mem_heap_lo() + PADDING_SIZE) /* 获取空闲链表哨兵头部 */
 #define GET_DUMMY_TAIL ((char *)mem_heap_hi() - DUMMY_TAIL_SIZE + 1)  /* 获取空闲链表哨兵尾部 */
 #define GET_LIST_SUCC(bp) GET_ADDR(SUCCP(bp))
 #define GET_LIST_PRED(bp) GET_ADDR(PREDP(bp))
 
 /* 获取序言块以及结尾块地址 */
-#define GET_BEGIN_BLOCK (GET_DUMMY_HEAD + DUMMY_HEAD_SIZE)
-#define GET_END_BLOCK (GET_DUMMY_TAIL - DUMMY_TAIL_SIZE)
+#define GET_BEGIN_BLOCK (GET_DUMMY_HEAD + DUMMY_HEAD_SIZE + WSIZE)
+#define GET_END_BLOCK (GET_DUMMY_TAIL - MIN_BLOCK_SIZE + WSIZE)
 
 /* 以下为辅助函数的声明 */
 static void *colaesce(void *ptr);
@@ -187,21 +186,21 @@ int mm_init(void)
     printf("mm_init\n");
     char *heap_listp; /* 堆指针 */
     /* 8字节对齐指有效数据的起始地址应该是8字节的倍数 */
-    // 初始化一个空的堆 填充(1字) + 哨兵空闲链表头(2字) + 序言块(1字) + 结尾块(1字) + 哨兵空闲链表尾(1字)
-    /* 初始化一个空的堆 哨兵空闲链表头(2字) + 序言块(1字) + 结尾块(1字) + 哨兵空闲链表尾(1字) */
-    if((heap_listp = mem_sbrk(5 * WSIZE)) == (void *)-1)    /* mem_sbrk通过将内核的brk指针增加incr来扩展和收缩堆。如果成功返回旧值，失败返回-1 */
+    /* 初始化一个空的堆 对齐填充(1字) + 哨兵空闲链表头(2字) + 序言块(4字) + 结尾块(4字) + 哨兵空闲链表尾(1字) */
+    if((heap_listp = mem_sbrk(12 * WSIZE)) == (void *)-1)    /* mem_sbrk通过将内核的brk指针增加incr来扩展和收缩堆。如果成功返回旧值，失败返回-1 */
         return -1;
-    PUT_ADDR(heap_listp , NULL); /* 哨兵空闲链表头pred字段 存放下一个空闲块的地址 */
-    PUT_ADDR(heap_listp + WSIZE, GET_DUMMY_TAIL); /* 哨兵空闲链表头succ字段 存放下一个空闲块的地址 */
+    PUT_VAL(heap_listp , 0); /* 对齐填充 */
+    PUT_ADDR(heap_listp + PADDING_SIZE, NULL); /* 哨兵空闲链表头pred字段 无实意 */
+    PUT_ADDR(heap_listp + PADDING_SIZE + WSIZE, GET_DUMMY_TAIL); /* 哨兵空闲链表头succ字段 存放下一个空闲块的地址 */
     /* 序言块和结尾块用于减少合并时的边界判断 */
-    PUT_VAL(heap_listp + DUMMY_HEAD_SIZE, PACK(WSIZE, 1, 1));
+    PUT_VAL(heap_listp + PADDING_SIZE + DUMMY_HEAD_SIZE, PACK(MIN_BLOCK_SIZE, 1, 1));
     // 
-    char *begin_bp = GET_BEGIN_BLOCK;
-    printf("begin_bp: %p size: %u pre_alloc_bit:%d alloc_bit:%d\n", \
-            begin_bp, GET_SIZE(HDRP(begin_bp)), GET_PRE_ALLOC(HDRP(begin_bp)), GET_ALLOC(HDRP(begin_bp)));
-    // 
-    PUT_VAL(heap_listp + DUMMY_HEAD_SIZE + WSIZE, PACK(WSIZE, 1, 1));
-    PUT_ADDR(heap_listp + DUMMY_HEAD_SIZE + WSIZE + DUMMY_TAIL_SIZE, GET_DUMMY_HEAD); /* 哨兵空闲链表尾pred字段 存放上一个空闲块的地址 */
+    // char *begin_bp = GET_BEGIN_BLOCK;
+    // printf("begin_bp: %p size: %u pre_alloc_bit:%d alloc_bit:%d\n", 
+    //         begin_bp, GET_SIZE(HDRP(begin_bp)), GET_PRE_ALLOC(HDRP(begin_bp)), GET_ALLOC(HDRP(begin_bp)));
+    
+    PUT_VAL(heap_listp + PADDING_SIZE + DUMMY_HEAD_SIZE + MIN_BLOCK_SIZE, PACK(MIN_BLOCK_SIZE, 1, 1));
+    PUT_ADDR(heap_listp + PADDING_SIZE + DUMMY_HEAD_SIZE + 2 * MIN_BLOCK_SIZE, GET_DUMMY_HEAD); /* 哨兵空闲链表尾pred字段 存放上一个空闲块的地址 */
 
     mm_check();
     /* 以CHUNKSIZE字节大小来扩展一个空的堆 */
@@ -222,13 +221,14 @@ void *mm_malloc(size_t size)
 
     if(size == 0)
         return NULL;
-    
-    /* 保证最小块为16字节， 向上双字节取整 */
+    /* 用户请求的空间并不包含头尾 分配的要带上一字的头 */
+    size += WSIZE;
+    /* 保证最小块为16字节， 向上双字取整 */
     if(size <= DSIZE)
         asize = 2 * DSIZE;
     else
         asize = DSIZE * ((size + (DSIZE - 1)) / DSIZE);
-    printf("mm_malloc size: %u asize: %u\n", size, asize);
+    printf("mm_malloc user need size: %u, after add head size: %u asize: %u\n",size - WSIZE, size, asize); 
     mm_check();
     /* 首次适配，寻找合适的空闲块 */
     if((bp = find_fit(asize)) != NULL) {
@@ -304,16 +304,17 @@ static void *extend_heap(size_t words)
     char *dummy_tail;
     size_t size;
 
-    bp = GET_DUMMY_TAIL;    /* 保存旧的dummy_tail */
-    pred_ptr = GET_LIST_PRED(bp);
+    dummy_tail = GET_DUMMY_TAIL;    /* 保存旧的dummy_tail */
+    pred_ptr = GET_LIST_PRED(dummy_tail);   /* 保存旧dummy_tail的pred节点 */
+    bp = GET_END_BLOCK;
     /* 将words进行双字对齐 */
     size = (words % 2) ? (words + 1) * WSIZE : words * WSIZE;
     /* 扩展堆大小 */
     if((long)(mem_sbrk(size)) == -1)   
         return NULL;
     printf("extend_heap size:%u bp:%p\n", size, bp);
-    dummy_tail = GET_DUMMY_TAIL;
-    // 保存dummy_tail的pred节点 由于dummy_tail更新了 因此要更新pred节点的succ以及 新dummy_tail的pred
+    dummy_tail = GET_DUMMY_TAIL;    /* mem_sbrk后更新dummy_tail */
+    /* 由于dummy_tail更新了 因此要更新pred节点的succ以及 新dummy_tail的pred */
     PUT_ADDR(SUCCP(pred_ptr), dummy_tail);
     PUT_ADDR(PREDP(dummy_tail), pred_ptr);
     /* 初始化空闲块头部/尾部 字段pred和succ在colaesce中更新 */
@@ -322,7 +323,7 @@ static void *extend_heap(size_t words)
     PUT_VAL(FTRP(bp), PACK(size, pre_alloc, 0));
 
     /* 更新结尾块 */
-    PUT_VAL(HDRP(NEXT_BLKP(bp)), PACK(WSIZE, 0, 1));
+    PUT_VAL(HDRP(NEXT_BLKP(bp)), PACK(MIN_BLOCK_SIZE, 0, 1));
     mm_check();
     return colaesce(bp);
 }
@@ -337,7 +338,7 @@ static void *extend_heap(size_t words)
  */
 static void *colaesce(void *ptr)
 {
-    printf("colaesce\n");
+    printf("colaesce ptr:%p\n", ptr);
     /* 获取当前块的上一个相邻块和下一个相邻块的使用标记位 */
     size_t prev_alloc = GET_PRE_ALLOC(HDRP(ptr));
     size_t next_alloc = GET_ALLOC(HDRP(NEXT_BLKP(ptr)));
@@ -348,7 +349,7 @@ static void *colaesce(void *ptr)
     
 
     if(prev_alloc && next_alloc) {          /* case1: 前面块和后面块是已分配的 */
-        printf("case1\n");
+        printf("case1 prev_alloc_bit:%d next_alloc_bit: %d\n", prev_alloc, next_alloc);
         if((pred_ptr = find_pred(ptr)) == NULL) /* 因为有哨兵空闲链表头存在，所以一定能找到，找不到说明错了 */
             return NULL;
         succ_ptr = GET_LIST_SUCC(pred_ptr); // pred现在指的不是succ_ptr
@@ -361,7 +362,7 @@ static void *colaesce(void *ptr)
     }
 
     else if(prev_alloc && !next_alloc) {    /* case2: 前面块已分配 后面块空闲 */
-        printf("case2\n");
+        printf("case2 prev_alloc_bit:%d next_alloc_bit: %d\n", prev_alloc, next_alloc);
         /* 获取后一个块 */
         char *next_blkp = NEXT_BLKP(ptr);
         /* 从后面块获取前继节点和后继节点 */
@@ -380,7 +381,7 @@ static void *colaesce(void *ptr)
     }
     
     else if(!prev_alloc && next_alloc) {    /* case3: 前面块空闲 后面块已分配 */
-        printf("case3\n");
+        printf("case3 prev_alloc_bit:%d next_alloc_bit: %d\n", prev_alloc, next_alloc);
         /* 获取前一个块 */
         char *prev_ptr = PREV_BLKP(ptr);
         /* 前继后继保持不变 更改头部大小和尾部大小即可 */
@@ -390,7 +391,7 @@ static void *colaesce(void *ptr)
     }
     
     else if(!prev_alloc && !next_alloc) {   /* case4: 前面块和后面块都空闲 */
-        printf("case4\n");
+        printf("case4 prev_alloc_bit:%d next_alloc_bit: %d\n", prev_alloc, next_alloc);
         /* 获取合并后该块的前继节点 */
         char *prev_ptr = PREV_BLKP(ptr);
         char *next_blkp = NEXT_BLKP(ptr);
@@ -465,10 +466,10 @@ static void place(char *ptr, size_t asize)
     char* pred_ptr = GET_LIST_PRED(ptr);
     char* succ_ptr = GET_LIST_SUCC(ptr);
     
-    printf("surplus_size:%u\n", surplus_size);
+    printf("place_func surplus_size:%u\n", surplus_size);
     SET_ALLOC(HDRP(ptr));   /* 更改ALLOC位,将空闲块转换成分配块 */
-    /* 剩余大小如果小于双字 则使用该空闲块全部空间 */
-    if(surplus_size < 2 * DSIZE) {
+    /* 剩余大小如果小于最小块大小 则使用该空闲块全部空间 */
+    if(surplus_size < MIN_BLOCK_SIZE) {
         /* 更新空闲链表 */
         PUT_ADDR(SUCCP(pred_ptr), succ_ptr);
         PUT_ADDR(PREDP(succ_ptr), pred_ptr);
@@ -494,7 +495,7 @@ static void place(char *ptr, size_t asize)
 
 /** 
  * @brief 
- * 1. 检查空闲链表的每个指针是否都指向有效空闲块
+ * 1. 检查空闲链表的每个指针(pred succ)是否都指向有效空闲块
  * 2. 检查每个空闲块是否都被标记为free
  * 3. 检查是否有任何连续的空闲块以某种方式逃脱了合并
  * 4. 检查每个空闲块是否都在空闲链表中
@@ -518,40 +519,63 @@ int mm_check(void)
         return 0;
     }
 
+    char *pred_free_ptr = dummy_head;   /* 上一个空闲块指针 */
+    if(GET_LIST_SUCC(dummy_head) < dummy_head || GET_LIST_SUCC(dummy_head) > dummy_tail) {  /* dummy_head的succ是否有效 */
+        printf("invaild dummy_head's succ_ptr\n");
+        return 0;
+    }
     char *cur_free_ptr = GET_LIST_SUCC(dummy_head); /* 当前空闲块指针 */
     char *cur_bp = begin_bp;   /* 当前块指针 */
 
+    // 此处只能检查到序言块到dummy_tail前的块
+    // TODO 新的思路: 最外层按照相邻块循环， 当循环到alloc为0时 判断该块是否在空闲链表中 可通过两次遍历的空闲块值和空闲链表的有效节点数每个空闲块是否都在空闲链表中
     while(cur_free_ptr != dummy_tail) {
         while(cur_bp != cur_free_ptr) { /* 对分配块的检查 */
             if(cur_bp <= dummy_head || cur_bp >= dummy_tail) {  /* 当前块是否有效 */
-                printf("invaild cur_bp: %p\n", cur_bp);
+                printf("!!! invaild cur_bp: %p\n", cur_bp);
                 return 0;
             }
             printf("cur_bp: %p size: %u pre_alloc_bit:%d alloc_bit:%d\n", \
                 cur_bp, GET_SIZE(HDRP(cur_bp)), GET_PRE_ALLOC(HDRP(cur_bp)), GET_ALLOC(HDRP(cur_bp)));
             if(GET_ALLOC(HDRP(cur_bp)) == 0) {  /* 每个空闲块是否都在空闲链表中 */
-                printf("block is free, but not in links\n");
+                printf("!!! block is free, but not in links\n");
                 return 0;
             }
             cur_bp = NEXT_BLKP(cur_bp);
         }
         /* 对空闲链表的检查 */
-        printf("cur_free_ptr: %p size: %u pre_alloc_bit:%d alloc_bit:%d\n", \
-                cur_free_ptr, GET_SIZE(HDRP(cur_free_ptr)), GET_PRE_ALLOC(HDRP(cur_free_ptr)), GET_ALLOC(HDRP(cur_free_ptr)));
-        if(cur_free_ptr < dummy_head || cur_free_ptr > dummy_tail) {  /* 空闲链表的每个指针是否都指向有效空闲块 */
-            printf("invaild succ_ptr\n");
+        printf("cur_free_ptr: %p head_size: %u head_pre_alloc_bit:%d head_alloc_bit:%d foot_size: %u foot_pre_alloc_bit:%d foot_alloc_bit:%d\n", \
+                cur_free_ptr, GET_SIZE(HDRP(cur_free_ptr)), GET_PRE_ALLOC(HDRP(cur_free_ptr)), GET_ALLOC(HDRP(cur_free_ptr)), \
+                GET_SIZE(FTRP(cur_free_ptr)), GET_PRE_ALLOC(FTRP(cur_free_ptr)), GET_ALLOC(FTRP(cur_free_ptr)));
+        // printf("GET_VAL(HDRP(cur_free_ptr)): %u\n", GET_VAL(HDRP(cur_free_ptr)));
+        if(GET_LIST_SUCC(cur_free_ptr) < dummy_head || GET_LIST_SUCC(cur_free_ptr) > dummy_tail) {  /* 当前块的succ是否有效 */
+            printf("!!! invaild succ_ptr\n");
+            return 0;
+        }
+        if(GET_LIST_PRED(cur_free_ptr) < dummy_head || GET_LIST_PRED(cur_free_ptr) > dummy_tail) {  /* 当前块的succ是否有效 */
+            printf("!!! invaild pred_ptr\n");
+            return 0;
+        }
+        if(GET_LIST_PRED(cur_free_ptr) != pred_free_ptr) {  /* 检查cur_free_ptr的pred是否是pred_free_ptr */
+            printf("!!! pred error\n");
             return 0;
         }
         if(GET_ALLOC(HDRP(cur_free_ptr)) != 0) {  /* 是否每个空闲块都被标记为free */
-            printf("free block but alloc_bit is %d, not 0\n", GET_ALLOC(HDRP(cur_free_ptr)));
+            printf("!!! free block but alloc_bit is %d, not 0\n", GET_ALLOC(HDRP(cur_free_ptr)));
             return 0;
         }
         if(GET_PRE_ALLOC(HDRP(cur_free_ptr)) != 1) {  /* 否有任何连续的空闲块以某种方式逃脱了合并 */
-            printf("free block pre_alloc_bit is %d, not 1 neet to colaesce\n", GET_PRE_ALLOC(HDRP(cur_free_ptr)));
+            printf("!!! free block pre_alloc_bit is %d, not 1 neet to colaesce\n", GET_PRE_ALLOC(HDRP(cur_free_ptr)));
             return 0;
         }
+
+        pred_free_ptr = cur_free_ptr;
         cur_free_ptr = GET_LIST_SUCC(cur_free_ptr);
         cur_bp = NEXT_BLKP(cur_bp);
+    }
+    if(GET_LIST_PRED(cur_free_ptr) < dummy_head || GET_LIST_PRED(cur_free_ptr) > dummy_tail) {  /* dummy_tail的pred是否有效 */
+        printf("!!! invaild dummy_tail's pred_ptr\n");
+        return 0;
     }
     printf("mm_check end\n");
     return 1;
