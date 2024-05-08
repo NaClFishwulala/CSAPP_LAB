@@ -528,7 +528,7 @@ int mm_check(void)
     char *cur_free_ptr = GET_LIST_SUCC(dummy_head); /* 当前空闲块指针 */
     char *cur_bp = NEXT_BLKP(begin_bp);   /* 当前块指针 */
 
-    // TODO 检查序言块到结尾块之间的所有块(不包含序言块和结尾块)
+    /* 检查序言块到结尾块之间的所有块(不包含序言块和结尾块) */
     while(cur_bp != end_bp) {
         if(cur_bp == cur_free_ptr) {    /* 处理空闲链表中的代码 */
             printf("cur_free_ptr: %p head_size: %u head_pre_alloc_bit:%d head_alloc_bit:%d foot_size: %u foot_pre_alloc_bit:%d foot_alloc_bit:%d\n", \
