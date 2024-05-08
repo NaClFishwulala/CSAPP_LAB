@@ -510,7 +510,6 @@ int mm_check(void)
     char *dummy_tail = GET_DUMMY_TAIL;
     char *begin_bp = GET_BEGIN_BLOCK;
     char *end_bp = GET_END_BLOCK;
-    printf("dummy_head: %p, begin_bp: %p, end_bp: %p, dummy_tail: %p\n", dummy_head, begin_bp, end_bp, dummy_tail);
 
     /* 检查dummy_head的succ和dummy_tail的pred是否有效 */
     if(GET_LIST_SUCC(dummy_head) <= begin_bp || GET_LIST_SUCC(dummy_head) > dummy_tail || \
@@ -518,19 +517,47 @@ int mm_check(void)
         printf("invaild pred or succ in dummy\n");
         return 0;
     }
+    printf("dummy_head: %p, succ: %p \n", dummy_head, GET_LIST_SUCC(dummy_head));
+    printf("dummy_tail: %p, pred: %p \n", dummy_tail, GET_LIST_PRED(dummy_tail));
+    printf("begin_bp: %p head_size: %u head_pre_alloc_bit:%d head_alloc_bit:%d \n", \
+                            begin_bp, GET_SIZE(HDRP(begin_bp)), GET_PRE_ALLOC(HDRP(begin_bp)), GET_ALLOC(HDRP(begin_bp)));
+    printf("end_bp: %p head_size: %u head_pre_alloc_bit:%d head_alloc_bit:%d \n", \
+                            end_bp, GET_SIZE(HDRP(end_bp)), GET_PRE_ALLOC(HDRP(end_bp)), GET_ALLOC(HDRP(end_bp)));
 
     char *pred_free_ptr = dummy_head;   /* 上一个空闲块指针 */
-    if(GET_LIST_SUCC(dummy_head) < dummy_head || GET_LIST_SUCC(dummy_head) > dummy_tail) {  /* dummy_head的succ是否有效 */
-        printf("invaild dummy_head's succ_ptr\n");
-        return 0;
-    }
     char *cur_free_ptr = GET_LIST_SUCC(dummy_head); /* 当前空闲块指针 */
-    char *cur_bp = begin_bp;   /* 当前块指针 */
+    char *cur_bp = NEXT_BLKP(begin_bp);   /* 当前块指针 */
 
-    // 此处只能检查到序言块到dummy_tail前的块
-    // TODO 新的思路: 最外层按照相邻块循环， 当循环到alloc为0时 判断该块是否在空闲链表中 可通过两次遍历的空闲块值和空闲链表的有效节点数每个空闲块是否都在空闲链表中
-    while(cur_free_ptr != dummy_tail) {
-        while(cur_bp != cur_free_ptr) { /* 对分配块的检查 */
+    // TODO 检查序言块到结尾块之间的所有块(不包含序言块和结尾块)
+    while(cur_bp != end_bp) {
+        if(cur_bp == cur_free_ptr) {    /* 处理空闲链表中的代码 */
+            printf("cur_free_ptr: %p head_size: %u head_pre_alloc_bit:%d head_alloc_bit:%d foot_size: %u foot_pre_alloc_bit:%d foot_alloc_bit:%d\n", \
+                            cur_free_ptr, GET_SIZE(HDRP(cur_free_ptr)), GET_PRE_ALLOC(HDRP(cur_free_ptr)), GET_ALLOC(HDRP(cur_free_ptr)), \
+                            GET_SIZE(FTRP(cur_free_ptr)), GET_PRE_ALLOC(FTRP(cur_free_ptr)), GET_ALLOC(FTRP(cur_free_ptr)));
+            if(GET_LIST_SUCC(cur_free_ptr) < dummy_head || GET_LIST_SUCC(cur_free_ptr) > dummy_tail) {  /* 当前块的succ是否有效 */
+                printf("!!! invaild succ_ptr\n");
+                return 0;
+            }
+            if(GET_LIST_PRED(cur_free_ptr) < dummy_head || GET_LIST_PRED(cur_free_ptr) > dummy_tail) {  /* 当前块的pred是否有效 */
+                printf("!!! invaild pred_ptr\n");
+                return 0;
+            }
+            if(GET_LIST_PRED(cur_free_ptr) != pred_free_ptr) {  /* 检查cur_free_ptr的pred是否是pred_free_ptr */
+                printf("!!! pred error\n");
+                return 0;
+            }
+            if(GET_ALLOC(HDRP(cur_free_ptr)) != 0) {  /* 是否每个空闲块都被标记为free */
+                printf("!!! free block but alloc_bit is %d, not 0\n", GET_ALLOC(HDRP(cur_free_ptr)));
+                return 0;
+            }
+            if(GET_PRE_ALLOC(HDRP(cur_free_ptr)) != 1) {  /* 否有任何连续的空闲块以某种方式逃脱了合并 */
+                printf("!!! free block pre_alloc_bit is %d, not 1 neet to colaesce\n", GET_PRE_ALLOC(HDRP(cur_free_ptr)));
+                return 0;
+            }
+            pred_free_ptr = cur_free_ptr;
+            cur_free_ptr = GET_LIST_SUCC(cur_free_ptr);
+        } 
+        else {    /* 处理分配块 */
             if(cur_bp <= dummy_head || cur_bp >= dummy_tail) {  /* 当前块是否有效 */
                 printf("!!! invaild cur_bp: %p\n", cur_bp);
                 return 0;
@@ -541,42 +568,56 @@ int mm_check(void)
                 printf("!!! block is free, but not in links\n");
                 return 0;
             }
-            cur_bp = NEXT_BLKP(cur_bp);
         }
-        /* 对空闲链表的检查 */
-        printf("cur_free_ptr: %p head_size: %u head_pre_alloc_bit:%d head_alloc_bit:%d foot_size: %u foot_pre_alloc_bit:%d foot_alloc_bit:%d\n", \
-                cur_free_ptr, GET_SIZE(HDRP(cur_free_ptr)), GET_PRE_ALLOC(HDRP(cur_free_ptr)), GET_ALLOC(HDRP(cur_free_ptr)), \
-                GET_SIZE(FTRP(cur_free_ptr)), GET_PRE_ALLOC(FTRP(cur_free_ptr)), GET_ALLOC(FTRP(cur_free_ptr)));
-        // printf("GET_VAL(HDRP(cur_free_ptr)): %u\n", GET_VAL(HDRP(cur_free_ptr)));
-        if(GET_LIST_SUCC(cur_free_ptr) < dummy_head || GET_LIST_SUCC(cur_free_ptr) > dummy_tail) {  /* 当前块的succ是否有效 */
-            printf("!!! invaild succ_ptr\n");
-            return 0;
-        }
-        if(GET_LIST_PRED(cur_free_ptr) < dummy_head || GET_LIST_PRED(cur_free_ptr) > dummy_tail) {  /* 当前块的succ是否有效 */
-            printf("!!! invaild pred_ptr\n");
-            return 0;
-        }
-        if(GET_LIST_PRED(cur_free_ptr) != pred_free_ptr) {  /* 检查cur_free_ptr的pred是否是pred_free_ptr */
-            printf("!!! pred error\n");
-            return 0;
-        }
-        if(GET_ALLOC(HDRP(cur_free_ptr)) != 0) {  /* 是否每个空闲块都被标记为free */
-            printf("!!! free block but alloc_bit is %d, not 0\n", GET_ALLOC(HDRP(cur_free_ptr)));
-            return 0;
-        }
-        if(GET_PRE_ALLOC(HDRP(cur_free_ptr)) != 1) {  /* 否有任何连续的空闲块以某种方式逃脱了合并 */
-            printf("!!! free block pre_alloc_bit is %d, not 1 neet to colaesce\n", GET_PRE_ALLOC(HDRP(cur_free_ptr)));
-            return 0;
-        }
-
-        pred_free_ptr = cur_free_ptr;
-        cur_free_ptr = GET_LIST_SUCC(cur_free_ptr);
         cur_bp = NEXT_BLKP(cur_bp);
     }
-    if(GET_LIST_PRED(cur_free_ptr) < dummy_head || GET_LIST_PRED(cur_free_ptr) > dummy_tail) {  /* dummy_tail的pred是否有效 */
-        printf("!!! invaild dummy_tail's pred_ptr\n");
-        return 0;
-    }
+    // TODO此处只能检查到序言块到dummy_tail前的块
+    // TODO 新的思路: 最外层按照相邻块循环， 当循环到alloc为0时 判断该块是否在空闲链表中 可通过两次遍历的空闲块值和空闲链表的有效节点数每个空闲块是否都在空闲链表中
+    // while(cur_free_ptr != dummy_tail) {
+    //     while(cur_bp != cur_free_ptr) { /* 对分配块的检查 */
+    //         if(cur_bp <= dummy_head || cur_bp >= dummy_tail) {  /* 当前块是否有效 */
+    //             printf("!!! invaild cur_bp: %p\n", cur_bp);
+    //             return 0;
+    //         }
+    //         printf("cur_bp: %p size: %u pre_alloc_bit:%d alloc_bit:%d\n", \
+    //             cur_bp, GET_SIZE(HDRP(cur_bp)), GET_PRE_ALLOC(HDRP(cur_bp)), GET_ALLOC(HDRP(cur_bp)));
+    //         if(GET_ALLOC(HDRP(cur_bp)) == 0) {  /* 每个空闲块是否都在空闲链表中 */
+    //             printf("!!! block is free, but not in links\n");
+    //             return 0;
+    //         }
+    //         cur_bp = NEXT_BLKP(cur_bp);
+    //     }
+    //     /* 对空闲链表的检查 */
+    //     printf("cur_free_ptr: %p head_size: %u head_pre_alloc_bit:%d head_alloc_bit:%d foot_size: %u foot_pre_alloc_bit:%d foot_alloc_bit:%d\n", \
+    //             cur_free_ptr, GET_SIZE(HDRP(cur_free_ptr)), GET_PRE_ALLOC(HDRP(cur_free_ptr)), GET_ALLOC(HDRP(cur_free_ptr)), \
+    //             GET_SIZE(FTRP(cur_free_ptr)), GET_PRE_ALLOC(FTRP(cur_free_ptr)), GET_ALLOC(FTRP(cur_free_ptr)));
+    //     // printf("GET_VAL(HDRP(cur_free_ptr)): %u\n", GET_VAL(HDRP(cur_free_ptr)));
+    //     if(GET_LIST_SUCC(cur_free_ptr) < dummy_head || GET_LIST_SUCC(cur_free_ptr) > dummy_tail) {  /* 当前块的succ是否有效 */
+    //         printf("!!! invaild succ_ptr\n");
+    //         return 0;
+    //     }
+    //     if(GET_LIST_PRED(cur_free_ptr) < dummy_head || GET_LIST_PRED(cur_free_ptr) > dummy_tail) {  /* 当前块的succ是否有效 */
+    //         printf("!!! invaild pred_ptr\n");
+    //         return 0;
+    //     }
+    //     if(GET_LIST_PRED(cur_free_ptr) != pred_free_ptr) {  /* 检查cur_free_ptr的pred是否是pred_free_ptr */
+    //         printf("!!! pred error\n");
+    //         return 0;
+    //     }
+    //     if(GET_ALLOC(HDRP(cur_free_ptr)) != 0) {  /* 是否每个空闲块都被标记为free */
+    //         printf("!!! free block but alloc_bit is %d, not 0\n", GET_ALLOC(HDRP(cur_free_ptr)));
+    //         return 0;
+    //     }
+    //     if(GET_PRE_ALLOC(HDRP(cur_free_ptr)) != 1) {  /* 否有任何连续的空闲块以某种方式逃脱了合并 */
+    //         printf("!!! free block pre_alloc_bit is %d, not 1 neet to colaesce\n", GET_PRE_ALLOC(HDRP(cur_free_ptr)));
+    //         return 0;
+    //     }
+
+    //     pred_free_ptr = cur_free_ptr;
+    //     cur_free_ptr = GET_LIST_SUCC(cur_free_ptr);
+    //     cur_bp = NEXT_BLKP(cur_bp);
+    // }
+
     printf("mm_check end\n");
     return 1;
 }
