@@ -351,11 +351,11 @@ void *mm_realloc(void *ptr, size_t size)
         }
     }
     /* 下一块不是空闲块或者下一块空间不足 重新找一片空间并保存旧数据 */
-    newptr = mm_malloc(asize);
+    newptr = mm_malloc(size);
     if (newptr == NULL)
         return NULL;
     copySize = GET_SIZE(HDRP(oldptr));
-    if (asize < copySize)
+    if (size < copySize)
         copySize = size;
     memcpy(newptr, oldptr, copySize);
     mm_free(oldptr);
