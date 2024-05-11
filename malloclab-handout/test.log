@@ -1,0 +1,402 @@
+Team Name:EggsHead
+Member 1 :NaClFishwulala:1392377067@qq.com
+Measuring performance with gettimeofday().
+
+Testing mm malloc
+Reading tracefile: ./traces/realloc-bal.rep
+Checking mm_malloc for correctness, mm_init
+extend_heap size:4096 bp:0xf4fff030
+colaesce ptr:0xf4fff030
+case1 prev_alloc_bit:1 next_alloc_bit: 1
+after colaesce ptr: 0xf4fff030
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff030 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_free_ptr: 0xf4fff030 head_size: 4096 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf500003c, foot_size: 4096 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff030 
+mm_check end
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff030 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_free_ptr: 0xf4fff030 head_size: 4096 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf500003c, foot_size: 4096 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff030 
+mm_check end
+mm_malloc user need size: 512, after add head size: 516 asize: 520
+place_func surplus_size:3576
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff238 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_bp: 0xf4fff030 size: 520 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff238 head_size: 3576 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf500003c, foot_size: 3576 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff238 
+mm_check end
+mm_malloc user need size: 128, after add head size: 132 asize: 136
+place_func surplus_size:3440
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff2c0 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_bp: 0xf4fff030 size: 520 pre_alloc_bit:1 alloc_bit:1
+cur_bp: 0xf4fff238 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff2c0 head_size: 3440 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf500003c, foot_size: 3440 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff2c0 
+mm_check end
+mm_realloc size:644 asize:648 
+mm_malloc user need size: 648, after add head size: 652 asize: 656
+place_func surplus_size:2784
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff550 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_bp: 0xf4fff030 size: 520 pre_alloc_bit:1 alloc_bit:1
+cur_bp: 0xf4fff238 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_bp: 0xf4fff2c0 size: 656 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff550 head_size: 2784 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf500003c, foot_size: 2784 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff550 
+mm_check end
+mm_free ptr:0xf4fff030
+colaesce ptr:0xf4fff030
+case1 prev_alloc_bit:1 next_alloc_bit: 1
+after colaesce ptr: 0xf4fff030
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff030 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_free_ptr: 0xf4fff030 head_size: 520 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fff550, foot_size: 520 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff238 size: 136 pre_alloc_bit:0 alloc_bit:1
+cur_bp: 0xf4fff2c0 size: 656 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff550 head_size: 2784 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff030, succ: 0xf500003c, foot_size: 2784 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff550 
+mm_check end
+mm_malloc user need size: 128, after add head size: 132 asize: 136
+place_func surplus_size:384
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff0b8 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_bp: 0xf4fff030 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff0b8 head_size: 384 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fff550, foot_size: 384 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff238 size: 136 pre_alloc_bit:0 alloc_bit:1
+cur_bp: 0xf4fff2c0 size: 656 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff550 head_size: 2784 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff0b8, succ: 0xf500003c, foot_size: 2784 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff550 
+mm_check end
+mm_free ptr:0xf4fff238
+colaesce ptr:0xf4fff238
+case3 prev_alloc_bit:0 next_alloc_bit: 1
+after colaesce ptr: 0xf4fff0b8
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff0b8 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_bp: 0xf4fff030 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff0b8 head_size: 520 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fff550, foot_size: 520 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff2c0 size: 656 pre_alloc_bit:0 alloc_bit:1
+cur_free_ptr: 0xf4fff550 head_size: 2784 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff0b8, succ: 0xf500003c, foot_size: 2784 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff550 
+mm_check end
+mm_realloc size:772 asize:776 
+mm_malloc user need size: 776, after add head size: 780 asize: 784
+place_func surplus_size:2000
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff0b8 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_bp: 0xf4fff030 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff0b8 head_size: 520 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fff860, foot_size: 520 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff2c0 size: 656 pre_alloc_bit:0 alloc_bit:1
+cur_bp: 0xf4fff550 size: 784 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff860 head_size: 2000 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff0b8, succ: 0xf500003c, foot_size: 2000 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff860 
+mm_check end
+mm_free ptr:0xf4fff2c0
+colaesce ptr:0xf4fff2c0
+case3 prev_alloc_bit:0 next_alloc_bit: 1
+after colaesce ptr: 0xf4fff0b8
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff0b8 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_bp: 0xf4fff030 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff0b8 head_size: 1176 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fff860, foot_size: 1176 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff550 size: 784 pre_alloc_bit:0 alloc_bit:1
+cur_free_ptr: 0xf4fff860 head_size: 2000 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff0b8, succ: 0xf500003c, foot_size: 2000 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff860 
+mm_check end
+mm_malloc user need size: 128, after add head size: 132 asize: 136
+place_func surplus_size:1040
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff140 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_bp: 0xf4fff030 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_bp: 0xf4fff0b8 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff140 head_size: 1040 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fff860, foot_size: 1040 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff550 size: 784 pre_alloc_bit:0 alloc_bit:1
+cur_free_ptr: 0xf4fff860 head_size: 2000 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff140, succ: 0xf500003c, foot_size: 2000 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff860 
+mm_check end
+mm_free ptr:0xf4fff030
+colaesce ptr:0xf4fff030
+case1 prev_alloc_bit:1 next_alloc_bit: 1
+after colaesce ptr: 0xf4fff030
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff030 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_free_ptr: 0xf4fff030 head_size: 136 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fff140, foot_size: 136 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff0b8 size: 136 pre_alloc_bit:0 alloc_bit:1
+cur_free_ptr: 0xf4fff140 head_size: 1040 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff030, succ: 0xf4fff860, foot_size: 1040 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff550 size: 784 pre_alloc_bit:0 alloc_bit:1
+cur_free_ptr: 0xf4fff860 head_size: 2000 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff140, succ: 0xf500003c, foot_size: 2000 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff860 
+mm_check end
+mm_realloc size:900 asize:904 
+mm_malloc user need size: 904, after add head size: 908 asize: 912
+place_func surplus_size:128
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff030 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_free_ptr: 0xf4fff030 head_size: 136 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fff4d0, foot_size: 136 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff0b8 size: 136 pre_alloc_bit:0 alloc_bit:1
+cur_bp: 0xf4fff140 size: 912 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff4d0 head_size: 128 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff030, succ: 0xf4fff860, foot_size: 128 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff550 size: 784 pre_alloc_bit:0 alloc_bit:1
+cur_free_ptr: 0xf4fff860 head_size: 2000 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff4d0, succ: 0xf500003c, foot_size: 2000 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff860 
+mm_check end
+mm_free ptr:0xf4fff550
+colaesce ptr:0xf4fff550
+case4 prev_alloc_bit:0 next_alloc_bit: 0
+after colaesce ptr: 0xf4fff4d0
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff030 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_free_ptr: 0xf4fff030 head_size: 136 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fff4d0, foot_size: 136 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff0b8 size: 136 pre_alloc_bit:0 alloc_bit:1
+cur_bp: 0xf4fff140 size: 912 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff4d0 head_size: 2912 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff030, succ: 0xf500003c, foot_size: 2912 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff4d0 
+mm_check end
+mm_malloc user need size: 128, after add head size: 132 asize: 136
+place_func surplus_size:0
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff4d0 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_bp: 0xf4fff030 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_bp: 0xf4fff0b8 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_bp: 0xf4fff140 size: 912 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff4d0 head_size: 2912 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf500003c, foot_size: 2912 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff4d0 
+mm_check end
+mm_free ptr:0xf4fff0b8
+colaesce ptr:0xf4fff0b8
+case1 prev_alloc_bit:1 next_alloc_bit: 1
+after colaesce ptr: 0xf4fff0b8
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff0b8 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_bp: 0xf4fff030 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff0b8 head_size: 136 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fff4d0, foot_size: 136 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff140 size: 912 pre_alloc_bit:0 alloc_bit:1
+cur_free_ptr: 0xf4fff4d0 head_size: 2912 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff0b8, succ: 0xf500003c, foot_size: 2912 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff4d0 
+mm_check end
+mm_realloc size:1028 asize:1032 
+mm_malloc user need size: 1032, after add head size: 1036 asize: 1040
+place_func surplus_size:1872
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff0b8 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_bp: 0xf4fff030 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff0b8 head_size: 136 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fff8e0, foot_size: 136 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff140 size: 912 pre_alloc_bit:0 alloc_bit:1
+cur_bp: 0xf4fff4d0 size: 1040 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff8e0 head_size: 1872 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff0b8, succ: 0xf500003c, foot_size: 1872 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff8e0 
+mm_check end
+mm_free ptr:0xf4fff140
+colaesce ptr:0xf4fff140
+case3 prev_alloc_bit:0 next_alloc_bit: 1
+after colaesce ptr: 0xf4fff0b8
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff0b8 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_bp: 0xf4fff030 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff0b8 head_size: 1048 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fff8e0, foot_size: 1048 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff4d0 size: 1040 pre_alloc_bit:0 alloc_bit:1
+cur_free_ptr: 0xf4fff8e0 head_size: 1872 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff0b8, succ: 0xf500003c, foot_size: 1872 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff8e0 
+mm_check end
+mm_malloc user need size: 128, after add head size: 132 asize: 136
+place_func surplus_size:912
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff140 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_bp: 0xf4fff030 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_bp: 0xf4fff0b8 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff140 head_size: 912 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fff8e0, foot_size: 912 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff4d0 size: 1040 pre_alloc_bit:0 alloc_bit:1
+cur_free_ptr: 0xf4fff8e0 head_size: 1872 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff140, succ: 0xf500003c, foot_size: 1872 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff8e0 
+mm_check end
+mm_free ptr:0xf4fff030
+colaesce ptr:0xf4fff030
+case1 prev_alloc_bit:1 next_alloc_bit: 1
+after colaesce ptr: 0xf4fff030
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff030 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_free_ptr: 0xf4fff030 head_size: 136 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fff140, foot_size: 136 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff0b8 size: 136 pre_alloc_bit:0 alloc_bit:1
+cur_free_ptr: 0xf4fff140 head_size: 912 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff030, succ: 0xf4fff8e0, foot_size: 912 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff4d0 size: 1040 pre_alloc_bit:0 alloc_bit:1
+cur_free_ptr: 0xf4fff8e0 head_size: 1872 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff140, succ: 0xf500003c, foot_size: 1872 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff8e0 
+mm_check end
+mm_realloc size:1156 asize:1160 
+mm_malloc user need size: 1160, after add head size: 1164 asize: 1168
+place_func surplus_size:704
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff030 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_free_ptr: 0xf4fff030 head_size: 136 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fff140, foot_size: 136 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff0b8 size: 136 pre_alloc_bit:0 alloc_bit:1
+cur_free_ptr: 0xf4fff140 head_size: 912 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff030, succ: 0xf4fffd70, foot_size: 912 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff4d0 size: 1040 pre_alloc_bit:0 alloc_bit:1
+cur_bp: 0xf4fff8e0 size: 1168 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fffd70 head_size: 704 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff140, succ: 0xf500003c, foot_size: 704 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fffd70 
+mm_check end
+mm_free ptr:0xf4fff4d0
+colaesce ptr:0xf4fff4d0
+case3 prev_alloc_bit:0 next_alloc_bit: 1
+after colaesce ptr: 0xf4fff140
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff030 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_free_ptr: 0xf4fff030 head_size: 136 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fff140, foot_size: 136 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff0b8 size: 136 pre_alloc_bit:0 alloc_bit:1
+cur_free_ptr: 0xf4fff140 head_size: 1952 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff030, succ: 0xf4fffd70, foot_size: 1952 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff8e0 size: 1168 pre_alloc_bit:0 alloc_bit:1
+cur_free_ptr: 0xf4fffd70 head_size: 704 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff140, succ: 0xf500003c, foot_size: 704 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fffd70 
+mm_check end
+mm_malloc user need size: 128, after add head size: 132 asize: 136
+place_func surplus_size:0
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff140 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_bp: 0xf4fff030 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_bp: 0xf4fff0b8 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff140 head_size: 1952 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fffd70, foot_size: 1952 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff8e0 size: 1168 pre_alloc_bit:0 alloc_bit:1
+cur_free_ptr: 0xf4fffd70 head_size: 704 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff140, succ: 0xf500003c, foot_size: 704 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fffd70 
+mm_check end
+mm_free ptr:0xf4fff0b8
+colaesce ptr:0xf4fff0b8
+case2 prev_alloc_bit:1 next_alloc_bit: 0
+after colaesce ptr: 0xf4fff0b8
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff0b8 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_bp: 0xf4fff030 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff0b8 head_size: 2088 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fffd70, foot_size: 2088 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff8e0 size: 1168 pre_alloc_bit:0 alloc_bit:1
+cur_free_ptr: 0xf4fffd70 head_size: 704 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff0b8, succ: 0xf500003c, foot_size: 704 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fffd70 
+mm_check end
+mm_realloc size:1284 asize:1288 
+mm_malloc user need size: 1288, after add head size: 1292 asize: 1296
+place_func surplus_size:792
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff5c8 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_bp: 0xf4fff030 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_bp: 0xf4fff0b8 size: 1296 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff5c8 head_size: 792 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fffd70, foot_size: 792 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff8e0 size: 1168 pre_alloc_bit:0 alloc_bit:1
+cur_free_ptr: 0xf4fffd70 head_size: 704 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff5c8, succ: 0xf500003c, foot_size: 704 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fffd70 
+mm_check end
+mm_free ptr:0xf4fff8e0
+colaesce ptr:0xf4fff8e0
+case4 prev_alloc_bit:0 next_alloc_bit: 0
+after colaesce ptr: 0xf4fff5c8
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff5c8 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_bp: 0xf4fff030 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_bp: 0xf4fff0b8 size: 1296 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff5c8 head_size: 2664 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf500003c, foot_size: 2664 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff5c8 
+mm_check end
+mm_malloc user need size: 128, after add head size: 132 asize: 136
+place_func surplus_size:2528
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff650 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_bp: 0xf4fff030 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_bp: 0xf4fff0b8 size: 1296 pre_alloc_bit:1 alloc_bit:1
+cur_bp: 0xf4fff5c8 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff650 head_size: 2528 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf500003c, foot_size: 2528 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff650 
+mm_check end
+mm_free ptr:0xf4fff030
+colaesce ptr:0xf4fff030
+case1 prev_alloc_bit:1 next_alloc_bit: 1
+after colaesce ptr: 0xf4fff030
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff030 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_free_ptr: 0xf4fff030 head_size: 136 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fff650, foot_size: 136 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff0b8 size: 1296 pre_alloc_bit:0 alloc_bit:1
+cur_bp: 0xf4fff5c8 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fff650 head_size: 2528 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff030, succ: 0xf500003c, foot_size: 2528 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fff650 
+mm_check end
+mm_realloc size:1412 asize:1416 
+mm_malloc user need size: 1416, after add head size: 1420 asize: 1424
+place_func surplus_size:1104
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff030 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_free_ptr: 0xf4fff030 head_size: 136 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fffbe0, foot_size: 136 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff0b8 size: 1296 pre_alloc_bit:0 alloc_bit:1
+cur_bp: 0xf4fff5c8 size: 136 pre_alloc_bit:1 alloc_bit:1
+cur_bp: 0xf4fff650 size: 1424 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fffbe0 head_size: 1104 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff030, succ: 0xf500003c, foot_size: 1104 foot_pre_alloc_bit:1 foot_alloc_bit:0
+end_bp: 0xf5000030 head_size: 16 head_pre_alloc_bit:0 head_alloc_bit:1 
+dummy_tail: 0xf500003c, pred: 0xf4fffbe0 
+mm_check end
+mm_free ptr:0xf4fff0b8
+colaesce ptr:0xf4fff0b8
+case3 prev_alloc_bit:0 next_alloc_bit: 1
+after colaesce ptr: 0xf4fff030
+mm_check begin
+dummy_head: 0xf4fff014, succ: 0xf4fff030 
+begin_bp: 0xf4fff020 head_size: 16 head_pre_alloc_bit:1 head_alloc_bit:1 
+cur_free_ptr: 0xf4fff030 head_size: 1432 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff014, succ: 0xf4fffbe0, foot_size: 1432 foot_pre_alloc_bit:1 foot_alloc_bit:0
+cur_bp: 0xf4fff5c8 size: 136 pre_alloc_bit:0 alloc_bit:1
+cur_bp: 0xf4fff650 size: 1424 pre_alloc_bit:1 alloc_bit:1
+cur_free_ptr: 0xf4fffbe0 head_size: 1104 head_pre_alloc_bit:1 head_alloc_bit:0 pred: 0xf4fff030, 
