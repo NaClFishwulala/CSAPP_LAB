@@ -285,9 +285,11 @@ void *mm_realloc(void *ptr, size_t size)
         return NULL;
     }
     
-    // TODO 是否有足够的空间realloc  size记得要加头部以及双字对齐
-    // 如果有，扩大空间 并更新空闲链表 更新下一块的prev_alloc位 出现空闲块时需要调用colaesce来更新空闲链表
-    // 讨论size < oldptr_size && size > oldptr_size
+    /*  
+      是否有足够的空间realloc  size记得要加头部以及双字对齐
+      如果有，扩大空间 并更新空闲链表 更新下一块的prev_alloc位 出现空闲块时需要调用colaesce来更新空闲链表
+      讨论size < oldptr_size && size > oldptr_size 
+    */
     oldptr_size = GET_SIZE(HDRP(oldptr));   /* 获取要realloc的块大小 */
     /* 用户请求的空间并不包含头尾 分配的要带上一字的头 */
     size += WSIZE;
@@ -310,13 +312,9 @@ void *mm_realloc(void *ptr, size_t size)
             char *division_bp = NEXT_BLKP(oldptr);
             PUT_VAL(HDRP(division_bp), PACK(surplus_size, 1, 0));
             PUT_VAL(FTRP(division_bp), GET_VAL(HDRP(division_bp)));
-            /* 下一块变成空闲块了 下下一块的prev_alloc_bit要置位 该块若是空闲块 还要更新foot*/
+            /* 下一块变成空闲块了 下下一块的prev_alloc_bit要置位 该块若是空闲块 更新foot在colaesce中处理*/
             char *division_bp_next_bp = NEXT_BLKP(division_bp);
             CLEAR_PRE_ALLOC(HDRP(division_bp_next_bp));
-            // TODO 这个if应该没必要 在colaesce中对foot进行处理
-            if(GET_ALLOC(HDRP(division_bp_next_bp)) == 0) {
-                PUT_VAL(FTRP(division_bp_next_bp), GET_VAL(HDRP(division_bp_next_bp)));
-            }
             return colaesce(division_bp);
         }
     }
@@ -336,7 +334,7 @@ void *mm_realloc(void *ptr, size_t size)
                 PUT_ADDR(PREDP(succ_ptr), pred_ptr);
                 /* 在原有的oldptr块基础上 使用下一个空闲块的全部块空间 */
                 INC_SIZE(HDRP(oldptr), next_size);  
-                // TODO 该空闲块被使用 其下一个块的pre_alloc位应该置1
+                /* 该空闲块被使用 其下一个块的pre_alloc位应该置1 */
                 SET_PRE_ALLOC(HDRP(NEXT_BLKP(oldptr)));
                 // mm_check();
             } else {    /* 空间足够， 则分割空闲块 */
@@ -465,8 +463,6 @@ static void *colaesce(void *ptr)
     
     else if(!prev_alloc && next_alloc) {    /* case3: 前面块空闲 后面块已分配 */
         // printf("case3 prev_alloc_bit:%d next_alloc_bit: %d\n", prev_alloc, next_alloc);
-        /* 获取前一个块的foot */
-        // TODO 此处获取的是feet 不是bp
         char *prev_ptr = PREV_BLKP(ptr);
         /* 前继后继保持不变 更改头部大小和尾部大小即可 */
         INC_SIZE(HDRP(prev_ptr), GET_SIZE(HDRP(ptr)));
@@ -552,8 +548,6 @@ static void place(char *ptr, size_t asize)
     
     // printf("place_func surplus_size:%u\n", surplus_size);
     SET_ALLOC(HDRP(ptr));   /* 更改ALLOC位,将空闲块转换成分配块 */
-    // TODO 分割以后还要将下一个块pred_alloc设置为已使用
-    // SET_PRE_ALLOC(NEXT_BLKP(ptr));
     
     /* 剩余大小如果小于最小块大小 则使用该空闲块全部空间 */
     if(surplus_size < MIN_BLOCK_SIZE) {
@@ -592,8 +586,6 @@ static void place(char *ptr, size_t asize)
  */
 int mm_check(void)
 {
-    // TODO 任何分配的块是否重叠
-    
     printf("mm_check begin\n");
     char *dummy_head = GET_DUMMY_HEAD;
     char *dummy_tail = GET_DUMMY_TAIL;
