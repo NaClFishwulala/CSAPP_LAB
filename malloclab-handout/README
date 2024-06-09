@@ -43,6 +43,7 @@ To build the driver, type "make" to the shell.
 To run the driver on a tiny test trace:
 
 	unix> ./mdriver -V -f short1-bal.rep
+	unix> ./mdriver -V -f ./traces/realloc-bal.rep
 
 The -V option prints out helpful tracing and summary information.
 

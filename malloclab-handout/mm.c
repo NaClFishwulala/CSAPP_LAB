@@ -206,7 +206,7 @@ int mm_init(void)
     /* 以CHUNKSIZE字节大小来扩展一个空的堆 */
     if(extend_heap(CHUNKSIZE / WSIZE) == NULL)
         return -1;
-    mm_check();
+    // mm_check();
     return 0;
 }
 
@@ -235,7 +235,7 @@ void *mm_malloc(size_t size)
     /* 首次适配，寻找合适的空闲块 */
     if((bp = find_fit(asize)) != NULL) {
         place(bp, asize);
-        mm_check();
+        // mm_check();
         return bp;
     }
 
@@ -244,7 +244,7 @@ void *mm_malloc(size_t size)
     if((bp = extend_heap(extendsize / WSIZE)) == NULL)
         return NULL;
     place(bp, asize);
-    mm_check();
+    // mm_check();
     return bp;
 }
 
@@ -292,65 +292,74 @@ void *mm_realloc(void *ptr, size_t size)
     // TODO 是否有足够的空间realloc  size记得要加头部以及双字对齐
     // 如果有，扩大空间 并更新空闲链表 更新下一块的prev_alloc位 出现空闲块时需要调用colaesce来更新空闲链表
     // 讨论size < oldptr_size && size > oldptr_size
-    oldptr_size = GET_SIZE(HDRP(oldptr));
+    oldptr_size = GET_SIZE(HDRP(oldptr));   /* 获取要realloc的块大小 */
+    /* 用户请求的空间并不包含头尾 分配的要带上一字的头 */
     size += WSIZE;
     if(size <= DSIZE)
         asize = 2 * DSIZE;
     else
         asize = DSIZE * ((size + (DSIZE - 1)) / DSIZE);
-    mm_check();
+    
     printf("mm_realloc size:%d asize:%d oldptr_size:%d oldptr:%p\n", size, asize, oldptr_size, oldptr);  
+    mm_check();
     /* 如果新申请的空间比原来还小，先判断是否需要分割， 如果需要则先更新头部大小，否则保持不变  */
     if(asize <= oldptr_size) {
+        /* 分割的时候 如果确定大家的size双字对齐的（均为8的倍数） 则二者作差肯定也为双字对齐的 无需再次考虑分割块是否是双字对齐的 */
         surplus_size = oldptr_size - asize;
         if(surplus_size < MIN_BLOCK_SIZE) { /* 剩余大小如果小于最小块大小 则把剩余块也分进去 */
             return oldptr;
         } else {     
-            // CLEAR_PRE_ALLOC(HDRP(NEXT_BLKP(oldptr)));   /* 下一块prev_alloc清除 */
-            // TODO 该块若是空闲块 是否更新foot
             DEC_SIZE(HDRP(oldptr), surplus_size);   /* 更新大小 */
             /* 分割出来的块变成空闲块 字段pred和succ在colaesce中更新*/
-            char *division_bp = NEXT_BLKP(HDRP(oldptr));
+            char *division_bp = NEXT_BLKP(oldptr);
             PUT_VAL(HDRP(division_bp), PACK(surplus_size, 1, 0));
             PUT_VAL(FTRP(division_bp), GET_VAL(HDRP(division_bp)));
             /* 下一块变成空闲块了 下下一块的prev_alloc_bit要置位 该块若是空闲块 还要更新foot*/
-            char *division_bp_next_bp = NEXT_BLKP(HDRP(division_bp));
+            char *division_bp_next_bp = NEXT_BLKP(division_bp);
             CLEAR_PRE_ALLOC(HDRP(division_bp_next_bp));
+            // TODO 这个if应该没必要 在colaesce中对foot进行处理
             if(GET_ALLOC(HDRP(division_bp_next_bp)) == 0) {
                 PUT_VAL(FTRP(division_bp_next_bp), GET_VAL(HDRP(division_bp_next_bp)));
             }
             return colaesce(division_bp);
         }
-       
     }
     /* 新申请的空间大于原来的空间，先看下一块是否是空闲块且满足扩充容量的空闲块，如果不是则重新分配 */
     size_t next_size;
-    next_bp = NEXT_BLKP(HDRP(oldptr));
+    next_bp = NEXT_BLKP(oldptr);
     if(GET_ALLOC(HDRP(next_bp)) == 0) { /* 如果下一块是空闲块 考虑能否在下一块的基础上进行扩充 */
         next_size = GET_SIZE(HDRP(next_bp));
         surplus_size = asize - oldptr_size;  /* 还需要surplus_size大小的空间 */
-        printf("next_bp: %p, next_size: %d surplus_size: %d\n", next_bp, next_size, surplus_size);
-        if(next_size > surplus_size) {  /* 如果下一块空间足够，判断是否需要分割下一块 */
+        printf("asize > oldptr_size && next_bp is free : next_bp: %p, next_size: %d surplus_size: %d\n", next_bp, next_size, surplus_size);
+        if(next_size >= surplus_size) {  /* 如果下一块空间足够，判断是否需要分割下一块 */
             size_t free_size = next_size - surplus_size;
+            char *pred_ptr = GET_ADDR(PREDP(next_bp));  /* 获取被占用空闲块的上一个空闲块 */
+            char *succ_ptr = GET_ADDR(SUCCP(next_bp));  /* 获取被占用空闲块的下一个空闲块 */
             if(free_size < MIN_BLOCK_SIZE) {    /* 分割后的块大小不足块的最小大小， 使用全部的块空间 */
-                char *pred_ptr = GET_ADDR(PREDP(next_bp));
-                char *succ_ptr = GET_ADDR(SUCCP(next_bp));
+                /* 将pred_ptr的后继更新成succ_ptr 将succ_ptr的前继更新成pred_ptr */
                 PUT_ADDR(SUCCP(pred_ptr), succ_ptr);
                 PUT_ADDR(PREDP(succ_ptr), pred_ptr);
+                /* 在原有的oldptr块基础上 使用下一个空闲块的全部块空间 */
+                INC_SIZE(HDRP(oldptr), next_size);  
             } else {    /* 空间足够， 则分割空闲块 */
                 INC_SIZE(HDRP(oldptr), surplus_size);   /* 在原有的oldptr块基础上 扩大surplus_size字节 */
-                next_bp = NEXT_BLKP(HDRP(oldptr));    /* 定位到分割后的空闲块 */
-                printf("oldptr: %p, GET_SIZE(HDRP(oldptr)): %d next_bp: %p\n", oldptr, GET_SIZE(HDRP(oldptr)), next_bp);
+                next_bp = NEXT_BLKP(oldptr);    /* 定位到分割后的空闲块 */
+                printf("next_bp size is enough: oldptr: %p, GET_SIZE(HDRP(oldptr)): %d next_bp: %p\n", oldptr, GET_SIZE(HDRP(oldptr)), next_bp);
                 PUT_VAL(HDRP(next_bp), PACK(free_size, 1, 0));
                 PUT_VAL(FTRP(next_bp), GET_VAL(HDRP(next_bp)));
-                // TODO 这里有bug
+                // TODO 这里有bug 原空闲链表中 被分割的空闲块的前一个空闲块的后继指针与后一个空闲块的前继指针 还指向未被分割的空闲块 需要更新
                 printf("big \n");
-                colaesce(next_bp);  /* 合并该空闲块 */
+                PUT_ADDR(SUCCP(pred_ptr), next_bp);
+                PUT_ADDR(PREDP(succ_ptr), next_bp);
+                PUT_ADDR(PREDP(next_bp), pred_ptr);
+                PUT_ADDR(SUCCP(next_bp), succ_ptr);
+                mm_check();
+                // colaesce(next_bp);  /* 合并该空闲块 */
             }
             return oldptr;
         }
     }
-    /* 下一块不是空闲块或者下一块空间不足 重新找一片空间并保存旧数据 */
+    /* 下一块不是空闲块或者下一块空闲但空间不足 重新找一片空间并保存旧数据 */
     newptr = mm_malloc(size);
     if (newptr == NULL)
         return NULL;
@@ -425,14 +434,13 @@ static void *colaesce(void *ptr)
     // printf("NEXT_BLKP(ptr):%p\n", NEXT_BLKP(ptr));
     char *pred_ptr = NULL;  /* 空闲链表的前继 */
     char *succ_ptr = NULL;  /* 空闲链表的后继 */
-    
-    
 
     if(prev_alloc && next_alloc) {          /* case1: 前面块和后面块是已分配的 */
         printf("case1 prev_alloc_bit:%d next_alloc_bit: %d\n", prev_alloc, next_alloc);
         if((pred_ptr = find_pred(ptr)) == NULL) /* 因为有哨兵空闲链表头存在，所以一定能找到，找不到说明错了 */
             return NULL;
         succ_ptr = GET_LIST_SUCC(pred_ptr); // pred现在指的不是succ_ptr
+        printf("pred_ptr: %p succ_ptr: %p\n", pred_ptr, succ_ptr);
         PUT_ADDR(PREDP(ptr), pred_ptr);
         PUT_ADDR(SUCCP(ptr), succ_ptr);
 
@@ -597,6 +605,7 @@ int mm_check(void)
     char *begin_bp = GET_BEGIN_BLOCK;
     char *end_bp = GET_END_BLOCK;
 
+    int pred_allocated_stat; /* 保存上一个块的分配信息， 判断当前块的pred_alloc是否正确 */
     /* 检查dummy_head的succ和dummy_tail的pred是否有效 */
     if(GET_LIST_SUCC(dummy_head) <= begin_bp || GET_LIST_SUCC(dummy_head) > dummy_tail || \
         GET_LIST_PRED(dummy_tail) < dummy_head || GET_LIST_PRED(dummy_tail) >= end_bp) { 
@@ -607,7 +616,7 @@ int mm_check(void)
     printf("begin_bp: %p head_size: %u head_pre_alloc_bit:%d head_alloc_bit:%d \n", \
                             begin_bp, GET_SIZE(HDRP(begin_bp)), GET_PRE_ALLOC(HDRP(begin_bp)), GET_ALLOC(HDRP(begin_bp)));
 
-
+    pred_allocated_stat = GET_ALLOC(HDRP(begin_bp));
     char *pred_free_ptr = dummy_head;   /* 上一个空闲块指针 */
     char *cur_free_ptr = GET_LIST_SUCC(dummy_head); /* 当前空闲块指针 */
     char *cur_bp = NEXT_BLKP(begin_bp);   /* 当前块指针 */
@@ -635,10 +644,14 @@ int mm_check(void)
                 printf("!!! free block but alloc_bit is %d, not 0\n", GET_ALLOC(HDRP(cur_free_ptr)));
                 return 0;
             }
+            if(GET_PRE_ALLOC(HDRP(cur_free_ptr)) != pred_allocated_stat) {  /* 当前块的pred_alloc位与上一个块不符 */
+                printf("!!! cur block's pred_alloc is: %d not equal to prev block stat: %d \n", GET_PRE_ALLOC(HDRP(cur_free_ptr)), pred_allocated_stat);
+            }
             if(GET_PRE_ALLOC(HDRP(cur_free_ptr)) != 1) {  /* 否有任何连续的空闲块以某种方式逃脱了合并 */
-                printf("!!! free block pre_alloc_bit is %d, not 1 neet to colaesce\n", GET_PRE_ALLOC(HDRP(cur_free_ptr)));
+                printf("!!! free block pre_alloc_bit is %d, not 1 need to colaesce\n", GET_PRE_ALLOC(HDRP(cur_free_ptr)));
                 return 0;
             }
+            pred_allocated_stat = GET_ALLOC(HDRP(cur_free_ptr));
             pred_free_ptr = cur_free_ptr;
             cur_free_ptr = GET_LIST_SUCC(cur_free_ptr);
         } 
@@ -649,15 +662,23 @@ int mm_check(void)
             }
             printf("cur_bp: %p size: %u pre_alloc_bit:%d alloc_bit:%d\n", \
                 cur_bp, GET_SIZE(HDRP(cur_bp)), GET_PRE_ALLOC(HDRP(cur_bp)), GET_ALLOC(HDRP(cur_bp)));
+            if(GET_PRE_ALLOC(HDRP(cur_bp)) != pred_allocated_stat) {  /* 当前块的pred_alloc位与上一个块不符 */
+                printf("!!! cur block's pred_alloc is: %d not equal to prev block stat: %d \n", GET_PRE_ALLOC(HDRP(cur_bp)), pred_allocated_stat);
+            }
             if(GET_ALLOC(HDRP(cur_bp)) == 0) {  /* 每个空闲块是否都在空闲链表中 */
                 printf("!!! block is free, but not in links\n");
                 return 0;
             }
         }
+        pred_allocated_stat = GET_ALLOC(HDRP(cur_bp));
         cur_bp = NEXT_BLKP(cur_bp);
     }
+
     printf("end_bp: %p head_size: %u head_pre_alloc_bit:%d head_alloc_bit:%d \n", \
                             end_bp, GET_SIZE(HDRP(end_bp)), GET_PRE_ALLOC(HDRP(end_bp)), GET_ALLOC(HDRP(end_bp)));
+    if(GET_PRE_ALLOC(HDRP(end_bp)) != pred_allocated_stat) {  /* 当前块的pred_alloc位与上一个块不符 */
+        printf("!!! end block's pred_alloc is: %d not equal to prev block stat: %d \n", GET_PRE_ALLOC(HDRP(cur_bp)), pred_allocated_stat);
+    }
     printf("dummy_tail: %p, pred: %p \n", dummy_tail, GET_LIST_PRED(dummy_tail));       
     printf("mm_check end\n");
     return 1;
