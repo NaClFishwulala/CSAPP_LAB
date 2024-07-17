@@ -47,3 +47,8 @@ nop-server.py
 tiny
     Tiny Web server from the CS:APP text
 
+test:
+> telnet 127.0.0.1 7108
+> GET http://www.cmu.edu/hub/index.html HTTP/1.1
+> Host: www.cmu.edu
+>
