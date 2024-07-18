@@ -48,7 +48,18 @@ tiny
     Tiny Web server from the CS:APP text
 
 test:
+telnet:
 > telnet 127.0.0.1 7108
 > GET http://www.cmu.edu/hub/index.html HTTP/1.1
 > Host: www.cmu.edu
 >
+
+or
+
+> telnet 127.0.0.1 7108
+> GET http://127.0.0.1:7109/ HTTP/1.1
+> Host: 127.0.0.1
+>
+
+curl:
+> curl -v --proxy http://localhost:7108 http://localhost:7109/

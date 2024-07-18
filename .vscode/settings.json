@@ -8,6 +8,7 @@
         "string_view": "c",
         "initializer_list": "c",
         "utility": "c",
-        "csapp.h": "c"
+        "csapp.h": "c",
+        "sbuf.h": "c"
     }
 }
