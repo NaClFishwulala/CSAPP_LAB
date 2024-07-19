@@ -105,9 +105,7 @@ void doit(int connfd)
     // TODO 读取服务器的响应并转发至客户端
     while((n = Rio_readlineb(&serverRio, serverBuf, MAXLINE) != 0)) {
         printf("%s", serverBuf);
-        Rio_writen(connfd, serverBuf, n);
-        // if(!strcmp(serverBuf, "\r\n"))
-        //     break;
+        Rio_writen(connfd, serverBuf, strlen(serverBuf));
     }
 
 }
