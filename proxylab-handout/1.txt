@@ -1,0 +1,244 @@
+Connected to connfd: 4(113.54.210.197, 54605)
+connfd: 4 GET http://detectportal.firefox.com/canonical.html HTTP/1.1
+connfd: 4 Host: detectportal.firefox.com
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+connfd: 4 Accept: */*
+connfd: 4 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Cache-Control: no-cache
+connfd: 4 Pragma: no-cache
+connfd: 4 Connection: keep-alive
+connfd: 4 
+Connected to connfd: 5(113.54.210.197, 54604)
+clientfd: 6 HTTP/1.0 200 OK
+(clientfd size): (6 15) Server: nginx
+(clientfd size): (6 20) Content-Length: 90
+(clientfd size): (6 17) Via: 1.1 google
+(clientfd size): (6 37) Date: Fri, 19 Jul 2024 18:40:47 GMT
+(clientfd size): (6 12) Age: 70398
+(clientfd size): (6 25) Content-Type: text/html
+(clientfd size): (6 63) Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+(clientfd size): (6 24) Connection: Keep-Alive
+(clientfd size): (6 2) 
+connfd: 5 GET http://detectportal.firefox.com/canonical.html HTTP/1.1
+connfd: 5 Host: detectportal.firefox.com
+connfd: 5 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+connfd: 5 Accept: */*
+connfd: 5 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+connfd: 5 Accept-Encoding: gzip, deflate
+connfd: 5 Cache-Control: no-cache
+connfd: 5 Pragma: no-cache
+connfd: 5 Connection: keep-alive
+connfd: 5 
+clientfd: 8 HTTP/1.0 200 OK
+(clientfd size): (8 15) Server: nginx
+(clientfd size): (8 20) Content-Length: 90
+(clientfd size): (8 17) Via: 1.1 google
+(clientfd size): (8 37) Date: Fri, 19 Jul 2024 18:40:47 GMT
+(clientfd size): (8 12) Age: 70399
+(clientfd size): (8 25) Content-Type: text/html
+(clientfd size): (8 63) Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+(clientfd size): (8 24) Connection: Keep-Alive
+(clientfd size): (8 2) 
+Connected to connfd: 7(113.54.210.197, 54631)
+connfd: 7 GET http://47.109.193.20:7109/ HTTP/1.1
+connfd: 7 Host: 47.109.193.20:7109
+connfd: 7 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+connfd: 7 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+connfd: 7 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+connfd: 7 Accept-Encoding: gzip, deflate
+connfd: 7 Connection: keep-alive
+connfd: 7 Upgrade-Insecure-Requests: 1
+connfd: 7 
+clientfd: 10 HTTP/1.0 200 OK
+(clientfd size): (10 25) Server: Tiny Web Server
+(clientfd size): (10 21) Content-length: 120
+(clientfd size): (10 25) Content-type: text/html
+(clientfd size): (10 2) 
+(clientfd size): (10 7) <html>
+(clientfd size): (10 33) <head><title>test</title></head>
+(clientfd size): (10 8) <body> 
+(clientfd size): (10 40) <img align="middle" src="godzilla.jpg">
+(clientfd size): (10 16) Dave O'Hallaron
+(clientfd size): (10 8) </body>
+(clientfd size): (10 8) </html>
+Close connfd: 7
+Connected to connfd: 9(113.54.210.197, 54632)
+connfd: 9 GET http://47.109.193.20:7109/godzilla.jpg HTTP/1.1
+connfd: 9 Host: 47.109.193.20:7109
+connfd: 9 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+connfd: 9 Accept: image/avif,image/webp,*/*
+connfd: 9 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+connfd: 9 Accept-Encoding: gzip, deflate
+connfd: 9 Connection: keep-alive
+connfd: 9 Referer: http://47.109.193.20:7109/
+connfd: 9 
+clientfd: 11 HTTP/1.0 200 OK
+(clientfd size): (11 25) Server: Tiny Web Server
+(clientfd size): (11 23) Content-length: 10858
+(clientfd size): (11 26) Content-type: image/jpeg
+(clientfd size): (11 2) 
+(clientfd size): (11 111) ÿØÿà(clientfd size): (11 54) ÿÛ(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 6) 
+(clientfd size): (11 3) 	
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 16) ÿÛ(clientfd size): (11 4) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 1) 
+(clientfd size): (11 51) ÿÀ(clientfd size): (11 61) ÿÄ(clientfd size): (11 155) %&'()*456789:CDEFGHIJSTUVWXYZcdefghijstuvwxyzƒ„…†‡ˆ‰Š’“”•–—˜™š¢£¤¥¦§¨©ª²³´µ¶·¸¹ºÂÃÄÅÆÇÈÉÊÒÓÔÕÖ×ØÙÚáâãäåæçèéêñòóôõö÷øùúÿÄ(clientfd size): (11 59) ÿÄ(clientfd size): (11 1039) $4á%ñ&'()*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz‚ƒ„…†‡ˆ‰Š’“”•–—˜™š¢£¤¥¦§¨©ª²³´µ¶·¸¹ºÂÃÄÅÆÇÈÉÊÒÓÔÕÖ×ØÙÚâãäåæçèéêòóôõö÷øùúÿÚ(clientfd size): (11 452) üYøƒàKø7Pû.¥£ë·ÉmâLi×ZŒ1¬2C:]¶’F (clientfd size): (11 489) ä(¯Ä…şx3I¼Òüu6·®ŞKz'şÑ°ñ„–(ûâ›ä[Iwşğ¾°bF(¯§¥Ä44êEsu÷SüÏ®I—Æm9Kÿ(clientfd size): (11 482) ;„RÑŸ4Ç&ğvŸÌTåí¹]Ÿ6Ïue¯m;ï­¶IÆsP»ZZ×NÖi­%³ïkêôM»ú/¾üJĞoş"|tğ®©sá#[ğ‡‡àÒì™ÑßU¶ŸN8·í"ID6³&[æe®kàÇìçãø"ÿ(clientfd size): (11 265) ÎÊÜÛìõë¦ıÛ½·oFÛW¹R.Z2åŠ^­o¶×è’Ù[FÜœkÿ(clientfd size): (11 205) @RNy‰ğóÁ?ï¼­øƒÆ>fµ;KèÑy)I„²3#	A)±cŒ¬î7V!¸7K7Ri#QµN´Ô¥I¢+$¶Ûd;‘Sx$à¨äÀØA VÏ†/|!«Ozı¦³u;ó‚(ÚÁ$]‡|@w’Ø8Ü@Õ§2µïk?.ÿ(clientfd size): (11 480) Í1AklĞ#-µºF¡"DEHQGİ(Í¤#‘æ•96ú¤¿Ì™a«_İ¢šózüô?j¦F··+{Í¼†9lãLîtØ'%T6À3—_OÜE/|+¹ø·§Ç¢Ç­Ã¦]ÛI³G×ídÖYíë°ü†<R¬0[cà‰l¤—M–¸¹Ô¬‹;4÷óUgò¯İŠçåã÷\—ÆqSE¡hÆƒ.•©x¦Í-ä¶šÑõ2ckp’İ‹åI¼nùR˜Vb¿ZÇÂ0•c5¤¢ÿ(clientfd size): (11 149) ÁÊPº›^óÚ*W»Ó}SÓe­íkü/ñËöÌøÑñëÇ·Ş.´°‘4˜-à¶†Ú=—íVvØ)ÛDC#7–²2«…BÎP‚NdøñûâgÃˆ|c®iWrØÅâo2Üı¾Å¥¶TUqoì£äIü¬À‰$b’â_†_··Åƒÿ(clientfd size): (11 91) –+n‚ŒÂ@9”[w7Ï©ŞøKÄZœ×°]ÏqÏ<°ÜYÇ4‡Y[*ÇvÑævm¬Ÿ:ŠèŒ©'ŞÏğé¯u·EtÒ8£Î®ì÷Ûªwµº¾¯sêO‚?
+(clientfd size): (11 1308) ~2~Ñ$O~Ó_´÷tRDyáñ=¨Uš«$e˜oß°€íW\çŒÏø)ì9§~ÇŞ8¹ğÏµ(µ'¶’ÖæÃW¡…µ+ˆØ™#[h01’>P8çÄ¼ûJüU×ş]|#Ôï,m|1{¨¦ªmå°Y#XâHÙ²¸@0APIláMjø£Ç_|iá9|wâKÍ=.îÆÚñã-bÁR1åEƒä–Øˆ€"£‘µ<úğ›q”ei]7nºZÏMÿ(clientfd size): (11 793) øªÀëv÷ş&A¾¡a5Œëm&íŒÑ2$¥Hnmr¸ÜH;BœIUpqNËuo×şN¦X‹åOudî´Õ|Ûµ»ï{%¹£àÏø‡Ãš”ƒB½·ÓeûFW,„4[ÉÙ¹ÉVN1ÎCdÛÏ€ş&xµ¼G­xÇÃ~+2êwo-íì®Ñ]\ÀÉ'˜¸ÂŸ0’R=­Íxíµê›¯í¨çó˜Û¸»Ş+‚JG,1œaq·šÕ³ñE€Ò.bÔ5)æêY†(íÂåJà ’3…Êù{Xó‘Œ'ÊÍÿ(clientfd size): (11 174) £*5ğçüWà5÷€?dŸx³PñÇü$zìºL6ğŞ™o«d¾É\±9ÌŒY$v¢ 1ŒË•|cÄbg)ı«»'k7n÷şµW¶Œ©à”"íf÷Õ·¢µ½Ø­6vvù£Ãà²ßµ×ÃÛ@øoá¯jz•áû¿İK¬]éÚœW×veÒ;>8ä*±á<øœ6É•”ƒÇÏÃßümáëÏè?>Ü	´Ÿ
+(clientfd size): (11 673) é-gªk6ÈÊ5ù…İÄßká]Uc•UPä qœ××>ı>kÿ(clientfd size): (11 112) »i¦˜%]SÄV¶±BÀªX ’O%³¡p Éq!ÈëXµË¢®ÿ(clientfd size): (11 157) ë„‚µÿ(clientfd size): (11 8) ™šBWÍ‹
+(clientfd size): (11 327) Høö°ø‹ûjx£Bñ*~Ñ¾Ö´­ÇÃk“‹M¼~u­ª[¬‚9v"ı¢|`İ•çmk™à–Y:é§vâú5Ñß_zé_M|¼-o¯ÓS¦•šjItz-UÛi|[î®õÚø%¤Ş*ı—?i‡š÷‰>É¤ÿ(clientfd size): (11 102) ÍÄdíaØ‘2T}(clientfd size): (11 513) Ûg]Çı©¸µ´¨g·+ÉPûX©Æ(clientfd size): (11 247) N×“Ôõ¢¡ÂMëRKÒöÿ(clientfd size): (11 58) Á8ağ÷ÄÏøÿ(clientfd size): (11 76) Ëö€Ğ<39]&=CEÕ¼1kªÁ´’yñâ-¤¶f†;±¸eŒb7 dı¢üUû)ø>ïTøYû0Økºìº†€²Í¨YjÍVÚ˜FÉÛ
+(clientfd size): (11 38) yÆ86©ëò–;>!×.µûmkÏÔîÚùj÷7(—|}rA
+(clientfd size): (11 376) Àä©(clientfd size): (11 268) Ãq9\Ÿ˜’«œ“ßÏÊï¯ü7õçªó<·¶¶õß[–muo°ZßÅ¤˜¥ˆc¼šø9F§åäv8«µnc°\Í)·’x¥‚Wo$©Â•Îà@ÂóÀÚ<ÓÎ£ì¦[‰$¸–é#ÿ(clientfd size): (11 205) ÈNWw0ÛL·³J–¶÷W,öîI…EòIÀËar(clientfd size): (11 208) ~B@8eå|Ã-ŠÅÖ¦º²Ğï|Gk})ó^\gûŞŞI‚v”€N7!Á,øWGñ&›5ìÚDš[G¦J.ã)y5w;(\dcğÀâ¿TéÔ¡%µMt{/.¶ï¾Ú\üÆ½*ô«sÛÓºWqº½öiéu{vgÁ_´×„¦ı–¾éÿ(clientfd size): (11 97) ¸ÃY•†0(clientfd size): (11 196) S¨ùé×²étß]şiè—_Ÿ¿'s«(bbùí­¶Ih­wÑùöí§áG†ü1â=Và¦™§\Í4–$ÑépH(\…äsz(clientfd size): (11 496) Y.Ì ~jâÇğÔrìñ§{+´•´òz½½›tsŠ3Ä8F7ŠkVíÖËK=Şm{Ÿü2ÿ(clientfd size): (11 3) HF
+(clientfd size): (11 174) NJ/-°Œ8Íİ?Âú«jQ]Ù›ìùw9]òp69Ú9*ªT‚Ü³Âki}u£iËko&›¶Ñ³o’r¡ÈpŞS€»Ötã<M.xGæİ›Û~–:¨Ô§Nn2z'¯ãÓ®Ò×şÎÒ<3áÍbİ¯õmQ¸¸’V2LºŠDXú•(N}NyëÒŠêô_øÆ¿Úa°U5Š$Èâ5ÜrNN[qö(à
+(clientfd size): (11 22) *å†‹“mÊşRhQ­Z·ÿClose connfd: 9
+Connected to connfd: 7(113.54.210.197, 54633)
+connfd: 7 GET http://detectportal.firefox.com/canonical.html HTTP/1.1
+connfd: 7 Host: detectportal.firefox.com
+connfd: 7 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+connfd: 7 Accept: */*
+connfd: 7 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+connfd: 7 Accept-Encoding: gzip, deflate
+connfd: 7 Cache-Control: no-cache
+connfd: 7 Pragma: no-cache
+connfd: 7 Connection: keep-alive
+connfd: 7 
+clientfd: 12 HTTP/1.0 200 OK
+(clientfd size): (12 15) Server: nginx
+(clientfd size): (12 20) Content-Length: 90
+(clientfd size): (12 17) Via: 1.1 google
+(clientfd size): (12 37) Date: Fri, 19 Jul 2024 14:52:23 GMT
+(clientfd size): (12 12) Age: 84108
+(clientfd size): (12 25) Content-Type: text/html
+(clientfd size): (12 63) Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+(clientfd size): (12 24) Connection: Keep-Alive
+(clientfd size): (12 2) 
+Connected to connfd: 9(113.54.210.197, 54642)
+connfd: 9 GET http://47.109.193.20:7109/cgi-bin/adder?1&2 HTTP/1.1
+connfd: 9 Host: 47.109.193.20:7109
+connfd: 9 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+connfd: 9 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+connfd: 9 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+connfd: 9 Accept-Encoding: gzip, deflate
+connfd: 9 Connection: keep-alive
+connfd: 9 Upgrade-Insecure-Requests: 1
+connfd: 9 
+clientfd: 14 HTTP/1.0 200 OK
+(clientfd size): (14 25) Server: Tiny Web Server
+(clientfd size): (14 19) Connection: close
+(clientfd size): (14 21) Content-length: 105
+(clientfd size): (14 25) Content-type: text/html
+(clientfd size): (14 2) 
+(clientfd size): (14 51) Welcome to add.com: THE Internet addition portal.
+(clientfd size): (14 29) <p>The answer is: 1 + 2 = 3
+(clientfd size): (14 25) <p>Thanks for visiting!
+Close connfd: 9
+Connected to connfd: 13(113.54.210.197, 54653)
+connfd: 13 GET http://47.109.193.20:7109/cgi-bin/adder?1&2 HTTP/1.1
+connfd: 13 Host: 47.109.193.20:7109
+connfd: 13 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+connfd: 13 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+connfd: 13 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+connfd: 13 Accept-Encoding: gzip, deflate
+connfd: 13 Connection: keep-alive
+connfd: 13 Upgrade-Insecure-Requests: 1
+connfd: 13 
+clientfd: 15 HTTP/1.0 200 OK
+(clientfd size): (15 25) Server: Tiny Web Server
+(clientfd size): (15 19) Connection: close
+(clientfd size): (15 21) Content-length: 105
+(clientfd size): (15 25) Content-type: text/html
+(clientfd size): (15 2) 
+(clientfd size): (15 51) Welcome to add.com: THE Internet addition portal.
+(clientfd size): (15 29) <p>The answer is: 1 + 2 = 3
+(clientfd size): (15 25) <p>Thanks for visiting!
+Close connfd: 13
+Connected to connfd: 9(localhost, 47268)
+connfd: 9 GET http://detectportal.firefox.com/canonical.html HTTP/1.1
+connfd: 9 Host: detectportal.firefox.com
+connfd: 9 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 9 Accept: */*
+connfd: 9 Accept-Language: en-US,en;q=0.5
+connfd: 9 Accept-Encoding: gzip, deflate
+connfd: 9 Cache-Control: no-cache
+connfd: 9 Pragma: no-cache
+connfd: 9 Connection: keep-alive
+connfd: 9 
+clientfd: 16 HTTP/1.0 200 OK
+(clientfd size): (16 15) Server: nginx
+(clientfd size): (16 20) Content-Length: 90
+(clientfd size): (16 17) Via: 1.1 google
+(clientfd size): (16 37) Date: Fri, 19 Jul 2024 14:52:23 GMT
+(clientfd size): (16 12) Age: 84201
+(clientfd size): (16 25) Content-Type: text/html
+(clientfd size): (16 63) Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+(clientfd size): (16 24) Connection: Keep-Alive
+(clientfd size): (16 2) 
+Connected to connfd: 13(localhost, 39900)
+Connected to connfd: 17(localhost, 39906)
+Connected to connfd: 18(localhost, 35608)
+Connected to connfd: 25(localhost, 35618)
+Connected to connfd: 26(localhost, 37546)
+Connected to connfd: 27(113.54.210.197, 54695)
+Connected to connfd: 28(113.54.210.197, 54702)
+Connected to connfd: 29(113.54.210.197, 54714)
+Connected to connfd: 30(113.54.210.197, 54715)
+Connected to connfd: 31(113.54.210.197, 54716)
+Connected to connfd: 32(113.54.210.197, 54717)
+Connected to connfd: 33(113.54.210.197, 54720)
+Connected to connfd: 34(113.54.210.197, 54721)
+Connected to connfd: 35(113.54.210.197, 54722)
+Connected to connfd: 36(113.54.210.197, 54723)
+Connected to connfd: 37(113.54.210.197, 54724)

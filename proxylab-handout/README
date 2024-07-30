@@ -49,8 +49,8 @@ tiny
 
 test:
 telnet:
-> telnet 127.0.0.1 7108
-> GET http://www.cmu.edu/hub/index.html HTTP/1.1
+> telnet 47.109.193.20 7108
+> GET http://47.109.193.20:7109/ HTTP/1.1
 > Host: www.cmu.edu
 >
 
@@ -63,3 +63,7 @@ or
 
 curl:
 > curl -v --proxy http://localhost:7108 http://localhost:7109/
+
+浏览器:
+http://47.109.193.20:7109/
+http://47.109.193.20:7109/cgi-bin/adder?1&2

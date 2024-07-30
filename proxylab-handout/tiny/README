@@ -23,7 +23,7 @@ To run Tiny:
    Run "tiny <port>" on the server machine, 
 	e.g., "tiny 7109".
    Point your browser at Tiny: 
-	static content: http://127.0.0.1:7109 or http://47.109.193.20:7109
+	static content: http://127.0.0.1:7109/ or http://47.109.193.20:7109/
 	dynamic content: http://127.0.0.1:7109/cgi-bin/adder?1&2 or http://47.109.193.20:7109/cgi-bin/adder?1&2
 
 使用telnet测试Tiny:

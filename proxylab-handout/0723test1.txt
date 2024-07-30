@@ -1,0 +1,172 @@
+Connected to connfd: 4(113.54.208.127, 55375)
+connfd: 4 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 4(113.54.208.127, 55376)
+connfd: 4 GET http://detectportal.firefox.com/canonical.html HTTP/1.1
+connfd: 4 Host: detectportal.firefox.com
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+connfd: 4 Accept: */*
+connfd: 4 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Cache-Control: no-cache
+connfd: 4 Pragma: no-cache
+connfd: 4 Connection: keep-alive
+connfd: 4 
+Connected to connfd: 5(113.54.208.127, 55378)
+connfd: 5 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 5
+Connected to connfd: 7(113.54.208.127, 55379)
+connfd: 7 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 7
+Connected to connfd: 5(113.54.208.127, 55374)
+connfd: 5 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 5
+Connected to connfd: 7(113.54.208.127, 55380)
+Connected to connfd: 5(113.54.208.127, 55377)
+connfd: 7 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 7
+Connected to connfd: 8(113.54.208.127, 55381)
+Connected to connfd: 7(113.54.208.127, 55382)
+connfd: 8 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 8
+connfd: 7 CONNECT push.services.mozilla.com:443 HTTP/1.1
+Close connfd: 7
+clientfd: 6 HTTP/1.0 200 OK
+clientfd: 6 Server: nginx
+clientfd: 6 Content-Length: 90
+clientfd: 6 Via: 1.1 google
+clientfd: 6 Date: Mon, 22 Jul 2024 07:34:30 GMT
+clientfd: 6 Age: 67478
+clientfd: 6 Content-Type: text/html
+clientfd: 6 Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+clientfd: 6 Connection: Keep-Alive
+clientfd: 6 
+(clientfd size): (6 2) "k›RClose connfd: 4
+Connected to connfd: 9(113.54.208.127, 55383)
+connfd: 9 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 9
+Connected to connfd: 4(113.54.208.127, 55384)
+connfd: 4 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 7(113.54.208.127, 55385)
+connfd: 7 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 7
+Connected to connfd: 4(113.54.208.127, 55386)
+connfd: 4 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 7(113.54.208.127, 55387)
+connfd: 7 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 7
+Connected to connfd: 4(113.54.208.127, 55388)
+connfd: 4 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 7(113.54.208.127, 55389)
+connfd: 7 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 7
+Connected to connfd: 4(113.54.208.127, 55390)
+connfd: 4 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 7(113.54.208.127, 55391)
+connfd: 7 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 7
+Connected to connfd: 4(113.54.208.127, 55392)
+connfd: 4 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 7(113.54.208.127, 55393)
+connfd: 7 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 7
+Connected to connfd: 4(113.54.208.127, 55394)
+connfd: 4 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 7(113.54.208.127, 55395)
+connfd: 7 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 7
+Connected to connfd: 4(113.54.208.127, 55396)
+connfd: 4 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 7(113.54.208.127, 55397)
+connfd: 7 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 7
+Connected to connfd: 4(113.54.208.127, 55398)
+connfd: 4 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 7(113.54.208.127, 55399)
+connfd: 7 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 7
+Connected to connfd: 4(113.54.208.127, 55400)
+connfd: 4 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 7(113.54.208.127, 55401)
+connfd: 7 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 7
+Connected to connfd: 4(113.54.208.127, 55402)
+connfd: 4 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 7(113.54.208.127, 55403)
+connfd: 7 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 7
+Connected to connfd: 4(113.54.208.127, 55404)
+connfd: 4 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 7(113.54.208.127, 55405)
+connfd: 7 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 7
+Connected to connfd: 4(113.54.208.127, 55406)
+connfd: 4 CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 4
+connfd: 5 GET http://detectportal.firefox.com/canonical.html HTTP/1.1
+connfd: 5 Host: detectportal.firefox.com
+connfd: 5 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+connfd: 5 Accept: */*
+connfd: 5 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+connfd: 5 Accept-Encoding: gzip, deflate
+connfd: 5 Cache-Control: no-cache
+connfd: 5 Pragma: no-cache
+connfd: 5 Connection: keep-alive
+connfd: 5 
+clientfd: 4 HTTP/1.0 200 OK
+clientfd: 4 Server: nginx
+clientfd: 4 Content-Length: 90
+clientfd: 4 Via: 1.1 google
+clientfd: 4 Date: Mon, 22 Jul 2024 09:32:16 GMT
+clientfd: 4 Age: 60416
+clientfd: 4 Content-Type: text/html
+clientfd: 4 Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+clientfd: 4 Connection: Keep-Alive
+clientfd: 4 
+(clientfd size): (4 2) "k›RClose connfd: 5
+Connected to connfd: 7(113.54.208.127, 55407)
+connfd: 7 GET http://detectportal.firefox.com/canonical.html HTTP/1.1
+connfd: 7 Host: detectportal.firefox.com
+connfd: 7 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+connfd: 7 Accept: */*
+connfd: 7 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+connfd: 7 Accept-Encoding: gzip, deflate
+connfd: 7 Cache-Control: no-cache
+connfd: 7 Pragma: no-cache
+connfd: 7 Connection: keep-alive
+connfd: 7 
+clientfd: 8 HTTP/1.0 200 OK
+clientfd: 8 Server: nginx
+clientfd: 8 Content-Length: 90
+clientfd: 8 Via: 1.1 google
+clientfd: 8 Date: Mon, 22 Jul 2024 07:34:30 GMT
+clientfd: 8 Age: 67485
+clientfd: 8 Content-Type: text/html
+clientfd: 8 Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+clientfd: 8 Connection: Keep-Alive
+clientfd: 8 
+(clientfd size): (8 2) "k›RClose connfd: 7
+Connected to connfd: 5(113.54.208.127, 55408)
+connfd: 5 CONNECT aus5.mozilla.org:443 HTTP/1.1
+Close connfd: 5
+Connected to connfd: 7(113.54.208.127, 55409)
+connfd: 7 GET http://ciscobinary.openh264.org/openh264-linux64-2e1774ab6dc6c43debb0b5b628bdf122a391d521.zip HTTP/1.1
+connfd: 7 Host: ciscobinary.openh264.org
+connfd: 7 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+connfd: 7 Accept: */*
+connfd: 7 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+connfd: 7 Accept-Encoding: gzip, deflate
+connfd: 7 Connection: keep-alive
+connfd: 7 
+clientfd: 9 HTTP/1.0 200 OK

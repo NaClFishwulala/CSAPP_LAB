@@ -1,0 +1,343 @@
+Connected to connfd: 4(113.54.210.197, 51383)
+GET http://47.109.193.20:7109/ HTTP/1.1
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 120
+Content-type: text/html
+
+<html>
+<head><title>test</title></head>
+<body> 
+<img align="middle" src="godzilla.gif">
+Dave O'Hallaron
+</body>
+</html>
+Close connfd: 4
+GET http://detectportal.firefox.com/canonical.html HTTP/1.1
+Host: detectportal.firefox.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Cache-Control: no-cache
+Pragma: no-cache
+Connection: keep-alive
+
+Connected to connfd: 5(113.54.210.197, 51387)
+CONNECT contile.services.mozilla.com:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 4(113.54.210.197, 51388)
+CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 4(113.54.210.197, 51389)
+HTTP/1.0 200 OK
+Server: nginx
+Content-Length: 90
+Via: 1.1 google
+Date: Fri, 19 Jul 2024 14:52:23 GMT
+Age: 78966
+Content-Type: text/html
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Connection: Keep-Alive
+
+POST http://r10.o.lencr.org/ HTTP/1.1
+Close connfd: 4
+Connected to connfd: 4(113.54.210.197, 51391)
+GET http://47.109.193.20:7109/ HTTP/1.1
+Host: 47.109.193.20:7109
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 120
+Content-type: text/html
+
+<html>
+<head><title>test</title></head>
+<body> 
+<img align="middle" src="godzilla.gif">
+Dave O'Hallaron
+</body>
+</html>
+Close connfd: 4
+Connected to connfd: 4(113.54.210.197, 51392)
+GET http://47.109.193.20:7109/ HTTP/1.1
+Host: 47.109.193.20:7109
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+DNT: 1
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Pragma: no-cache
+Cache-Control: no-cache
+
+Connected to connfd: 4(113.54.210.197, 51393)
+GET http://47.109.193.20:7109/godzilla.gif HTTP/1.1
+Host: 47.109.193.20:7109
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+Accept: image/avif,image/webp,*/*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Referer: http://47.109.193.20:7109/
+
+Connected to connfd: 8(113.54.210.197, 51394)
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 120
+Content-type: text/html
+
+<html>
+<head><title>test</title></head>
+<body> 
+<img align="middle" src="godzilla.gif">
+Dave O'Hallaron
+</body>
+</html>
+Close connfd: 4
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 12155
+Content-type: image/gif
+
+GIF87ad„áXcHØamBUyQ¥˜5%H4Z‹G’‘@3¤ÕX† ‘ÓèËÌüLbsiH£$†ÜhTËÑ!Îr†(8d Q”R‰°LX³¤°X©T€ö”
+M>µH{æ…0**&©Re¤&êkÚªÂ Ê#8Zş¸Ò!çD’%JN%‘’æçZ¿ZEˆ334|äP¢t!¦,$°JhPåÀ_ á%Æ†”|²C&$¹W/¨€$gàR…†U¸ò‰_¸XÒ‚ZËUŠxk¹R;¬ñ†&µB‚$Pt2Afµ<PDP²Á} pË	JH"	_ğË/CHòY{”´‚Å_$’ˆ(H‰«á/7!Æ±pµGo@PÆ'g¨ }RA+¨%Æ*4ÖˆQ ,
+ü‚F#¬œ€¦42¿ÄFÉŸL2Å!¼p°@-şµ(ğÅQ8€%$|±Š'4"+ ñ–J,àr.Âì .¡P‘À+rõRÕ¹â
+Š|µ¾AE*\bHö
+B´Òk"­”°J+C<©é%~!É¥ 0“G8qEXÔÒˆ¬ÈÒÊ$QâÀI”"åB$ÒH"SÈ°ZÒ*|R„ |*Œ"* ¤‚0©¼É[ŠTà
+_Y‚
+™HàÈ*– /9pr‡«L!É¿4Ç!2¸¤€$œ±Ÿd’„°|ñß‘"!ŒX(`”ÁJ2ùÆÀ4Ÿ¬0õLÃÑJ8È(+È‡Qp"/.Ô¢¤%prÈGˆ1L'I8¡DBèœÈ'b`Â€™${JC°‰
+á‰øB+$1Xm	†PB&Á
+aapÃÙ!	Pb	ğƒf¢Ä	9( P€fÑˆVÔ…d‚çV¸ê¼á´°›"&€‡ø:xÀZÁŠ9 "	¤ØÄÜ‰V8I¨Ô¢0Æ`!œ¥PÀ*HÅµÑ¼€±èÄJ€ÅM8
+ªÄ’€…U`áCø„”à‚8@BØ„Z!
+
+4"~”8ã;£à„LdDN 3ÁPº%ü÷…+É!5ìc%z5 a…›À`C á¯P"øô—ßDlÈ@æ`ÀÌ0!(“.°/P!%Ì“‚(JA	)4àsPÂ¸0	¼áS§°€™U@á(FXá™€“HÁÓJD€xØ‡	,¼âiƒ%hÑ†
+ôB|\Q(ê¨€µ’ƒ” \˜’Œ†Ô4"‰ZŞ@@Å_ğ€ $Ò	xÀÂ$à`ÀB0q„ZNSBhP‚D¸Áüğp(¬¤fÂšøêâŒ“ äm>´¢T¸ÁfÇò‹¶ÀXiáà‡„¡!àOJLÑ´©q´’&s,ˆ84#	Ûğ \D–8¡… è2 S	CÀJóE	CP
+|@òEğar¼àJJ@]’A	´`ˆÒn‚Ã'®€Â@
+
+ p0ÃÀm ™`¤0BÀŸ`. 	 ğZm †ğ(@Uh/X°‰0I0¸p{s•¨.©Ö
+~p¸Tìƒ…@	…ĞdğĞr)p’«ñ” Wğ"D=†°®ğkp“ğXkp‰MP¼ 	Jğ 
+
+€ºğX‹¨æ)ş“i7PZO¢~°)xï8Z`5Z UCpÀ	pÀÃ nñè"¸ğ±ğFvş£á—¨^ğe0 ¡xh8Ğ¤JA2PÌ6@Ğ’øe:àª™ä’ñâm¬¡z@¦…ëã{R a€?€+À
+ÀÀi8„JÀ
+W0^À£	`À@p;¾Ğx €	p<‰ ^À
+¶2+‰	ÎÅAè.%< F¼0V¾’{ª1?` şå$¸Ò@’€ĞŠCV#‰0nÀR@KĞ­€ib`ŸÀ
+I K0N·1×øEW*‡´C	<ğ­šâ$ñò­4§Ğrr {÷daÚ7¦@&€d2‚šğ7à=@ )Pø@*À;Q€P”!’	’@OÀµ€i°
+µ1?à	ªà%rPúd«»
+pöú8E|À…fè
+Š€±à/ó
+Ëñ	š V¥r |7š	&°·'Šµ€À	û&”@2@	(†RpMï¤	h†_À6à	xàxà:`~ş%ÃªpC°’« F&z	o`R0¬ÏF
+R`Màq7¬`X"¿éw¿yR0¿àlT(Üéªi±I ¯œ”ğµ)@ğ 	ˆ™ë4R	/CĞ:0v—Ğw5äEq±a|÷hZ«ÑˆğdÃgÂZ:f|“şÆKøµ[f!|ÒÃQHPi`™Õ	‰°tA >€	`Ğ	;@`ÚdR²à_UÁ$_€
+pU7Oë4.åm‚,¼¦±Kµ¥¤x#… °À×+	ç¸YC˜¦õN•ÀÌ>&>V&‰ÀPX ˜şL2	›JŠóEŠ›a#Rœ¾¥¿P
+BNÓdŸp-Ô2Ù’‹!B-™>`À¸€+˜1	¶â*ğq#À¦æ¯!
+Ê!UZ®µ@X¨8 Ë¢iµì À^PMÀ½§ğÉ‘	®pAPµ¿‚ë`b#zı"¡A#rHP‚…%§47\ø¼ñtˆ$¿…°,©ÕHŠœ¿Zş.D	MO¥pœŞpõæ“+EŸD(‘äÄW&?‡0à‘©„‰8È±!â&o‘`
+$€)=œ”C™D#é/aÁòM#C%mÀÂgô/4ÇIêÙM)’ø¤d=‡$ˆ‡SÂUÅU*©:­ê„.À‚„P@‡‚ƒ¢Pâ“Ví—¿~âÃ’(ğƒ$¡ä©F†ù$Š¦L*dˆ÷„P`I°¨%jûEEJôøKõnşâ†Æ*¢_¹á¯øŞüå†8‚/?¾Øh´M"oW„±D…7:Ù!M†éÄVdÂ‹&,q©9Âä’½,4NL†0`• #±£5Æ{”d>ÀF£ÄNô9ì£H(¬–(ğˆº•Š¯)9LëÀˆ3px1<™€`¢`£6ğÈÓGÊ2™íAd_SPşjA¡ãPNM9Î›få—·üïC’ŒÍ ‚8ğƒÔA
+J4°b(`JòÎ8ÒÃÂºşX¹ˆL,F Ø×€6¬;I‚zP€ø´så (ä"AtS|ÉIjFÀ&Òà…	8`¾Àƒ/zà„$È€5Ì€‚„F‚Cˆà‰ÂhÀH…4Ø`™ø˜/ÄĞƒ9ˆ€t¡P’ 8xV˜KXcµIâ’•9âÊçş|ú%“h è#¢÷<°ğvÏ(œx(y†1?ğfÆA*ªÜbJPgåÑÜIR|E0A±PS€r€Î'yÂ‹$j‘«‰hN=—¬: ^C	eØCŞ %³l441›šÿ"¢#êä0… yşç“çñ´2/êğ\#pÃVtŠ?ÉH£å	–ƒ“àÀÌwªÃÂ¢/~	ã"qĞ˜X—,Dº3ĞÄuWÖÜ¢÷ö—é”$~m
+`‹ÔÇ·ÄzÏaká‹E`brÄƒ‚ğ6L"nèS˜Àì´)õi•.¼FPEøÊæSH ÈÙé/á$­Ô4¸nh28šğâz!˜&÷4˜@":±^˜Ş":FÁìŞËí¥?ØˆÄ9øJxÅ††#ÀC‚†&°": ¢PˆÏä àA(ş9
+=­Átú”í"2H¡Ü”wÒ@=™V’QÌR?lîŠr5OÂH>t š`Û')çâCäPæ·LpÄQÖ)—ó…FÜZ/3/b˜ˆiõ·T.(;:—p±@‘ZÂaA
+à	ğ@apî¢€t€ÚöÑ Ñ—öuõLhp!fõ9W]ÂÖ¯sàŒÁˆ‘‹z+
+8	Aš{+¿‘°—ÂµŸ˜ˆ@Ÿ8Ær/PØLşØ6hÌOˆ=,€`À"È€X!fƒ™<£+ü ø–øÍ™•-=¨‘öˆ‚¼AÀJŠ»	”®É÷Óa†LØ„À†:œ„Nhƒ6é·Ih±ˆÈ›!˜Jp!‰ÑÈ›ã8–éøˆøP¹ÃIÆZ@¦ü`)øÈÃ@è“›)4`€âÀµÿùş8aÇ™˜A’+¿Ğx=ˆ …)è„&X‰*»CÀ‚G¿x„zšëÜÅ¿H¹Téº+Z&
+:‰lM4ˆ‚s„Ä¼ğ	Í‰ A:, º(ëş1Âkƒ
+ø„éR‚Lx^€ƒŞ’‘d\2‰(J›Y”¢T™é:]jƒ7†
+À0x€(h…#P²Ñ ™¢À€Ä%>üz º»¤‹ê4z?Ğ'ÚZÁBøX¨‰24P€Â9QÍ€ÉJ0ĞM¨¡„
+†3Hz*’Ä¿¡©²Ç,@29À?S¸üb¦÷bŠœx@C2“`Ù
+xìU9,Œº­Fƒ ´ép?4P*è…3ø„5(ÔÔ@aH1‚æ)0Î3Ó?=À®9¬h6¨EHé@—.Aä¿Ğ¼½tÊßûE=a¶u-))e¹fàÆ\#¨‚UKé^0ş’û‚ÚPp^ãÈÆˆ„ÆRƒƒÈBï©8ƒ0„õ¦…oï…6hiÅ”mƒ8?WX\x^Z‚tQˆ‚@ HĞÙ‹^é™À1ØzŠ2jë½¤ÿ‚$x	ö4 *`‚ÅFd$p…V[©@ä`ŒZÿˆÉ1jÂ£åEëQ,@€‚N@0LşÅÌ’QqZ¨PaÈ¥3-„µ‚¥¬*ŞèğEr$"G+;d€È/HÒ	Cğ!ÇŒq’C!1z–BÒH+Q4ÂG#5BI9HbHoĞ‚Ã'†0K(H¨aˆ0
+­ñIU¼ñB/´Ø¦B`Ğbš* Ê*Ğâ
+˜®àğB	°È¡ƒ” 0„I(Ğ
+KHBÊ
+ªDAS-hHÒPh$VN9P2	È!I-ğÁ)%C,Á_E@Close connfd: 8
+CONNECT safebrowsing.googleapis.com:443 HTTP/1.1
+Close connfd: 11
+Connected to connfd: 11(113.54.210.197, 51395)
+CONNECT shavar.services.mozilla.com:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 4(113.54.210.197, 51396)
+CONNECT push.services.mozilla.com:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 4(113.54.210.197, 51397)
+GET http://47.109.193.20:7109/godzilla.gif HTTP/1.1
+Host: 47.109.193.20:7109
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+Accept: image/avif,image/webp,*/*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+DNT: 1
+Connection: keep-alive
+Referer: http://47.109.193.20:7109/
+Pragma: no-cache
+Cache-Control: no-cache
+
+Connected to connfd: 4(113.54.210.197, 51398)
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 12155
+Content-type: image/gif
+
+GIF87ad„áXcHØamBUyQ¥˜5%H4Z‹G’‘@3¤ÕX† ‘ÓèËÌüLbsiH£$†ÜhTËÑ!Îr†(8d Q”R‰°LX³¤°X©T€ö”
+M>µH{æ…0**&©Re¤&êkÚªÂ Ê#8Zş¸Ò!çD’%JN%‘’æçZ¿ZEˆ334|äP¢t!¦,$°JhPåÀ_ á%Æ†”|²C&$¹W/¨€$gàR…†U¸ò‰_¸XÒ‚ZËUŠxk¹R;¬ñ†&µB‚$Pt2Afµ<PDP²Á} pË	JH"	_ğË/CHòY{”´‚Å_$’ˆ(H‰«á/7!Æ±pµGo@PÆ'g¨ }RA+¨%Æ*4ÖˆQ ,
+ü‚F#¬œ€¦42¿ÄFÉŸL2Å!¼p°@-şµ(ğÅQ8€%$|±Š'4"+ ñ–J,àr.Âì .¡P‘À+rõRÕ¹â
+Š|µ¾AE*\bHö
+B´Òk"­”°J+C<©é%~!É¥ 0“G8qEXÔÒˆ¬ÈÒÊ$QâÀI”"åB$ÒH"SÈ°ZÒ*|R„ |*Œ"* ¤‚0©¼É[ŠTà
+_Y‚
+™HàÈ*– /9pr‡«L!É¿4Ç!2¸¤€$œ±Ÿd’„°|ñß‘"!ŒX(`”ÁJ2ùÆÀ4Ÿ¬0õLÃÑJ8È(+È‡Qp"/.Ô¢¤%prÈGˆ1L'I8¡DBèœÈ'b`Â€™${JC°‰
+á‰øB+$1Xm	†PB&Á
+aapÃÙ!	Pb	ğƒf¢Ä	9( P€fÑˆVÔ…d‚çV¸ê¼á´°›"&€‡ø:xÀZÁŠ9 "	¤ØÄÜ‰V8I¨Ô¢0Æ`!œ¥PÀ*HÅµÑ¼€±èÄJ€ÅM8
+ªÄ’€…U`áCø„”à‚8@BØ„Z!
+
+4"~”8ã;£à„LdDN 3ÁPº%ü÷…+É!5ìc%z5 a…›À`C á¯P"øô—ßDlÈ@æ`ÀÌ0!(“.°/P!%Ì“‚(JA	)4àsPÂ¸0	¼áS§°€™U@á(FXá™€“HÁÓJD€xØ‡	,¼âiƒ%hÑ†
+ôB|\Q(ê¨€µ’ƒ” \˜’Œ†Ô4"‰ZŞ@@Å_ğ€ $Ò	xÀÂ$à`ÀB0q„ZNSBhP‚D¸Áüğp(¬¤fÂšøêâŒ“ äm>´¢T¸ÁfÇò‹¶ÀXiáà‡„¡!àOJLÑ´©q´’&s,ˆ84#	Ûğ \D–8¡… è2 S	CÀJóE	CP
+|@òEğar¼àJJ@]’A	´`ˆÒn‚Ã'®€Â@
+
+ p0ÃÀm ™`¤0BÀŸ`. 	 ğZm †ğ(@Uh/X°‰0I0¸p{s•¨.©Ö
+~p¸Tìƒ…@	…ĞdğĞr)p’«ñ” Wğ"D=†°®ğkp“ğXkp‰MP¼ 	Jğ 
+
+€ºğX‹¨æ)ş“i7PZO¢~°)xï8Z`5Z UCpÀ	pÀÃ nñè"¸ğ±ğFvş£á—¨^ğe0 ¡xh8Ğ¤JA2PÌ6@Ğ’øe:àª™ä’ñâm¬¡z@¦…ëã{R a€?€+À
+ÀÀi8„JÀ
+W0^À£	`À@p;¾Ğx €	p<‰ ^À
+¶2+‰	ÎÅAè.%< F¼0V¾’{ª1?` şå$¸Ò@’€ĞŠCV#‰0nÀR@KĞ­€ib`ŸÀ
+I K0N·1×øEW*‡´C	<ğ­šâ$ñò­4§Ğrr {÷daÚ7¦@&€d2‚šğ7à=@ )Pø@*À;Q€P”!’	’@OÀµ€i°
+µ1?à	ªà%rPúd«»
+pöú8E|À…fè
+Š€±à/ó
+Ëñ	š V¥r |7š	&°·'Šµ€À	û&”@2@	(†RpMï¤	h†_À6à	xàxà:`~ş%ÃªpC°’« F&z	o`R0¬ÏF
+R`Màq7¬`X"¿éw¿yR0¿àlT(Üéªi±I ¯œ”ğµ)@ğ 	ˆ™ë4R	/CĞ:0v—Ğw5äEq±a|÷hZ«ÑˆğdÃgÂZ:f|“şÆKøµ[f!|ÒÃQHPi`™Õ	‰°tA >€	`Ğ	;@`ÚdR²à_UÁ$_€
+pU7Oë4.åm‚,¼¦±Kµ¥¤x#… °À×+	ç¸YC˜¦õN•ÀÌ>&>V&‰ÀPX ˜şL2	›JŠóEŠ›a#Rœ¾¥¿P
+BNÓdŸp-Ô2Ù’‹!B-™>`À¸€+˜1	¶â*ğq#À¦æ¯!
+Ê!UZ®µ@X¨8 Ë¢iµì À^PMÀ½§ğÉ‘	®pAPµ¿‚ë`b#zı"¡A#rHP‚…%§47\ø¼ñtˆ$¿…°,©ÕHŠœ¿Zş.D	MO¥pœŞpõæ“+EŸD(‘äÄW&?‡0à‘©„‰8È±!â&o‘`
+$€)=œ”C™D#é/aÁòM#C%mÀÂgô/4ÇIêÙM)’ø¤d=‡$ˆ‡SÂUÅU*©:­ê„.À‚„P@‡‚ƒ¢Pâ“Ví—¿~âÃ’(ğƒ$¡ä©F†ù$Š¦L*dˆ÷„P`I°¨%jûEEJôøKõnşâ†Æ*¢_¹á¯øŞüå†8‚/?¾Øh´M"oW„±D…7:Ù!M†éÄVdÂ‹&,q©9Âä’½,4NL†0`• #±£5Æ{”d>ÀF£ÄNô9ì£H(¬–(ğˆº•Š¯)9LëÀˆ3px1<™€`¢`£6ğÈÓGÊ2™íAd_SPşjA¡ãPNM9Î›få—·üïC’ŒÍ ‚8ğƒÔA
+J4°b(`JòÎ8ÒÃÂºşX¹ˆL,F Ø×€6¬;I‚zP€ø´så (ä"AtS|ÉIjFÀ&Òà…	8`¾Àƒ/zà„$È€5Ì€‚„F‚Cˆà‰ÂhÀH…4Ø`™ø˜/ÄĞƒ9ˆ€t¡P’ 8xV˜KXcµIâ’•9âÊçş|ú%“h è#¢÷<°ğvÏ(œx(y†1?ğfÆA*ªÜbJPgåÑÜIR|E0A±PS€r€Î'yÂ‹$j‘«‰hN=—¬: ^C	eØCŞ %³l441›šÿ"¢#êä0… yşç“çñ´2/êğ\#pÃVtŠ?ÉH£å	–ƒ“àÀÌwªÃÂ¢/~	ã"qĞ˜X—,Dº3ĞÄuWÖÜ¢÷ö—é”$~m
+`‹ÔÇ·ÄzÏaká‹E`brÄƒ‚ğ6L"nèS˜Àì´)õi•.¼FPEøÊæSH ÈÙé/á$­Ô4¸nh28šğâz!˜&÷4˜@":±^˜Ş":FÁìŞËí¥?ØˆÄ9øJxÅ††#ÀC‚†&°": ¢PˆÏä àA(ş9
+=­Átú”í"2H¡Ü”wÒ@=™V’QÌR?lîŠr5OÂH>t š`Û')çâCäPæ·LpÄQÖ)—ó…FÜZ/3/b˜ˆiõ·T.(;:—p±@‘ZÂaA
+à	ğ@apî¢€t€ÚöÑ Ñ—öuõLhp!fõ9W]ÂÖ¯sàŒÁˆ‘‹z+
+8	Aš{+¿‘°—ÂµŸ˜ˆ@Ÿ8Ær/PØLşØ6hÌOˆ=,€`À"È€X!fƒ™<£+ü ø–øÍ™•-=¨‘öˆ‚¼AÀJŠ»	”®É÷Óa†LØ„À†:œ„Nhƒ6é·Ih±ˆÈ›!˜Jp!‰ÑÈ›ã8–éøˆøP¹ÃIÆZ@¦ü`)øÈÃ@è“›)4`€âÀµÿùş8aÇ™˜A’+¿Ğx=ˆ …)è„&X‰*»CÀ‚G¿x„zšëÜÅ¿H¹Téº+Z&
+:‰lM4ˆ‚s„Ä¼ğ	Í‰ A:, º(ëş1Âkƒ
+ø„éR‚Lx^€ƒŞ’‘d\2‰(J›Y”¢T™é:]jƒ7†
+À0x€(h…#P²Ñ ™¢À€Ä%>üz º»¤‹ê4z?Ğ'ÚZÁBøX¨‰24P€Â9QÍ€ÉJ0ĞM¨¡„
+†3Hz*’Ä¿¡©²Ç,@29À?S¸üb¦÷bŠœx@C2“`Ù
+xìU9,Œº­Fƒ ´ép?4P*è…3ø„5(ÔÔ@aH1‚æ)0Î3Ó?=À®9¬h6¨EHé@—.Aä¿Ğ¼½tÊßûE=a¶u-))e¹fàÆ\#¨‚UKé^0ş’û‚ÚPp^ãÈÆˆ„ÆRƒƒÈBï©8ƒ0„õ¦…oï…6hiÅ”mƒ8?WX\x^Z‚tQˆ‚@ HĞÙ‹^é™À1ØzŠ2jë½¤ÿ‚$x	ö4 *`‚ÅFd$p…V[©@ä`ŒZÿˆÉ1jÂ£åEëQ,@€‚N@0LşÅÌ’QqZ¨PaÈ¥3-„µ‚¥¬*ŞèğEr$"G+;d€È/HÒ	Cğ!ÇŒq’C!1z–BÒH+Q4ÂG#5BI9HbHoĞ‚Ã'†0K(H¨aˆ0
+­ñIU¼ñB/´Ø¦B`Ğbš* Ê*Ğâ
+˜®àğB	°È¡ƒ” 0„I(Ğ
+KHBÊ
+ªDAS-hHÒPh$VN9P2	È!I-ğÁ)%C,Á_E@Close connfd: 4
+CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1
+Close connfd: 8
+Connected to connfd: 8(113.54.210.197, 51399)
+CONNECT firefox.settings.services.mozilla.com:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 4(113.54.210.197, 51400)
+CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 4(113.54.210.197, 51401)
+CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 4(113.54.210.197, 51402)
+GET http://detectportal.firefox.com/canonical.html HTTP/1.1
+Host: detectportal.firefox.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Cache-Control: no-cache
+Pragma: no-cache
+Connection: keep-alive
+
+Connected to connfd: 4(113.54.210.197, 51403)
+HTTP/1.0 200 OK
+Server: nginx
+Content-Length: 90
+Via: 1.1 google
+Date: Fri, 19 Jul 2024 18:40:47 GMT
+Age: 65267
+Content-Type: text/html
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Connection: Keep-Alive
+
+CONNECT push.services.mozilla.com:443 HTTP/1.1
+Close connfd: 8
+Connected to connfd: 8(113.54.210.197, 51405)
+GET http://detectportal.firefox.com/canonical.html HTTP/1.1
+Host: detectportal.firefox.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Cache-Control: no-cache
+Pragma: no-cache
+Connection: keep-alive
+
+Connected to connfd: 8(113.54.210.197, 51407)
+HTTP/1.0 200 OK
+Server: nginx
+Content-Length: 90
+Via: 1.1 google
+Date: Fri, 19 Jul 2024 18:40:47 GMT
+Age: 65272
+Content-Type: text/html
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Connection: Keep-Alive
+
+GET http://47.109.193.20:7109/cgi-bin/adder?1&2 HTTP/1.1
+Host: 47.109.193.20:7109
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+Connected to connfd: 15(113.54.210.197, 51408)
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 105
+Content-type: text/html
+
+Welcome to add.com: THE Internet addition portal.
+<p>The answer is: 1 + 2 = 3
+<p>Thanks for visiting!
+Close connfd: 15
+GET http://detectportal.firefox.com/canonical.html HTTP/1.1
+Host: detectportal.firefox.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Cache-Control: no-cache
+Pragma: no-cache
+Connection: keep-alive
+
+Connected to connfd: 16(113.54.210.197, 51409)
+HTTP/1.0 200 OK
+Server: nginx
+Content-Length: 90
+Via: 1.1 google
+Date: Fri, 19 Jul 2024 14:52:23 GMT
+Age: 78981
+Content-Type: text/html
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Connection: Keep-Alive
+
+Connected to connfd: 15(113.54.210.197, 51412)
+Connected to connfd: 25(113.54.210.197, 51413)
+Connected to connfd: 26(113.54.210.197, 51415)
+Connected to connfd: 27(113.54.210.197, 51436)
+Connected to connfd: 28(113.54.210.197, 51438)
+Connected to connfd: 29(113.54.210.197, 51441)
+Connected to connfd: 30(113.54.210.197, 51442)
+Connected to connfd: 31(113.54.210.197, 51447)
+Connected to connfd: 32(113.54.210.197, 51448)
+Connected to connfd: 33(113.54.210.197, 51449)
+Connected to connfd: 34(113.54.210.197, 51462)
+Connected to connfd: 35(113.54.210.197, 51463)
+Connected to connfd: 36(113.54.210.197, 51464)
+Connected to connfd: 37(113.54.210.197, 51465)
+Connected to connfd: 38(113.54.210.197, 51466)
+Connected to connfd: 39(113.54.210.197, 51467)

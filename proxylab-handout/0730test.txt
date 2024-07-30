@@ -1,0 +1,1752 @@
+Connected to connfd: 4(47.109.193.20, 58032)
+hostname: 47.109.193.20, port: 7109, path: /
+not find cache!
+connfd: 4 Host: 47.109.193.20:7109
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 4 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
+connfd: 4 Accept-Language: en-US,en;q=0.5
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Connection: keep-alive
+connfd: 4 Upgrade-Insecure-Requests: 1
+connfd: 4 Priority: u=0, i
+connfd: 4 
+proxyfd: 6 HTTP/1.0 200 OK
+proxyfd: 6 Server: Tiny Web Server
+proxyfd: 6 Content-length: 120
+proxyfd: 6 Content-type: text/html
+proxyfd: 6 
+120
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 120
+Content-type: text/html
+
+
+<html>
+<head><title>test</title></head>
+<body> 
+<img align="middle" src="godzilla.jpg">
+Dave O'Hallaron
+</body>
+</html>
+±ý
+uri: http://47.109.193.20:7109/
+responseMeta: HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 120
+Content-type: text/html
+
+
+befor memcpy
+write cache 
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 58040)
+hostname: 47.109.193.20, port: 7109, path: /godzilla.jpg
+not find cache!
+connfd: 5 Host: 47.109.193.20:7109
+connfd: 5 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 5 Accept: image/avif,image/webp,image/png,image/svg+xml,image/*;q=0.8,*/*;q=0.5
+connfd: 5 Accept-Language: en-US,en;q=0.5
+connfd: 5 Accept-Encoding: gzip, deflate
+connfd: 5 Connection: keep-alive
+connfd: 5 Referer: http://47.109.193.20:7109/
+connfd: 5 Priority: u=5
+connfd: 5 
+proxyfd: 7 HTTP/1.0 200 OK
+proxyfd: 7 Server: Tiny Web Server
+proxyfd: 7 Content-length: 10858
+proxyfd: 7 Content-type: image/jpeg
+proxyfd: 7 
+10858
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 10858
+Content-type: image/jpeg
+
+
+ÿØÿà
+uri: http://47.109.193.20:7109/godzilla.jpg
+responseMeta: HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 10858
+Content-type: image/jpeg
+
+
+befor memcpy
+write cache 
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 54854)
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 54870)
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 54876)
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 54888)
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 54896)
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 54902)
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 54906)
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 54922)
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 54934)
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 54950)
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 33100)
+hostname: 47.109.193.20, port: 7109, path: /cgi-bin/adder?1&2
+not find cache!
+connfd: 4 Host: 47.109.193.20:7109
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 4 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
+connfd: 4 Accept-Language: en-US,en;q=0.5
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Connection: keep-alive
+connfd: 4 Upgrade-Insecure-Requests: 1
+connfd: 4 Priority: u=0, i
+connfd: 4 
+proxyfd: 8 HTTP/1.0 200 OK
+proxyfd: 8 Server: Tiny Web Server
+proxyfd: 8 Connection: close
+proxyfd: 8 Content-length: 105
+proxyfd: 8 Content-type: text/html
+proxyfd: 8 
+105
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 120
+Content-type: text/html
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 105
+Content-type: text/html
+
+
+Welcome to add.com: THE Internet addition portal.
+<p>The answer is: 1 + 2 = 3
+<p>Thanks for visiting!
+
+uri: http://47.109.193.20:7109/cgi-bin/adder?1&2
+responseMeta: HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 120
+Content-type: text/html
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 105
+Content-type: text/html
+
+
+befor memcpy
+write cache 
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 33108)
+hostname: 47.109.193.20, port: 7109, path: /favicon.ico
+not find cache!
+connfd: 5 Host: 47.109.193.20:7109
+connfd: 5 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 5 Accept: image/avif,image/webp,image/png,image/svg+xml,image/*;q=0.8,*/*;q=0.5
+connfd: 5 Accept-Language: en-US,en;q=0.5
+connfd: 5 Accept-Encoding: gzip, deflate
+connfd: 5 Connection: keep-alive
+connfd: 5 Referer: http://47.109.193.20:7109/cgi-bin/adder?1&2
+connfd: 5 Priority: u=6
+connfd: 5 
+proxyfd: 9 HTTP/1.0 404 Not found
+proxyfd: 9 Content-type: text/html
+proxyfd: 9 
+0
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 10858
+Content-type: image/jpeg
+
+HTTP/1.0 404 Not found
+Content-type: text/html
+
+
+
+uri: http://47.109.193.20:7109/favicon.ico
+responseMeta: HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 10858
+Content-type: image/jpeg
+
+HTTP/1.0 404 Not found
+Content-type: text/html
+
+
+befor memcpy
+write cache 
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7419)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7420)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7421)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7422)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7423)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7424)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7425)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7426)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7427)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7428)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7429)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7430)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7431)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7432)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7433)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7434)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7435)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7436)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7437)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7438)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7439)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7440)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7441)
+Connected to connfd: 5(113.54.208.78, 7442)
+Close connfd: 4
+Close connfd: 5
+Connected to connfd: 10(113.54.208.78, 7443)
+Close connfd: 10
+Connected to connfd: 4(113.54.208.78, 7444)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7445)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7446)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7447)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7448)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7449)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+not find cache!
+connfd: 4 Host: detectportal.firefox.com
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101 Firefox/127.0
+connfd: 4 Accept: */*
+connfd: 4 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Cache-Control: no-cache
+connfd: 4 Pragma: no-cache
+connfd: 4 Connection: keep-alive
+connfd: 4 
+Connected to connfd: 5(113.54.208.78, 7450)
+Close connfd: 5
+Connected to connfd: 11(113.54.208.78, 7451)
+Close connfd: 11
+Connected to connfd: 5(113.54.208.78, 7455)
+Close connfd: 5
+Connected to connfd: 5(113.54.208.78, 7456)
+Close connfd: 5
+Connected to connfd: 5(113.54.208.78, 7457)
+Close connfd: 5
+Connected to connfd: 5(113.54.208.78, 7458)
+Close connfd: 5
+Connected to connfd: 5(113.54.208.78, 7459)
+Close connfd: 5
+Connected to connfd: 5(113.54.208.78, 7460)
+Close connfd: 5
+Connected to connfd: 5(113.54.208.78, 7461)
+Close connfd: 5
+Connected to connfd: 5(113.54.208.78, 7462)
+Close connfd: 5
+Connected to connfd: 5(113.54.208.78, 7463)
+Close connfd: 5
+Connected to connfd: 5(113.54.208.78, 7464)
+Close connfd: 5
+Connected to connfd: 11(113.54.208.78, 7465)
+Close connfd: 11
+Connected to connfd: 5(113.54.208.78, 7466)
+Close connfd: 5
+proxyfd: 10 HTTP/1.0 200 OK
+proxyfd: 10 Server: nginx
+proxyfd: 10 Content-Length: 90
+proxyfd: 10 Via: 1.1 google
+proxyfd: 10 Date: Mon, 29 Jul 2024 16:47:18 GMT
+proxyfd: 10 Age: 51100
+proxyfd: 10 Content-Type: text/html
+proxyfd: 10 Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+proxyfd: 10 Connection: Keep-Alive
+proxyfd: 10 
+0
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 120
+Content-type: text/html
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 105
+Content-type: text/html
+
+HTTP/1.0 200 OK
+Server: nginx
+Content-Length: 90
+Via: 1.1 google
+Date: Mon, 29 Jul 2024 16:47:18 GMT
+Age: 51100
+Content-Type: text/html
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Connection: Keep-Alive
+
+
+proddetectportalprody
+uri: http://detectportal.firefox.com/canonical.html
+responseMeta: HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 120
+Content-type: text/html
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 105
+Content-type: text/html
+
+HTTP/1.0 200 OK
+Server: nginx
+Content-Length: 90
+Via: 1.1 google
+Date: Mon, 29 Jul 2024 16:47:18 GMT
+Age: 51100
+Content-Type: text/html
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Connection: Keep-Alive
+
+
+befor memcpy
+write cache 
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7467)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7468)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7469)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7470)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7471)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7472)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7474)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7473)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7475)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7476)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7477)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7479)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7478)
+Connected to connfd: 5(113.54.208.78, 7480)
+Close connfd: 4
+Close connfd: 5
+Connected to connfd: 11(113.54.208.78, 7481)
+Close connfd: 11
+Connected to connfd: 4(113.54.208.78, 7482)
+Connected to connfd: 5(113.54.208.78, 7483)
+Connected to connfd: 11(113.54.208.78, 7484)
+Close connfd: 5
+Close connfd: 4
+Close connfd: 11
+Connected to connfd: 12(113.54.208.78, 7485)
+Close connfd: 12
+Connected to connfd: 4(113.54.208.78, 7486)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7487)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7488)
+Connected to connfd: 5(113.54.208.78, 7489)
+Close connfd: 4
+Connected to connfd: 11(113.54.208.78, 7490)
+Close connfd: 11
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7491)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7492)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7493)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7494)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7496)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7495)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7497)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7498)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7499)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7502)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7500)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7501)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7503)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7504)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7506)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7505)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7507)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7508)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7509)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7510)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7511)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7513)
+hostname: detectportal.firefox.com, port: 80, path: /success.txt?ipv6
+not find cache!
+connfd: 5 Host: detectportal.firefox.com
+connfd: 5 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101 Firefox/127.0
+connfd: 5 Accept: */*
+connfd: 5 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+connfd: 5 Accept-Encoding: gzip, deflate
+connfd: 5 Connection: keep-alive
+connfd: 5 Priority: u=4
+connfd: 5 Pragma: no-cache
+connfd: 5 Cache-Control: no-cache
+connfd: 5 
+Connected to connfd: 4(113.54.208.78, 7512)
+hostname: detectportal.firefox.com, port: 80, path: /success.txt?ipv4
+not find cache!
+connfd: 4 Host: detectportal.firefox.com
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101 Firefox/127.0
+connfd: 4 Accept: */*
+connfd: 4 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Connection: keep-alive
+connfd: 4 Priority: u=4
+connfd: 4 Pragma: no-cache
+connfd: 4 Cache-Control: no-cache
+connfd: 4 
+Connected to connfd: 12(113.54.208.78, 7514)
+Close connfd: 12
+Connected to connfd: 12(113.54.208.78, 7515)
+Close connfd: 12
+Connected to connfd: 12(113.54.208.78, 7516)
+Close connfd: 12
+Connected to connfd: 12(113.54.208.78, 7517)
+Close connfd: 12
+Connected to connfd: 14(113.54.208.78, 7518)
+Close connfd: 14
+Connected to connfd: 12(113.54.208.78, 7519)
+Close connfd: 12
+Connected to connfd: 14(113.54.208.78, 7521)
+Close connfd: 14
+Connected to connfd: 12(113.54.208.78, 7520)
+Close connfd: 12
+Connected to connfd: 14(113.54.208.78, 7522)
+Close connfd: 14
+Connected to connfd: 12(113.54.208.78, 7523)
+Close connfd: 12
+Connected to connfd: 12(113.54.208.78, 7524)
+Close connfd: 12
+Connected to connfd: 12(113.54.208.78, 7525)
+Close connfd: 12
+Connected to connfd: 12(113.54.208.78, 7526)
+Close connfd: 12
+Connected to connfd: 14(113.54.208.78, 7527)
+Close connfd: 14
+Connected to connfd: 12(113.54.208.78, 7528)
+Close connfd: 12
+Connected to connfd: 12(113.54.208.78, 7529)
+Close connfd: 12
+Connected to connfd: 12(113.54.208.78, 7530)
+Close connfd: 12
+Connected to connfd: 12(113.54.208.78, 7531)
+Close connfd: 12
+Connected to connfd: 14(113.54.208.78, 7532)
+Close connfd: 14
+proxyfd: 13 HTTP/1.0 200 OK
+proxyfd: 13 Server: nginx
+proxyfd: 13 Content-Length: 8
+proxyfd: 13 Via: 1.1 google
+proxyfd: 13 Date: Mon, 29 Jul 2024 15:19:17 GMT
+proxyfd: 13 Age: 56382
+proxyfd: 13 Content-Type: text/plain
+proxyfd: 13 Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+proxyfd: 13 Connection: Keep-Alive
+proxyfd: 13 
+0
+HTTP/1.0 200 OK
+Server: nginx
+Content-Length: 8
+Via: 1.1 google
+Date: Mon, 29 Jul 2024 15:19:17 GMT
+Age: 56382
+Content-Type: text/plain
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Connection: Keep-Alive
+
+
+"kÝR
+uri: http://detectportal.firefox.com/success.txt?ipv4
+responseMeta: HTTP/1.0 200 OK
+Server: nginx
+Content-Length: 8
+Via: 1.1 google
+Date: Mon, 29 Jul 2024 15:19:17 GMT
+Age: 56382
+Content-Type: text/plain
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Connection: Keep-Alive
+
+
+befor memcpy
+write cache 
+Close connfd: 4
+Connected to connfd: 12(113.54.208.78, 7534)
+Close connfd: 12
+Connected to connfd: 4(113.54.208.78, 7533)
+Close connfd: 4
+Connected to connfd: 12(113.54.208.78, 7535)
+Close connfd: 12
+proxyfd: 11 HTTP/1.0 200 OK
+proxyfd: 11 Server: nginx
+proxyfd: 11 Content-Length: 8
+proxyfd: 11 Via: 1.1 google
+proxyfd: 11 Date: Mon, 29 Jul 2024 10:11:10 GMT
+proxyfd: 11 Age: 74869
+proxyfd: 11 Content-Type: text/plain
+proxyfd: 11 Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+proxyfd: 11 Connection: Keep-Alive
+proxyfd: 11 
+0
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 10858
+Content-type: image/jpeg
+
+HTTP/1.0 404 Not found
+Content-type: text/html
+
+HTTP/1.0 200 OK
+Server: nginx
+Content-Length: 8
+Via: 1.1 google
+Date: Mon, 29 Jul 2024 10:11:10 GMT
+Age: 74869
+Content-Type: text/plain
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Connection: Keep-Alive
+
+
+
+uri: http://detectportal.firefox.com/success.txt?ipv6
+responseMeta: HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 10858
+Content-type: image/jpeg
+
+HTTP/1.0 404 Not found
+Content-type: text/html
+
+HTTP/1.0 200 OK
+Server: nginx
+Content-Length: 8
+Via: 1.1 google
+Date: Mon, 29 Jul 2024 10:11:10 GMT
+Age: 74869
+Content-Type: text/plain
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Connection: Keep-Alive
+
+
+befor memcpy
+write cache 
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7536)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7537)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7538)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7539)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7540)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7541)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7542)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7543)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7544)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7545)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7546)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7547)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7548)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7549)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7550)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7551)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7552)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7554)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7553)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7557)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7555)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7556)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7558)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7559)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7560)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7561)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7562)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7563)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7564)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7565)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7567)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7566)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7568)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7569)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7570)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7571)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7572)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7573)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7574)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7575)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7576)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7577)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7578)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7580)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7579)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7581)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7582)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7583)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7584)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 7585)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7586)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7587)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7588)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7589)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7590)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7591)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7592)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7593)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7594)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7595)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7596)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7597)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7598)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7599)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7600)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7601)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7602)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7603)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7604)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7605)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7606)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7607)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7608)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7609)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7610)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7611)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7612)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7613)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7614)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7615)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7616)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7617)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7618)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7619)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7620)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7621)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7622)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7623)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 7626)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 7627)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11739)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11755)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11758)
+hostname: 47.109.193.20, port: 7109, path: /
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11759)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11760)
+hostname: 47.109.193.20, port: 7109, path: /godzilla.jpg
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11761)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11762)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11763)
+hostname: 47.109.193.20, port: 7109, path: /favicon.ico
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11764)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11765)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11766)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11767)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11770)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11771)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11772)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11773)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11774)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11775)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11776)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11777)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11778)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11779)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11780)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11781)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11782)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11783)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11784)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11785)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11786)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11787)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11788)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11789)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11792)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11791)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11794)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11793)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11795)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11796)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11797)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11798)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11799)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11800)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11801)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11802)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11803)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11804)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11805)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11806)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11807)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11808)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11809)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11810)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11811)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11812)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11813)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11814)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11815)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11817)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11816)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11818)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11819)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11820)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11821)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11822)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11823)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11825)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11824)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11826)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11827)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11828)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11829)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11830)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11832)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11831)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11833)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11834)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11835)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11836)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11837)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11838)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11839)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11840)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11841)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11842)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11843)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11844)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11845)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11846)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11847)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11848)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11849)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11850)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11851)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11852)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11853)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11854)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11856)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11855)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11857)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11858)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11859)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11860)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11861)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11862)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11863)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11864)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11865)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11868)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11869)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11870)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11871)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11872)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11873)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11874)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11875)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11876)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11877)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11878)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11879)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11880)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11881)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11882)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11883)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11885)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11886)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11887)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11888)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11889)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11890)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11892)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11893)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11894)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11895)
+hostname: 47.109.193.20, port: 7109, path: /cgi-bin/adder?1&2
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11896)
+hostname: 47.109.193.20, port: 7109, path: /favicon.ico
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11897)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11902)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11908)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11909)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 41736)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 41744)
+Connected to connfd: 5(47.109.193.20, 41750)
+Close connfd: 4
+Close connfd: 5
+Connected to connfd: 12(47.109.193.20, 41754)
+Close connfd: 12
+Connected to connfd: 4(47.109.193.20, 41758)
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 41768)
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 41782)
+Close connfd: 4
+Connected to connfd: 4(47.109.193.20, 41784)
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 41794)
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 41808)
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 41818)
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 41820)
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 41822)
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 41838)
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 41854)
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 41868)
+Close connfd: 4
+Connected to connfd: 4(47.109.193.20, 41900)
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 41884)
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 41904)
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 41906)
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 41922)
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 41934)
+hostname: detectportal.firefox.com, port: 80, path: /success.txt?ipv4
+find cache!
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 41950)
+hostname: detectportal.firefox.com, port: 80, path: /success.txt?ipv6
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11910)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11911)
+hostname: 47.109.193.20, port: 7109, path: /cgi-bin/adder?1&200
+not find cache!
+connfd: 4 Host: 47.109.193.20:7109
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101 Firefox/127.0
+connfd: 4 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+connfd: 4 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Connection: keep-alive
+connfd: 4 Upgrade-Insecure-Requests: 1
+connfd: 4 Priority: u=1
+connfd: 4 
+proxyfd: 12 HTTP/1.0 200 OK
+proxyfd: 12 Server: Tiny Web Server
+proxyfd: 12 Connection: close
+proxyfd: 12 Content-length: 109
+proxyfd: 12 Content-type: text/html
+proxyfd: 12 
+109
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 120
+Content-type: text/html
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 105
+Content-type: text/html
+
+HTTP/1.0 200 OK
+Server: nginx
+Content-Length: 90
+Via: 1.1 google
+Date: Mon, 29 Jul 2024 16:47:18 GMT
+Age: 51100
+Content-Type: text/html
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Connection: Keep-Alive
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 109
+Content-type: text/html
+
+
+Welcome to add.com: THE Internet addition portal.
+<p>The answer is: 1 + 200 = 201
+<p>Thanks for visiting!
+
+uri: http://47.109.193.20:7109/cgi-bin/adder?1&200
+responseMeta: HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 120
+Content-type: text/html
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 105
+Content-type: text/html
+
+HTTP/1.0 200 OK
+Server: nginx
+Content-Length: 90
+Via: 1.1 google
+Date: Mon, 29 Jul 2024 16:47:18 GMT
+Age: 51100
+Content-Type: text/html
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Connection: Keep-Alive
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 109
+Content-type: text/html
+
+
+befor memcpy
+write cache 
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11912)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11913)
+hostname: 47.109.193.20, port: 7109, path: /favicon.ico
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11917)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11919)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11920)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11921)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11918)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11922)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11923)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11924)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11925)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11926)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11927)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11928)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11930)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11929)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11931)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11932)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11934)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11933)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11935)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11936)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11937)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11938)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11939)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11941)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11940)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11942)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11945)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11944)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11943)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11946)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11947)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11949)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11950)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11948)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11951)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11952)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11953)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11954)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11955)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11956)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11957)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11958)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11959)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11960)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11961)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11962)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11964)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11963)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11966)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11965)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11967)
+Close connfd: 4
+Connected to connfd: 4(113.54.208.78, 11975)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11976)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11977)
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11978)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11985)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 11986)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 11987)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 12000)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 12001)
+hostname: 47.109.193.20, port: 7109, path: /cgi-bin/adder?1&-200
+not find cache!
+connfd: 4 Host: 47.109.193.20:7109
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101 Firefox/127.0
+connfd: 4 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+connfd: 4 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Connection: keep-alive
+connfd: 4 Upgrade-Insecure-Requests: 1
+connfd: 4 Priority: u=1
+connfd: 4 
+proxyfd: 14 HTTP/1.0 200 OK
+proxyfd: 14 Server: Tiny Web Server
+proxyfd: 14 Connection: close
+proxyfd: 14 Content-length: 111
+proxyfd: 14 Content-type: text/html
+proxyfd: 14 
+111
+HTTP/1.0 200 OK
+Server: nginx
+Content-Length: 8
+Via: 1.1 google
+Date: Mon, 29 Jul 2024 15:19:17 GMT
+Age: 56382
+Content-Type: text/plain
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Connection: Keep-Alive
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 111
+Content-type: text/html
+
+
+Welcome to add.com: THE Internet addition portal.
+<p>The answer is: 1 + -200 = -199
+<p>Thanks for visiting!
+
+uri: http://47.109.193.20:7109/cgi-bin/adder?1&-200
+responseMeta: HTTP/1.0 200 OK
+Server: nginx
+Content-Length: 8
+Via: 1.1 google
+Date: Mon, 29 Jul 2024 15:19:17 GMT
+Age: 56382
+Content-Type: text/plain
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Connection: Keep-Alive
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 111
+Content-type: text/html
+
+
+befor memcpy
+write cache 
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 12002)
+hostname: 47.109.193.20, port: 7109, path: /favicon.ico
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 12003)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 12004)
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 12005)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 12006)
+hostname: 47.109.193.20, port: 7109, path: /cgi-bin/adder?1&0
+not find cache!
+connfd: 5 Host: 47.109.193.20:7109
+connfd: 5 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101 Firefox/127.0
+connfd: 5 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+connfd: 5 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+connfd: 5 Accept-Encoding: gzip, deflate
+connfd: 5 Connection: keep-alive
+connfd: 5 Upgrade-Insecure-Requests: 1
+connfd: 5 Priority: u=1
+connfd: 5 
+proxyfd: 15 HTTP/1.0 200 OK
+proxyfd: 15 Server: Tiny Web Server
+proxyfd: 15 Connection: close
+proxyfd: 15 Content-length: 105
+proxyfd: 15 Content-type: text/html
+proxyfd: 15 
+105
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 10858
+Content-type: image/jpeg
+
+HTTP/1.0 404 Not found
+Content-type: text/html
+
+HTTP/1.0 200 OK
+Server: nginx
+Content-Length: 8
+Via: 1.1 google
+Date: Mon, 29 Jul 2024 10:11:10 GMT
+Age: 74869
+Content-Type: text/plain
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Connection: Keep-Alive
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 105
+Content-type: text/html
+
+
+Welcome to add.com: THE Internet addition portal.
+<p>The answer is: 1 + 0 = 1
+<p>Thanks for visiting!
+
+uri: http://47.109.193.20:7109/cgi-bin/adder?1&0
+responseMeta: HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 10858
+Content-type: image/jpeg
+
+HTTP/1.0 404 Not found
+Content-type: text/html
+
+HTTP/1.0 200 OK
+Server: nginx
+Content-Length: 8
+Via: 1.1 google
+Date: Mon, 29 Jul 2024 10:11:10 GMT
+Age: 74869
+Content-Type: text/plain
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Connection: Keep-Alive
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 105
+Content-type: text/html
+
+
+befor memcpy
+write cache 
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 12007)
+hostname: 47.109.193.20, port: 7109, path: /favicon.ico
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 12008)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 12009)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 12010)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 12011)
+hostname: 47.109.193.20, port: 7109, path: /cgi-bin/adder?1&0
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 12012)
+hostname: 47.109.193.20, port: 7109, path: /favicon.ico
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 12013)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 12014)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 12015)
+hostname: 47.109.193.20, port: 7109, path: /cgi-bin/adder?1&1
+not find cache!
+connfd: 4 Host: 47.109.193.20:7109
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101 Firefox/127.0
+connfd: 4 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+connfd: 4 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Connection: keep-alive
+connfd: 4 Upgrade-Insecure-Requests: 1
+connfd: 4 Priority: u=1
+connfd: 4 
+proxyfd: 16 HTTP/1.0 200 OK
+proxyfd: 16 Server: Tiny Web Server
+proxyfd: 16 Connection: close
+proxyfd: 16 Content-length: 105
+proxyfd: 16 Content-type: text/html
+proxyfd: 16 
+105
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 120
+Content-type: text/html
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 105
+Content-type: text/html
+
+HTTP/1.0 200 OK
+Server: nginx
+Content-Length: 90
+Via: 1.1 google
+Date: Mon, 29 Jul 2024 16:47:18 GMT
+Age: 51100
+Content-Type: text/html
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Connection: Keep-Alive
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 109
+Content-type: text/html
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 105
+Content-type: text/html
+
+
+Welcome to add.com: THE Internet addition portal.
+<p>The answer is: 1 + 1 = 2
+<p>Thanks for visiting!
+
+uri: http://47.109.193.20:7109/cgi-bin/adder?1&1
+responseMeta: HTTP/1.0 200 OK
+Server: Tiny Web Server
+Content-length: 120
+Content-type: text/html
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 105
+Content-type: text/html
+
+HTTP/1.0 200 OK
+Server: nginx
+Content-Length: 90
+Via: 1.1 google
+Date: Mon, 29 Jul 2024 16:47:18 GMT
+Age: 51100
+Content-Type: text/html
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Connection: Keep-Alive
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 109
+Content-type: text/html
+
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 105
+Content-type: text/html
+
+
+befor memcpy
+write cache 
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 12016)
+hostname: 47.109.193.20, port: 7109, path: /favicon.ico
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 12017)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 12030)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 12037)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 12039)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 12043)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 12044)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 12045)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 12046)
+hostname: 47.109.193.20, port: 7109, path: /cgi-bin/adder?0&1
+not find cache!
+connfd: 5 Host: 47.109.193.20:7109
+connfd: 5 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:127.0) Gecko/20100101 Firefox/127.0
+connfd: 5 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+connfd: 5 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+connfd: 5 Accept-Encoding: gzip, deflate
+connfd: 5 Connection: keep-alive
+connfd: 5 Upgrade-Insecure-Requests: 1
+connfd: 5 Priority: u=1
+connfd: 5 
+proxyfd: 17 HTTP/1.0 200 OK
+proxyfd: 17 Server: Tiny Web Server
+proxyfd: 17 Connection: close
+proxyfd: 17 Content-length: 105
+proxyfd: 17 Content-type: text/html
+proxyfd: 17 
+105
+HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 105
+Content-type: text/html
+
+
+Welcome to add.com: THE Internet addition portal.
+<p>The answer is: 0 + 1 = 1
+<p>Thanks for visiting!
+
+uri: http://47.109.193.20:7109/cgi-bin/adder?0&1
+responseMeta: HTTP/1.0 200 OK
+Server: Tiny Web Server
+Connection: close
+Content-length: 105
+Content-type: text/html
+
+
+befor memcpy
+write cache 
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 12047)
+hostname: 47.109.193.20, port: 7109, path: /favicon.ico
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 12048)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 12049)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 12050)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 12051)
+hostname: 47.109.193.20, port: 7109, path: /favicon.ico
+find cache!
+Close connfd: 4
+Connected to connfd: 5(113.54.208.78, 12053)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 5
+Connected to connfd: 4(113.54.208.78, 12052)
+hostname: detectportal.firefox.com, port: 80, path: /canonical.html
+find cache!
+Close connfd: 4

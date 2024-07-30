@@ -1,0 +1,338 @@
+Connected to connfd: 4(47.109.193.20, 49056)
+connfd: 4 CONNECT push.services.mozilla.com:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 4(47.109.193.20, 49060)
+connfd: 4 CONNECT aus5.mozilla.org:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 37422)
+connfd: 5 CONNECT www.google.com:443 HTTP/1.1
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 37434)
+connfd: 4 CONNECT www.google.com:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 37444)
+connfd: 5 CONNECT www.google.com:443 HTTP/1.1
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 37446)
+connfd: 4 GET http://detectportal.firefox.com/canonical.html HTTP/1.1
+connfd: 4 Host: detectportal.firefox.com
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 4 Accept: */*
+connfd: 4 Accept-Language: en-US,en;q=0.5
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Cache-Control: no-cache
+connfd: 4 Pragma: no-cache
+connfd: 4 Connection: keep-alive
+connfd: 4 
+clientfd: 6 HTTP/1.0 200 OK
+clientfd: 6 Server: nginx
+clientfd: 6 Content-Length: 90
+clientfd: 6 Via: 1.1 google
+clientfd: 6 Date: Sun, 21 Jul 2024 10:14:51 GMT
+clientfd: 6 Age: 71105
+clientfd: 6 Content-Type: text/html
+clientfd: 6 Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+clientfd: 6 Connection: Keep-Alive
+clientfd: 6 
+(clientfd size): (6 2) Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 37454)
+connfd: 5 GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1
+connfd: 5 Host: detectportal.firefox.com
+connfd: 5 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 5 Accept: */*
+connfd: 5 Accept-Language: en-US,en;q=0.5
+connfd: 5 Accept-Encoding: gzip, deflate
+connfd: 5 Connection: keep-alive
+connfd: 5 Priority: u=4
+connfd: 5 Pragma: no-cache
+connfd: 5 Cache-Control: no-cache
+connfd: 5 
+Connected to connfd: 4(47.109.193.20, 37462)
+connfd: 4 GET http://detectportal.firefox.com/success.txt?ipv6 HTTP/1.1
+connfd: 4 Host: detectportal.firefox.com
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 4 Accept: */*
+connfd: 4 Accept-Language: en-US,en;q=0.5
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Connection: keep-alive
+connfd: 4 Priority: u=4
+connfd: 4 Pragma: no-cache
+connfd: 4 Cache-Control: no-cache
+connfd: 4 
+clientfd: 9 HTTP/1.0 200 OK
+clientfd: 9 Server: nginx
+clientfd: 9 Content-Length: 8
+clientfd: 9 Via: 1.1 google
+clientfd: 9 Date: Sun, 21 Jul 2024 09:24:37 GMT
+clientfd: 9 Age: 74120
+clientfd: 9 Content-Type: text/plain
+clientfd: 9 Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+clientfd: 9 Connection: Keep-Alive
+clientfd: 9 
+(clientfd size): (9 2) Close connfd: 4
+clientfd: 7 HTTP/1.0 200 OK
+clientfd: 7 Server: nginx
+clientfd: 7 Content-Length: 8
+clientfd: 7 Via: 1.1 google
+clientfd: 7 Date: Sun, 21 Jul 2024 07:34:22 GMT
+clientfd: 7 Age: 80735
+clientfd: 7 Content-Type: text/plain
+clientfd: 7 Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+clientfd: 7 Connection: Keep-Alive
+clientfd: 7 
+(clientfd size): (7 2) Close connfd: 5
+Connected to connfd: 8(47.109.193.20, 45590)
+connfd: 8 CONNECT push.services.mozilla.com:443 HTTP/1.1
+Close connfd: 8
+Connected to connfd: 4(47.109.193.20, 55442)
+connfd: 4 CONNECT www.google.com:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 55444)
+connfd: 5 CONNECT www.google.com:443 HTTP/1.1
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 55460)
+connfd: 4 GET http://detectportal.firefox.com/canonical.html HTTP/1.1
+connfd: 4 Host: detectportal.firefox.com
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 4 Accept: */*
+connfd: 4 Accept-Language: en-US,en;q=0.5
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Cache-Control: no-cache
+connfd: 4 Pragma: no-cache
+connfd: 4 Connection: keep-alive
+connfd: 4 
+clientfd: 8 HTTP/1.0 200 OK
+clientfd: 8 Server: nginx
+clientfd: 8 Content-Length: 90
+clientfd: 8 Via: 1.1 google
+clientfd: 8 Date: Sun, 21 Jul 2024 10:16:12 GMT
+clientfd: 8 Age: 71074
+clientfd: 8 Content-Type: text/html
+clientfd: 8 Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+clientfd: 8 Connection: Keep-Alive
+clientfd: 8 
+(clientfd size): (8 2) Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 55474)
+connfd: 5 GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1
+connfd: 5 Host: detectportal.firefox.com
+connfd: 5 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 5 Accept: */*
+connfd: 5 Accept-Language: en-US,en;q=0.5
+connfd: 5 Accept-Encoding: gzip, deflate
+connfd: 5 Connection: keep-alive
+connfd: 5 Priority: u=4
+connfd: 5 Pragma: no-cache
+connfd: 5 Cache-Control: no-cache
+connfd: 5 
+Connected to connfd: 4(47.109.193.20, 55488)
+connfd: 4 GET http://detectportal.firefox.com/success.txt?ipv6 HTTP/1.1
+connfd: 4 Host: detectportal.firefox.com
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 4 Accept: */*
+connfd: 4 Accept-Language: en-US,en;q=0.5
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Connection: keep-alive
+connfd: 4 Priority: u=4
+connfd: 4 Pragma: no-cache
+connfd: 4 Cache-Control: no-cache
+connfd: 4 
+clientfd: 12 HTTP/1.0 200 OK
+clientfd: 12 Server: nginx
+clientfd: 12 Content-Length: 8
+clientfd: 12 Via: 1.1 google
+clientfd: 12 Date: Sun, 21 Jul 2024 07:34:22 GMT
+clientfd: 12 Age: 80785
+clientfd: 12 Content-Type: text/plain
+clientfd: 12 Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+clientfd: 12 Connection: Keep-Alive
+clientfd: 12 
+(clientfd size): (12 2) Close connfd: 4
+clientfd: 11 HTTP/1.0 200 OK
+clientfd: 11 Server: nginx
+clientfd: 11 Content-Length: 8
+clientfd: 11 Via: 1.1 google
+clientfd: 11 Date: Sun, 21 Jul 2024 18:30:35 GMT
+clientfd: 11 Content-Type: text/plain
+clientfd: 11 Age: 41412
+clientfd: 11 Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+clientfd: 11 Connection: Keep-Alive
+clientfd: 11 
+(clientfd size): (11 2) Close connfd: 5
+Connected to connfd: 10(47.109.193.20, 55500)
+connfd: 10 CONNECT www.google.com:443 HTTP/1.1
+Close connfd: 10
+Connected to connfd: 4(47.109.193.20, 55516)
+connfd: 4 GET http://detectportal.firefox.com/canonical.html HTTP/1.1
+connfd: 4 Host: detectportal.firefox.com
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 4 Accept: */*
+connfd: 4 Accept-Language: en-US,en;q=0.5
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Cache-Control: no-cache
+connfd: 4 Pragma: no-cache
+connfd: 4 Connection: keep-alive
+connfd: 4 
+clientfd: 10 HTTP/1.0 200 OK
+clientfd: 10 Server: nginx
+clientfd: 10 Content-Length: 90
+clientfd: 10 Via: 1.1 google
+clientfd: 10 Date: Sun, 21 Jul 2024 18:40:49 GMT
+clientfd: 10 Age: 40798
+clientfd: 10 Content-Type: text/html
+clientfd: 10 Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+clientfd: 10 Connection: Keep-Alive
+clientfd: 10 
+(clientfd size): (10 2) Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 55530)
+connfd: 5 GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1
+connfd: 5 Host: detectportal.firefox.com
+connfd: 5 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 5 Accept: */*
+connfd: 5 Accept-Language: en-US,en;q=0.5
+connfd: 5 Accept-Encoding: gzip, deflate
+connfd: 5 Connection: keep-alive
+connfd: 5 Priority: u=4
+connfd: 5 Pragma: no-cache
+connfd: 5 Cache-Control: no-cache
+connfd: 5 
+Connected to connfd: 4(47.109.193.20, 55538)
+connfd: 4 GET http://detectportal.firefox.com/success.txt?ipv6 HTTP/1.1
+connfd: 4 Host: detectportal.firefox.com
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 4 Accept: */*
+connfd: 4 Accept-Language: en-US,en;q=0.5
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Connection: keep-alive
+connfd: 4 Priority: u=4
+connfd: 4 Pragma: no-cache
+connfd: 4 Cache-Control: no-cache
+connfd: 4 
+clientfd: 14 HTTP/1.0 200 OK
+clientfd: 14 Server: nginx
+clientfd: 14 Content-Length: 8
+clientfd: 14 Via: 1.1 google
+clientfd: 14 Date: Sun, 21 Jul 2024 18:30:35 GMT
+clientfd: 14 Content-Type: text/plain
+clientfd: 14 Age: 41413
+clientfd: 14 Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+clientfd: 14 Connection: Keep-Alive
+clientfd: 14 
+(clientfd size): (14 2) Close connfd: 5
+clientfd: 15 HTTP/1.0 200 OK
+clientfd: 15 Server: nginx
+clientfd: 15 Content-Length: 8
+clientfd: 15 Via: 1.1 google
+clientfd: 15 Date: Sun, 21 Jul 2024 09:24:37 GMT
+clientfd: 15 Age: 74171
+clientfd: 15 Content-Type: text/plain
+clientfd: 15 Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+clientfd: 15 Connection: Keep-Alive
+clientfd: 15 
+(clientfd size): (15 2) Close connfd: 4
+Connected to connfd: 13(47.109.193.20, 55544)
+connfd: 13 CONNECT www.google.com:443 HTTP/1.1
+Close connfd: 13
+Connected to connfd: 4(47.109.193.20, 55554)
+connfd: 4 CONNECT www.google.com:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 55558)
+connfd: 5 CONNECT www.google.com:443 HTTP/1.1
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 34200)
+connfd: 4 GET http://47.109.193.20:7109/ HTTP/1.1
+connfd: 4 Host: 47.109.193.20:7109
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 4 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
+connfd: 4 Accept-Language: en-US,en;q=0.5
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Connection: keep-alive
+connfd: 4 Upgrade-Insecure-Requests: 1
+connfd: 4 Priority: u=0, i
+connfd: 4 
+clientfd: 13 HTTP/1.0 200 OK
+clientfd: 13 Server: Tiny Web Server
+clientfd: 13 Content-length: 120
+clientfd: 13 Content-type: text/html
+clientfd: 13 
+(clientfd size): (13 2) <html>
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 34212)
+connfd: 5 CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 34216)
+connfd: 4 CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 34244)
+connfd: 5 CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 34252)
+connfd: 4 GET http://detectportal.firefox.com/canonical.html HTTP/1.1
+connfd: 4 Host: detectportal.firefox.com
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 4 Accept: */*
+connfd: 4 Accept-Language: en-US,en;q=0.5
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Cache-Control: no-cache
+connfd: 4 Pragma: no-cache
+connfd: 4 Connection: keep-alive
+connfd: 4 
+clientfd: 16 HTTP/1.0 200 OK
+clientfd: 16 Server: nginx
+clientfd: 16 Content-Length: 90
+clientfd: 16 Via: 1.1 google
+clientfd: 16 Date: Sun, 21 Jul 2024 10:16:12 GMT
+clientfd: 16 Age: 71088
+clientfd: 16 Content-Type: text/html
+clientfd: 16 Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+clientfd: 16 Connection: Keep-Alive
+clientfd: 16 
+(clientfd size): (16 2) Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 34260)
+connfd: 5 GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1
+connfd: 5 Host: detectportal.firefox.com
+connfd: 5 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 5 Accept: */*
+connfd: 5 Accept-Language: en-US,en;q=0.5
+connfd: 5 Accept-Encoding: gzip, deflate
+connfd: 5 Connection: keep-alive
+connfd: 5 Priority: u=4
+connfd: 5 Pragma: no-cache
+connfd: 5 Cache-Control: no-cache
+connfd: 5 
+Connected to connfd: 4(47.109.193.20, 34274)
+connfd: 4 GET http://detectportal.firefox.com/success.txt?ipv6 HTTP/1.1
+connfd: 4 Host: detectportal.firefox.com
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 4 Accept: */*
+connfd: 4 Accept-Language: en-US,en;q=0.5
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Connection: keep-alive
+connfd: 4 Priority: u=4
+connfd: 4 Pragma: no-cache
+connfd: 4 Cache-Control: no-cache
+connfd: 4 
+clientfd: 21 HTTP/1.0 200 OK
+clientfd: 21 Server: nginx
+clientfd: 21 Content-Length: 8
+clientfd: 21 Via: 1.1 google
+clientfd: 21 Date: Sun, 21 Jul 2024 18:30:35 GMT
+clientfd: 21 Content-Type: text/plain
+clientfd: 21 Age: 41426
+clientfd: 21 Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+clientfd: 21 Connection: Keep-Alive
+clientfd: 21 
+(clientfd size): (21 2) Close connfd: 4
+clientfd: 17 HTTP/1.0 200 OK
+clientfd: 17 Server: nginx
+clientfd: 17 Content-Length: 8
+clientfd: 17 Via: 1.1 google
+clientfd: 17 Date: Sun, 21 Jul 2024 18:30:35 GMT
+clientfd: 17 Content-Type: text/plain
+clientfd: 17 Age: 41426
+clientfd: 17 Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+clientfd: 17 Connection: Keep-Alive
+clientfd: 17 
+(clientfd size): (17 2) Close connfd: 5
+Connected to connfd: 18(47.109.193.20, 43806)
+connfd: 18 CONNECT push.services.mozilla.com:443 HTTP/1.1
+Close connfd: 18

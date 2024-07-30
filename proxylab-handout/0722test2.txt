@@ -1,0 +1,53 @@
+Connected to connfd: 4(47.109.193.20, 59036)
+connfd: 4 GET http://47.109.193.20:7109/ HTTP/1.1
+connfd: 4 Host: 47.109.193.20:7109
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 4 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
+connfd: 4 Accept-Language: en-US,en;q=0.5
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Connection: keep-alive
+connfd: 4 Upgrade-Insecure-Requests: 1
+connfd: 4 Priority: u=0, i
+connfd: 4 
+clientfd: 6 HTTP/1.0 200 OK
+clientfd: 6 Server: Tiny Web Server
+clientfd: 6 Content-length: 120
+clientfd: 6 Content-type: text/html
+clientfd: 6 
+(clientfd size): (6 2) <html>
+<head><title>test</title></head>
+<body> 
+<img align="middle" src="godzilla.jpg">
+Dave O'Hallaron
+</body>
+</html>
+±ýClose connfd: 4
+Connected to connfd: 5(47.109.193.20, 59044)
+connfd: 5 GET http://47.109.193.20:7109/godzilla.jpg HTTP/1.1
+connfd: 5 Host: 47.109.193.20:7109
+connfd: 5 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 5 Accept: image/avif,image/webp,image/png,image/svg+xml,image/*;q=0.8,*/*;q=0.5
+connfd: 5 Accept-Language: en-US,en;q=0.5
+connfd: 5 Accept-Encoding: gzip, deflate
+connfd: 5 Connection: keep-alive
+connfd: 5 Referer: http://47.109.193.20:7109/
+connfd: 5 Priority: u=4, i
+connfd: 5 
+clientfd: 7 HTTP/1.0 200 OK
+clientfd: 7 Server: Tiny Web Server
+clientfd: 7 Content-length: 10858
+clientfd: 7 Content-type: image/jpeg
+clientfd: 7 
+(clientfd size): (7 2) ÿØÿàClose connfd: 5
+Connected to connfd: 4(47.109.193.20, 38436)
+connfd: 4 CONNECT spocs.getpocket.com:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 37662)
+connfd: 5 CONNECT safebrowsing.googleapis.com:443 HTTP/1.1
+Close connfd: 5
+Connected to connfd: 4(47.109.193.20, 50868)
+connfd: 4 CONNECT push.services.mozilla.com:443 HTTP/1.1
+Close connfd: 4
+Connected to connfd: 5(47.109.193.20, 42564)
+connfd: 5 CONNECT push.services.mozilla.com:443 HTTP/1.1
+Close connfd: 5

@@ -9,6 +9,7 @@
         "initializer_list": "c",
         "utility": "c",
         "csapp.h": "c",
-        "sbuf.h": "c"
+        "sbuf.h": "c",
+        "cache.h": "c"
     }
 }

@@ -1,0 +1,118 @@
+Connected to connfd: 4(localhost, 44726)
+connfd: 4 GET http://47.109.193.20:7109/ HTTP/1.1
+connfd: 4 Host: 47.109.193.20:7109
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 4 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
+connfd: 4 Accept-Language: en-US,en;q=0.5
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Connection: keep-alive
+connfd: 4 Upgrade-Insecure-Requests: 1
+connfd: 4 Priority: u=0, i
+connfd: 4 
+clientfd: 6 HTTP/1.0 200 OK
+(clientfd size): (6 25) Server: Tiny Web Server
+(clientfd size): (6 21) Content-length: 120
+(clientfd size): (6 25) Content-type: text/html
+(clientfd size): (6 2) 
+(clientfd size): (6 7) <html>
+(clientfd size): (6 33) <head><title>test</title></head>
+(clientfd size): (6 8) <body> 
+(clientfd size): (6 40) <img align="middle" src="godzilla.jpg">
+(clientfd size): (6 16) Dave O'Hallaron
+(clientfd size): (6 8) </body>
+(clientfd size): (6 8) </html>
+Close connfd: 4
+Connected to connfd: 5(localhost, 44732)
+connfd: 5 GET http://47.109.193.20:7109/godzilla.jpg HTTP/1.1
+connfd: 5 Host: 47.109.193.20:7109
+connfd: 5 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 5 Accept: image/avif,image/webp,image/png,image/svg+xml,image/*;q=0.8,*/*;q=0.5
+connfd: 5 Accept-Language: en-US,en;q=0.5
+connfd: 5 Accept-Encoding: gzip, deflate
+connfd: 5 Connection: keep-alive
+connfd: 5 Referer: http://47.109.193.20:7109/
+connfd: 5 Priority: u=5, i
+connfd: 5 
+clientfd: 7 HTTP/1.0 200 OK
+(clientfd size): (7 25) Server: Tiny Web Server
+(clientfd size): (7 23) Content-length: 10858
+(clientfd size): (7 26) Content-type: image/jpeg
+(clientfd size): (7 2) 
+(clientfd size): (7 111) ÿØÿà(clientfd size): (7 54) ÿÛ(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 6) 
+(clientfd size): (7 3) 	
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 16) ÿÛ(clientfd size): (7 4) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 1) 
+(clientfd size): (7 51) ÿÀ(clientfd size): (7 61) ÿÄ(clientfd size): (7 155) %&'()*456789:CDEFGHIJSTUVWXYZcdefghijstuvwxyzƒ„…†‡ˆ‰Š’“”•–—˜™š¢£¤¥¦§¨©ª²³´µ¶·¸¹ºÂÃÄÅÆÇÈÉÊÒÓÔÕÖ×ØÙÚáâãäåæçèéêñòóôõö÷øùúÿÄ(clientfd size): (7 59) ÿÄ(clientfd size): (7 1039) $4á%ñ&'()*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz‚ƒ„…†‡ˆ‰Š’“”•–—˜™š¢£¤¥¦§¨©ª²³´µ¶·¸¹ºÂÃÄÅÆÇÈÉÊÒÓÔÕÖ×ØÙÚâãäåæçèéêòóôõö÷øùúÿÚ(clientfd size): (7 452) üYøƒàKø7Pû.¥£ë·ÉmâLi×ZŒ1¬2C:]¶’F (clientfd size): (7 489) ä(¯Ä…şx3I¼Òüu6·®ŞKz'şÑ°ñ„–(ûâ›ä[Iwşğ¾°bF(¯§¥Ä44êEsu÷SüÏ®I—Æm9Kÿ(clientfd size): (7 482) ;„RÑŸ4Ç&ğvŸÌTåí¹]Ÿ6Ïue¯m;ï­¶IÆsP»ZZ×NÖi­%³ïkêôM»ú/¾üJĞoş"|tğ®©sá#[ğ‡‡àÒì™ÑßU¶ŸN8·í"ID6³&[æe®kàÇìçãø"ÿ(clientfd size): (7 265) ÎÊÜÛìõë¦ıÛ½·oFÛW¹R.Z2åŠ^­o¶×è’Ù[FÜœkÿ(clientfd size): (7 205) @RNy‰ğóÁ?ï¼­øƒÆ>fµ;KèÑy)I„²3#	A)±cŒ¬î7V!¸7K7Ri#QµN´Ô¥I¢+$¶Ûd;‘Sx$à¨äÀØA VÏ†/|!«Ozı¦³u;ó‚(ÚÁ$]‡|@w’Ø8Ü@Õ§2µïk?.ÿ(clientfd size): (7 480) Í1AklĞ#-µºF¡"DEHQGİ(Í¤#‘æ•96ú¤¿Ì™a«_İ¢šózüô?j¦F··+{Í¼†9lãLîtØ'%T6À3—_OÜE/|+¹ø·§Ç¢Ç­Ã¦]ÛI³G×ídÖYíë°ü†<R¬0[cà‰l¤—M–¸¹Ô¬‹;4÷óUgò¯İŠçåã÷\—ÆqSE¡hÆƒ.•©x¦Í-ä¶šÑõ2ckp’İ‹åI¼nùR˜Vb¿ZÇÂ0•c5¤¢ÿ(clientfd size): (7 149) ÁÊPº›^óÚ*W»Ó}SÓe­íkü/ñËöÌøÑñëÇ·Ş.´°‘4˜-à¶†Ú=—íVvØ)ÛDC#7–²2«…BÎP‚NdøñûâgÃˆ|c®iWrØÅâo2Üı¾Å¥¶TUqoì£äIü¬À‰$b’â_†_··Åƒÿ(clientfd size): (7 91) –+n‚ŒÂ@9”[w7Ï©ŞøKÄZœ×°]ÏqÏ<°ÜYÇ4‡Y[*ÇvÑævm¬Ÿ:ŠèŒ©'ŞÏğé¯u·EtÒ8£Î®ì÷Ûªwµº¾¯sêO‚?
+(clientfd size): (7 1308) ~2~Ñ$O~Ó_´÷tRDyáñ=¨Uš«$e˜oß°€íW\çŒÏø)ì9§~ÇŞ8¹ğÏµ(µ'¶’ÖæÃW¡…µ+ˆØ™#[h01’>P8çÄ¼ûJüU×ş]|#Ôï,m|1{¨¦ªmå°Y#XâHÙ²¸@0APIláMjø£Ç_|iá9|wâKÍ=.îÆÚñã-bÁR1åEƒä–Øˆ€"£‘µ<úğ›q”ei]7nºZÏMÿ(clientfd size): (7 793) øªÀëv÷ş&A¾¡a5Œëm&íŒÑ2$¥Hnmr¸ÜH;BœIUpqNËuo×şN¦X‹åOudî´Õ|Ûµ»ï{%¹£àÏø‡Ãš”ƒB½·ÓeûFW,„4[ÉÙ¹ÉVN1ÎCdÛÏ€ş&xµ¼G­xÇÃ~+2êwo-íì®Ñ]\ÀÉ'˜¸ÂŸ0’R=­Íxíµê›¯í¨çó˜Û¸»Ş+‚JG,1œaq·šÕ³ñE€Ò.bÔ5)æêY†(íÂåJà ’3…Êù{Xó‘Œ'ÊÍÿ(clientfd size): (7 174) £*5ğçüWà5÷€?dŸx³PñÇü$zìºL6ğŞ™o«d¾É\±9ÌŒY$v¢ 1ŒË•|cÄbg)ı«»'k7n÷şµW¶Œ©à”"íf÷Õ·¢µ½Ø­6vvù£Ãà²ßµ×ÃÛ@øoá¯jz•áû¿İK¬]éÚœW×veÒ;>8ä*±á<øœ6É•”ƒÇÏÃßümáëÏè?>Ü	´Ÿ
+(clientfd size): (7 673) é-gªk6ÈÊ5ù…İÄßká]Uc•UPä qœ××>ı>kÿ(clientfd size): (7 112) »i¦˜%]SÄV¶±BÀªX ’O%³¡p Éq!ÈëXµË¢®ÿ(clientfd size): (7 157) ë„‚µÿ(clientfd size): (7 8) ™šBWÍ‹
+(clientfd size): (7 327) Høö°ø‹ûjx£Bñ*~Ñ¾Ö´­ÇÃk“‹M¼~u­ª[¬‚9v"ı¢|`İ•çmk™à–Y:é§vâú5Ñß_zé_M|¼-o¯ÓS¦•šjItz-UÛi|[î®õÚø%¤Ş*ı—?i‡š÷‰>É¤ÿ(clientfd size): (7 102) ÍÄdíaØ‘2T}(clientfd size): (7 513) Ûg]Çı©¸µ´¨g·+ÉPûX©Æ(clientfd size): (7 247) N×“Ôõ¢¡ÂMëRKÒöÿ(clientfd size): (7 58) Á8ağ÷ÄÏøÿ(clientfd size): (7 76) Ëö€Ğ<39]&=CEÕ¼1kªÁ´’yñâ-¤¶f†;±¸eŒb7 dı¢üUû)ø>ïTøYû0Økºìº†€²Í¨YjÍVÚ˜FÉÛ
+(clientfd size): (7 38) yÆ86©ëò–;>!×.µûmkÏÔîÚùj÷7(—|}rA
+(clientfd size): (7 376) Àä©(clientfd size): (7 268) Ãq9\Ÿ˜’«œ“ßÏÊï¯ü7õçªó<·¶¶õß[–muo°ZßÅ¤˜¥ˆc¼šø9F§åäv8«µnc°\Í)·’x¥‚Wo$©Â•Îà@ÂóÀÚ<ÓÎ£ì¦[‰$¸–é#ÿ(clientfd size): (7 205) ÈNWw0ÛL·³J–¶÷W,öîI…EòIÀËar(clientfd size): (7 208) ~B@8eå|Ã-ŠÅÖ¦º²Ğï|Gk})ó^\gûŞŞI‚v”€N7!Á,øWGñ&›5ìÚDš[G¦J.ã)y5w;(\dcğÀâ¿TéÔ¡%µMt{/.¶ï¾Ú\üÆ½*ô«sÛÓºWqº½öiéu{vgÁ_´×„¦ı–¾éÿ(clientfd size): (7 97) ¸ÃY•†0(clientfd size): (7 196) S¨ùé×²étß]şiè—_Ÿ¿'s«(bbùí­¶Ih­wÑùöí§áG†ü1â=Và¦™§\Í4–$ÑépH(\…äsz(clientfd size): (7 496) Y.Ì ~jâÇğÔrìñ§{+´•´òz½½›tsŠ3Ä8F7ŠkVíÖËK=Şm{Ÿü2ÿ(clientfd size): (7 3) HF
+(clientfd size): (7 174) NJ/-°Œ8Íİ?Âú«jQ]Ù›ìùw9]òp69Ú9*ªT‚Ü³Âki}u£iËko&›¶Ñ³o’r¡ÈpŞS€»Ötã<M.xGæİ›Û~–:¨Ô§Nn2z'¯ãÓ®Ò×şÎÒ<3áÍbİ¯õmQ¸¸’V2LºŠDXú•(N}NyëÒŠêô_øÆ¿Úa°U5Š$Èâ5ÜrNN[qö(à
+(clientfd size): (7 22) *å†‹“mÊşRhQ­Z·ÿClose connfd: 5
+Connected to connfd: 4(localhost, 44746)
+connfd: 4 GET http://47.109.193.20:7109/favicon.ico HTTP/1.1
+connfd: 4 Host: 47.109.193.20:7109
+connfd: 4 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+connfd: 4 Accept: image/avif,image/webp,image/png,image/svg+xml,image/*;q=0.8,*/*;q=0.5
+connfd: 4 Accept-Language: en-US,en;q=0.5
+connfd: 4 Accept-Encoding: gzip, deflate
+connfd: 4 Connection: keep-alive
+connfd: 4 Referer: http://47.109.193.20:7109/
+connfd: 4 Priority: u=6
+connfd: 4 
+clientfd: 8 HTTP/1.0 404 Not found
